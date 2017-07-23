@@ -124,6 +124,15 @@ namespace HealthyInfomation.Resource {
         }
         
         /// <summary>
+        ///   查找类似 上次体检时间 的本地化字符串。
+        /// </summary>
+        public static string DgHeader_LastExamDate {
+            get {
+                return ResourceManager.GetString("DgHeader_LastExamDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 姓名 的本地化字符串。
         /// </summary>
         public static string DgHeader_Name {
@@ -147,6 +156,15 @@ namespace HealthyInfomation.Resource {
         public static string DgHeader_Sex {
             get {
                 return ResourceManager.GetString("DgHeader_Sex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 联系电话 的本地化字符串。
+        /// </summary>
+        public static string DgHeader_TelNo {
+            get {
+                return ResourceManager.GetString("DgHeader_TelNo", resourceCulture);
             }
         }
         
@@ -291,15 +309,6 @@ namespace HealthyInfomation.Resource {
         public static string Lab_JobTitle {
             get {
                 return ResourceManager.GetString("Lab_JobTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 上次体检时间 的本地化字符串。
-        /// </summary>
-        public static string Lab_LastExamDate {
-            get {
-                return ResourceManager.GetString("Lab_LastExamDate", resourceCulture);
             }
         }
         

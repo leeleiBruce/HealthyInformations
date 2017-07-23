@@ -33,8 +33,9 @@
                 <DataGridTextColumn Header="{x:Static local:AircrewResource.DgHeader_Native}" Binding="{Binding Nation, Mode=OneWay}" MinWidth="100"/>
                 <DataGridTextColumn Header="{x:Static local:AircrewResource.DgHeader_Department}" Binding="{Binding TroopsType,Mode=OneWay}" MinWidth="150"/>
                 <DataGridTextColumn Header="{x:Static local:AircrewResource.DgHeader_JobTitle}" Binding="{Binding JobTitle,Mode=OneWay}" MinWidth="150" />
-                <DataGridTextColumn Header="{x:Static local:AircrewResource.Lab_LastExamDate}" Binding="{Binding RecordDate,Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{x:Static local:AircrewResource.DgHeader_TelNo}" Binding="{Binding TroopsTel,Mode=OneWay}" MinWidth="150" />
+                <DataGridTextColumn Header="{x:Static local:AircrewResource.DgHeader_LastExamDate}" Binding="{Binding RecordDate,Mode=OneWay}"></DataGridTextColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid> 
     </Grid>
 </Base:WindowBase>

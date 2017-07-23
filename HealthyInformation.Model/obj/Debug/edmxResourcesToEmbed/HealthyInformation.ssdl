@@ -438,6 +438,7 @@
     <Property Name="InDate" Type="datetime" />
     <Property Name="InUser" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Function Name="UP_GetPhysicalExamAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UP_GetRecuperationPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="SanatoriumID" Type="int" Mode="In" />
     <Parameter Name="StartDate" Type="datetime" Mode="In" />

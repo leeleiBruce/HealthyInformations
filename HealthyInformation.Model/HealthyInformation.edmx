@@ -1004,6 +1004,7 @@
           <Property Type="String" Name="TroopsTel" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="RecordDate" Nullable="false" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1492,6 +1493,7 @@
                 <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
                 <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

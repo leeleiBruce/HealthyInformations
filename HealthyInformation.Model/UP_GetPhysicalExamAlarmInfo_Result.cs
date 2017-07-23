@@ -18,5 +18,6 @@ namespace HealthyInformation.Model
         public string TroopsTel { get; set; }
         public string TroopsType { get; set; }
         public string Sex { get; set; }
+        public System.DateTime RecordDate { get; set; }
     }
 }

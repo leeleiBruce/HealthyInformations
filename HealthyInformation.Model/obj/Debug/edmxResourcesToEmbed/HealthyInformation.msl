@@ -474,5 +474,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UP_GetPhysicalExamAlarmInfo" FunctionName="HealthyInformationModel.Store.UP_GetPhysicalExamAlarmInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetPhysicalExamAlarmInfo_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
+          <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

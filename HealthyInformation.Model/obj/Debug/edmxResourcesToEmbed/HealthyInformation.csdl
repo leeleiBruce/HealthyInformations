@@ -37,6 +37,7 @@
       <Parameter Name="StartDate" Mode="In" Type="DateTime" />
       <Parameter Name="EndDate" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="UP_GetPhysicalExamAlarmInfo" ReturnType="Collection(HealthyInformationModel.UP_GetPhysicalExamAlarmInfo_Result)" />
   </EntityContainer>
   <EntityType Name="Aircrew">
     <Key>
@@ -518,5 +519,13 @@
     <Property Type="String" Name="AviationMedicineName" Nullable="true" MaxLength="10" />
     <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="23" />
     <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="UP_GetPhysicalExamAlarmInfo_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="TroopsTel" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+    <Property Type="DateTime" Name="RecordDate" Nullable="false" Precision="23" />
   </ComplexType>
 </Schema>

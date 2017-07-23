@@ -1,4 +1,5 @@
 ﻿using HealthyInfomation.Facade;
+using HealthyInformation.ClientEntity.PhysicalExam.Entity;
 using HealthyInformation.FrameWork;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,32 @@ namespace HealthyInfomation.Windows
         {
             InitializeComponent();
             physicalExamMaxFacade = new PhysicalExamMaxFacade(this);
+            InitData();
         }
+
+        #region ViewModel
+        private List<UP_GetPhysicalExamAlarmInfo_Result> physicalExamAlarmInfoList;
+        public List<UP_GetPhysicalExamAlarmInfo_Result> PhysicalExamAlarmInfoList
+        {
+            get
+            {
+                return physicalExamAlarmInfoList;
+            }
+            set
+            {
+                physicalExamAlarmInfoList = value;
+                RaisePropertyChanged("physicalExamAlarmInfoList");
+            }
+        }
+
+        #endregion
+
+        #region Method
+        private async void InitData()
+        {
+            this.PhysicalExamAlarmInfoList = await this.physicalExamMaxFacade.GetPhysicalExamAlarm();
+        }
+        #endregion
+
     }
 }

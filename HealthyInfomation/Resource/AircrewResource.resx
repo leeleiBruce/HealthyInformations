@@ -138,6 +138,9 @@
   <data name="DgHeader_JobTitle" xml:space="preserve">
     <value>职别</value>
   </data>
+  <data name="DgHeader_LastExamDate" xml:space="preserve">
+    <value>上次体检时间</value>
+  </data>
   <data name="DgHeader_Name" xml:space="preserve">
     <value>姓名</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="DgHeader_Sex" xml:space="preserve">
     <value>性别</value>
+  </data>
+  <data name="DgHeader_TelNo" xml:space="preserve">
+    <value>联系电话</value>
   </data>
   <data name="Lab_AircraftType" xml:space="preserve">
     <value>飞机机种：</value>
@@ -194,9 +200,6 @@
   </data>
   <data name="Lab_JobTitle" xml:space="preserve">
     <value>职别：</value>
-  </data>
-  <data name="Lab_LastExamDate" xml:space="preserve">
-    <value>上次体检时间</value>
   </data>
   <data name="Lab_MedicalTreatment" xml:space="preserve">
     <value>外出就医</value>
