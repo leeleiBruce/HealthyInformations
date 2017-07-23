@@ -1,0 +1,79 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.AviationMedicine"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        xmlns:converter="clr-namespace:HealthyInfomation.Converter"
+        ResizeMode="NoResize"
+        Height="510"
+        WindowStartupLocation="CenterScreen"
+        Title="航空医生管理">
+    <Base:WindowBase.Resources>
+        <converter:SexUIConverter x:Key="SexUIConverter"></converter:SexUIConverter>
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="0,5,0,0"></Setter>
+            <Setter Property="Height" Value="410"></Setter>
+        </Style>
+    </Base:WindowBase.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{x:Static local:AviationMedicineResource.Lab_Name}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Width="300" HorizontalAlignment="Left"></TextBox>
+        <Button Content="{x:Static local:CommonResource.Btn_Search}" 
+                Grid.Row="0"
+                Grid.Column="2"
+                HorizontalAlignment="Left"
+                Margin="5,0,0,0"  
+                Style="{DynamicResource btn-primary}"
+                Command="{Binding SearchCommand,Mode=OneWay}">
+        </Button>
+        <DataGrid x:Name="DG_AviationMedicine"
+                  Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  Grid.ColumnSpan="3" 
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  Cursor="Hand"
+                  AlternatingRowBackground="#CCCCCC"
+                  SelectedItem="{Binding AviationMedicineSearchModel.SelectedAviationMedicine,Mode=TwoWay}"
+                  ItemsSource="{Binding AviationMedicineSearchModel.AviationMedicineList}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="操作" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      IsChecked="{Binding IsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_Name}" Binding="{Binding Name, Mode=OneWay}" MinWidth="100"/>
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_Sex}" Binding="{Binding Sex, Mode=OneWay,Converter={StaticResource SexUIConverter}, ConverterParameter=1}" Width="60"/>
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_GraduatedSchool}" Binding="{Binding GraduationSchool, Mode=OneWay}" MinWidth="300"/>
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_Professional}" Binding="{Binding Professional,Mode=OneWay}" MinWidth="200"/>
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_ContactTel}" Binding="{Binding ContactPhone,Mode=OneWay}" MinWidth="120" />
+                <DataGridTextColumn Header="{x:Static local:AviationMedicineResource.DgHeader_WorkDate}" Binding="{Binding EmploymentDate,Mode=OneWay,StringFormat=yyyy年MM月dd日}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding NewCommand}" Content="{x:Static local:CommonResource.Btn_New}" Style="{DynamicResource btn-primary}" Grid.Column="0"></Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                <Button Command="{Binding RemoveCommand}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}"></Button>
+                <Button Command="{Binding CloseCommand}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Base:WindowBase>

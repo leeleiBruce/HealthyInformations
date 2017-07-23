@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HealthyInformationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aircrew">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="BirthDay" Type="datetime" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Nation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Photo" Type="varchar(max)" />
+    <Property Name="Degree" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EnlistmentTime" Type="datetime" Nullable="false" />
+    <Property Name="PartyTime" Type="datetime" Nullable="false" />
+    <Property Name="NativePlace" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TroopsType" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TroopsTel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MilitaryRank" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="GraduationJuniorDate" Type="datetime" Nullable="false" />
+    <Property Name="GraduationDate" Type="datetime" Nullable="false" />
+    <Property Name="PilotPlaneDate" Type="datetime" Nullable="false" />
+    <Property Name="TerminateContractDetail" Type="nvarchar" MaxLength="4000" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="AdmissionJuniorCollege" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="AdmissionCollege" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AviationAccident">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlyDate" Type="datetime" Nullable="false" />
+    <Property Name="FlySubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Nature" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AvationMedicineID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AviationMedicine">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="GraduationSchool" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Professional" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmploymentDate" Type="datetime" Nullable="false" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qualifications" Type="nvarchar" MaxLength="4000" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CommonDisease">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SymptomName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SymptomDetail" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Medication" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TreatmentPlan" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="ConclusionsPhysical">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="HealthyGrade" Type="int" Nullable="false" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DiseaseKeyword" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CollegeCenter" Type="nvarchar" MaxLength="200" />
+    <Property Name="CertifyingCommission" Type="nvarchar" MaxLength="200" />
+    <Property Name="Director" Type="nvarchar" MaxLength="50" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="ENTSection">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CheckOut" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="EarLeft" Type="nvarchar" MaxLength="200" />
+    <Property Name="EarRight" Type="nvarchar" MaxLength="200" />
+    <Property Name="EarWhisperLeft" Type="nvarchar" MaxLength="200" />
+    <Property Name="EarWhisperRight" Type="nvarchar" MaxLength="200" />
+    <Property Name="Nose" Type="nvarchar" MaxLength="200" />
+    <Property Name="Smell" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ventilation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Throat" Type="nvarchar" MaxLength="200" />
+    <Property Name="EarCompressor" Type="nvarchar" MaxLength="200" />
+    <Property Name="VestibularFunction" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+    <Property Name="AviationMedicineID" Type="int" />
+  </EntityType>
+  <EntityType Name="FlightDiscomfortLevel">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlyDate" Type="datetime" Nullable="false" />
+    <Property Name="FlySubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="FlyHeight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FlyerType" Type="int" Nullable="false" />
+    <Property Name="FlySpeed" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FlyTotalTime" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="WeatherCondition" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Complained" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Examination" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Measure" Type="nvarchar" MaxLength="4000" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FlightRecord">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="FlightType" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FlightTime" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="FlyerType">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="InternalMedicine">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PulseStatic" Type="nvarchar" MaxLength="200" />
+    <Property Name="PulseSquat" Type="nvarchar" MaxLength="200" />
+    <Property Name="PulseRest" Type="nvarchar" MaxLength="200" />
+    <Property Name="BloodPressureStatic" Type="nvarchar" MaxLength="200" />
+    <Property Name="BloodPressureSquat" Type="nvarchar" MaxLength="200" />
+    <Property Name="BloodPressureRest" Type="nvarchar" MaxLength="200" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Development" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Skin" Type="nvarchar" MaxLength="200" />
+    <Property Name="LymphGland" Type="nvarchar" MaxLength="200" />
+    <Property Name="Thyroid" Type="nvarchar" MaxLength="200" />
+    <Property Name="Lungs" Type="nvarchar" MaxLength="200" />
+    <Property Name="Heart" Type="nvarchar" MaxLength="200" />
+    <Property Name="Abdomen" Type="nvarchar" MaxLength="200" />
+    <Property Name="Liver" Type="nvarchar" MaxLength="200" />
+    <Property Name="Spleen" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kidney" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+    <Property Name="RecordDate" Type="datetime" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicalIdentification">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicalTreatment">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="HospitalizationDate" Type="datetime" Nullable="false" />
+    <Property Name="DischargeDate" Type="datetime" Nullable="false" />
+    <Property Name="HospitalLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="HospitalReason" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CheckSituation" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="NeedObservation" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ObservationStartDate" Type="datetime" />
+    <Property Name="ObservationEndDate" Type="datetime" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Neuropsychiatry">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Psychosis" Type="nvarchar" MaxLength="500" />
+    <Property Name="CranialNerve" Type="nvarchar" MaxLength="500" />
+    <Property Name="MovementsOfLimbs" Type="nvarchar" MaxLength="500" />
+    <Property Name="Quiescent" Type="nvarchar" MaxLength="500" />
+    <Property Name="TendonReflex" Type="nvarchar" MaxLength="500" />
+    <Property Name="NerveEnding" Type="nvarchar" MaxLength="500" />
+    <Property Name="VegetativeNerve" Type="nvarchar" MaxLength="500" />
+    <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OralCavity">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CheckOut" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Phthalmology">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="VisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="VisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NearVisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NearVisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DistantVisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DistantVisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CurveLightLeft" Type="nvarchar" MaxLength="100" />
+    <Property Name="CurveLightRight" Type="nvarchar" MaxLength="100" />
+    <Property Name="Heterophoria" Type="nvarchar" MaxLength="100" />
+    <Property Name="ColorVision" Type="nvarchar" MaxLength="100" />
+    <Property Name="RangeRecognition" Type="nvarchar" MaxLength="100" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Eyelid" Type="nvarchar" MaxLength="200" />
+    <Property Name="Eyeball" Type="nvarchar" MaxLength="200" />
+    <Property Name="ConvolutedStroma" Type="nvarchar" MaxLength="200" />
+    <Property Name="EyeBellow" Type="nvarchar" MaxLength="200" />
+    <Property Name="NightVision" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PhysicalExamMinRecord">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Pulse" Type="int" Nullable="false" />
+    <Property Name="BloodPressure" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VisionLeft" Type="decimal" Precision="10" Scale="1" Nullable="false" />
+    <Property Name="VisionRight" Type="decimal" Precision="10" Scale="1" Nullable="false" />
+    <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="RecuperationAccompany">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecuperationInformationID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="50" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RecuperationInformation">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SanatoriumID" Type="int" Nullable="false" />
+    <Property Name="HospitalEnterDate" Type="datetime" Nullable="false" />
+    <Property Name="HospitalLeaveDate" Type="datetime" Nullable="false" />
+    <Property Name="LeaderAircrewID" Type="int" />
+    <Property Name="AviationMedicineID" Type="int" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RecuperationMember">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecuperationInformationID" Type="int" Nullable="false" />
+    <Property Name="AircrewID" Type="int" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sanatorium">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RecommendTravelMode" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SkinSurgery">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Height" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="LegLength" Type="nvarchar" MaxLength="200" />
+    <Property Name="SittingHeight" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChestMeasureCalm" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChestMeasureInhale" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChestMeasureExhalation" Type="nvarchar" MaxLength="200" />
+    <Property Name="VitalCapacity" Type="nvarchar" MaxLength="200" />
+    <Property Name="GripPowerLeft" Type="nvarchar" MaxLength="200" />
+    <Property Name="GripPowerRight" Type="nvarchar" MaxLength="200" />
+    <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ExamFind" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplementaryExam">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoutineBlood" Type="nvarchar" MaxLength="200" />
+    <Property Name="RoutineUrine" Type="nvarchar" MaxLength="200" />
+    <Property Name="RoutineDefecate" Type="nvarchar" MaxLength="200" />
+    <Property Name="LiverFunction" Type="nvarchar" MaxLength="200" />
+    <Property Name="BloodSugar" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cholesterol" Type="nvarchar" MaxLength="200" />
+    <Property Name="Trilaurin" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cardiogram" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChestXLine" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ultrasonic" Type="nvarchar" MaxLength="200" />
+    <Property Name="Other" Type="nvarchar" MaxLength="200" />
+    <Property Name="AircrewID" Type="int" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="InUser" Type="varchar" MaxLength="15" />
+    <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="TransactionNumber" />
+    </Key>
+    <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="InDate" Type="datetime" />
+    <Property Name="InUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="UP_GetRecuperationPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SanatoriumID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="HealthyInformationModelStoreContainer">
+    <EntitySet Name="Aircrew" EntityType="Self.Aircrew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AviationAccident" EntityType="Self.AviationAccident" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AviationMedicine" EntityType="Self.AviationMedicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommonDisease" EntityType="Self.CommonDisease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConclusionsPhysical" EntityType="Self.ConclusionsPhysical" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENTSection" EntityType="Self.ENTSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlightDiscomfortLevel" EntityType="Self.FlightDiscomfortLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlightRecord" EntityType="Self.FlightRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlyerType" EntityType="Self.FlyerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InternalMedicine" EntityType="Self.InternalMedicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicalIdentification" EntityType="Self.MedicalIdentification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicalTreatment" EntityType="Self.MedicalTreatment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Neuropsychiatry" EntityType="Self.Neuropsychiatry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OralCavity" EntityType="Self.OralCavity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phthalmology" EntityType="Self.Phthalmology" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhysicalExamMinRecord" EntityType="Self.PhysicalExamMinRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecuperationAccompany" EntityType="Self.RecuperationAccompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecuperationInformation" EntityType="Self.RecuperationInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecuperationMember" EntityType="Self.RecuperationMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sanatorium" EntityType="Self.Sanatorium" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkinSurgery" EntityType="Self.SkinSurgery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplementaryExam" EntityType="Self.SupplementaryExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

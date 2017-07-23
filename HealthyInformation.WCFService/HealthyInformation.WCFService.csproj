@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{358393AE-4525-43BB-B2BC-1838C7925BB2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInformation.WCFService</RootNamespace>
+    <AssemblyName>HealthyInformation.WCFService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Log4Net.Config.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="Services\PhysicalExam\AviationAccidentWCF.svc" />
+    <Content Include="Services\PhysicalExam\FlightDiscomfortLevelWCF.svc" />
+    <Content Include="Services\PhysicalExam\MedicalIdentificationWCF.svc" />
+    <Content Include="Services\PhysicalExam\MedicalTreatmentWCF.svc" />
+    <Content Include="Services\PhysicalExam\PhysicalExamMaxWCF.svc" />
+    <Content Include="Services\PhysicalExam\PhysicalExamMinWCF.svc" />
+    <Content Include="Services\SystemManage\AircrewService.svc" />
+    <Content Include="Services\SystemManage\AviationMedicineService.svc" />
+    <Content Include="Services\SystemManage\CommonDiseaseService.svc" />
+    <Content Include="Services\SystemManage\ConfigDictionaryWCF.svc" />
+    <Content Include="Services\SystemManage\RecuperationInformationWCF.svc" />
+    <Content Include="Services\SystemManage\SanatoriumService.svc" />
+    <Content Include="Services\SystemManage\UsersService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\AviationAccidentWCF.svc.cs">
+      <DependentUpon>AviationAccidentWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\FlightDiscomfortLevelWCF.svc.cs">
+      <DependentUpon>FlightDiscomfortLevelWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\IAviationAccidentWCF.cs" />
+    <Compile Include="Services\PhysicalExam\IFlightDiscomfortLevelWCF.cs" />
+    <Compile Include="Services\PhysicalExam\IMedicalIdentificationWCF.cs" />
+    <Compile Include="Services\PhysicalExam\IMedicalTreatmentWCF.cs" />
+    <Compile Include="Services\PhysicalExam\IPhysicalExamMaxWCF.cs" />
+    <Compile Include="Services\PhysicalExam\IPhysicalExamMinWCF.cs" />
+    <Compile Include="Services\PhysicalExam\MedicalIdentificationWCF.svc.cs">
+      <DependentUpon>MedicalIdentificationWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\MedicalTreatmentWCF.svc.cs">
+      <DependentUpon>MedicalTreatmentWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\PhysicalExamMaxWCF.svc.cs">
+      <DependentUpon>PhysicalExamMaxWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PhysicalExam\PhysicalExamMinWCF.svc.cs">
+      <DependentUpon>PhysicalExamMinWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\AircrewService.svc.cs">
+      <DependentUpon>AircrewService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\AviationMedicineService.svc.cs">
+      <DependentUpon>AviationMedicineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\CommonDiseaseService.svc.cs">
+      <DependentUpon>CommonDiseaseService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\ConfigDictionaryWCF.svc.cs">
+      <DependentUpon>ConfigDictionaryWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\IAircrewService.cs" />
+    <Compile Include="Services\SystemManage\IAviationMedicineService.cs" />
+    <Compile Include="Services\SystemManage\ICommonDiseaseService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SystemManage\IConfigDictionaryService.cs" />
+    <Compile Include="Services\SystemManage\IRecuperationInformationWCF.cs" />
+    <Compile Include="Services\SystemManage\ISanatoriumService.cs" />
+    <Compile Include="Services\SystemManage\IUsersService.cs" />
+    <Compile Include="Services\SystemManage\RecuperationInformationWCF.svc.cs">
+      <DependentUpon>RecuperationInformationWCF.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\SanatoriumService.svc.cs">
+      <DependentUpon>SanatoriumService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SystemManage\UsersService.svc.cs">
+      <DependentUpon>UsersService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Config\MessageResource\CommonDisease.config" />
+    <Content Include="Config\MessageResource\AviationMedicine.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthyInformation.Entity\HealthyInformation.Entity.csproj">
+      <Project>{517ad33e-e5c7-4fc9-b78a-706df25df2d0}</Project>
+      <Name>HealthyInformation.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Infrastructrue\HealthyInformation.Infrastructrue.csproj">
+      <Project>{8b87fbdd-52e6-40a3-b622-ebd61625fe4b}</Project>
+      <Name>HealthyInformation.Infrastructrue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Model\HealthyInformation.Domain.csproj">
+      <Project>{acd63766-f6db-4d29-9b4f-b8fff02bbe19}</Project>
+      <Name>HealthyInformation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Service\HealthyInformation.Service.csproj">
+      <Project>{135a7337-30bd-4f28-b7ae-5ba057d2746c}</Project>
+      <Name>HealthyInformation.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7342</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59537/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

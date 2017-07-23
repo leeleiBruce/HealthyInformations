@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/Window.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/Label.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/Panel.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/Button.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/DataGrid.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/ProgressBar.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/FormControl.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/InputGroup.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/HealthyInfomation;component/Theme/BootStrap/Path.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,1521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HealthyInformationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aircrew">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BirthDay" Type="datetime" Nullable="false" />
+          <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Nation" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Photo" Type="varchar(max)" />
+          <Property Name="Degree" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EnlistmentTime" Type="datetime" Nullable="false" />
+          <Property Name="PartyTime" Type="datetime" Nullable="false" />
+          <Property Name="NativePlace" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TroopsType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TroopsTel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MilitaryRank" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GraduationJuniorDate" Type="datetime" Nullable="false" />
+          <Property Name="GraduationDate" Type="datetime" Nullable="false" />
+          <Property Name="PilotPlaneDate" Type="datetime" Nullable="false" />
+          <Property Name="TerminateContractDetail" Type="nvarchar" MaxLength="4000" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="AdmissionJuniorCollege" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="AdmissionCollege" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AviationAccident">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlyDate" Type="datetime" Nullable="false" />
+          <Property Name="FlySubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Nature" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AvationMedicineID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AviationMedicine">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="GraduationSchool" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Professional" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmploymentDate" Type="datetime" Nullable="false" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Qualifications" Type="nvarchar" MaxLength="4000" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CommonDisease">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SymptomName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SymptomDetail" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Medication" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TreatmentPlan" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ConclusionsPhysical">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="HealthyGrade" Type="int" Nullable="false" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DiseaseKeyword" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CollegeCenter" Type="nvarchar" MaxLength="200" />
+          <Property Name="CertifyingCommission" Type="nvarchar" MaxLength="200" />
+          <Property Name="Director" Type="nvarchar" MaxLength="50" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ENTSection">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CheckOut" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="EarLeft" Type="nvarchar" MaxLength="200" />
+          <Property Name="EarRight" Type="nvarchar" MaxLength="200" />
+          <Property Name="EarWhisperLeft" Type="nvarchar" MaxLength="200" />
+          <Property Name="EarWhisperRight" Type="nvarchar" MaxLength="200" />
+          <Property Name="Nose" Type="nvarchar" MaxLength="200" />
+          <Property Name="Smell" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ventilation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Throat" Type="nvarchar" MaxLength="200" />
+          <Property Name="EarCompressor" Type="nvarchar" MaxLength="200" />
+          <Property Name="VestibularFunction" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+          <Property Name="AviationMedicineID" Type="int" />
+        </EntityType>
+        <EntityType Name="FlightDiscomfortLevel">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlyDate" Type="datetime" Nullable="false" />
+          <Property Name="FlySubject" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FlyHeight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FlyerType" Type="int" Nullable="false" />
+          <Property Name="FlySpeed" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FlyTotalTime" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="WeatherCondition" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Complained" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Examination" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Measure" Type="nvarchar" MaxLength="4000" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FlightRecord">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="FlightType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FlightTime" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="FlyerType">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="InternalMedicine">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PulseStatic" Type="nvarchar" MaxLength="200" />
+          <Property Name="PulseSquat" Type="nvarchar" MaxLength="200" />
+          <Property Name="PulseRest" Type="nvarchar" MaxLength="200" />
+          <Property Name="BloodPressureStatic" Type="nvarchar" MaxLength="200" />
+          <Property Name="BloodPressureSquat" Type="nvarchar" MaxLength="200" />
+          <Property Name="BloodPressureRest" Type="nvarchar" MaxLength="200" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Development" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Skin" Type="nvarchar" MaxLength="200" />
+          <Property Name="LymphGland" Type="nvarchar" MaxLength="200" />
+          <Property Name="Thyroid" Type="nvarchar" MaxLength="200" />
+          <Property Name="Lungs" Type="nvarchar" MaxLength="200" />
+          <Property Name="Heart" Type="nvarchar" MaxLength="200" />
+          <Property Name="Abdomen" Type="nvarchar" MaxLength="200" />
+          <Property Name="Liver" Type="nvarchar" MaxLength="200" />
+          <Property Name="Spleen" Type="nvarchar" MaxLength="200" />
+          <Property Name="Kidney" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+          <Property Name="RecordDate" Type="datetime" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalIdentification">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalTreatment">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="HospitalizationDate" Type="datetime" Nullable="false" />
+          <Property Name="DischargeDate" Type="datetime" Nullable="false" />
+          <Property Name="HospitalLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HospitalReason" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CheckSituation" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="NeedObservation" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ObservationStartDate" Type="datetime" />
+          <Property Name="ObservationEndDate" Type="datetime" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Neuropsychiatry">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Psychosis" Type="nvarchar" MaxLength="500" />
+          <Property Name="CranialNerve" Type="nvarchar" MaxLength="500" />
+          <Property Name="MovementsOfLimbs" Type="nvarchar" MaxLength="500" />
+          <Property Name="Quiescent" Type="nvarchar" MaxLength="500" />
+          <Property Name="TendonReflex" Type="nvarchar" MaxLength="500" />
+          <Property Name="NerveEnding" Type="nvarchar" MaxLength="500" />
+          <Property Name="VegetativeNerve" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="4000" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OralCavity">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CheckOut" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Diagnosis" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Phthalmology">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="VisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NearVisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NearVisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DistantVisionLeft" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DistantVisionRight" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CurveLightLeft" Type="nvarchar" MaxLength="100" />
+          <Property Name="CurveLightRight" Type="nvarchar" MaxLength="100" />
+          <Property Name="Heterophoria" Type="nvarchar" MaxLength="100" />
+          <Property Name="ColorVision" Type="nvarchar" MaxLength="100" />
+          <Property Name="RangeRecognition" Type="nvarchar" MaxLength="100" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Eyelid" Type="nvarchar" MaxLength="200" />
+          <Property Name="Eyeball" Type="nvarchar" MaxLength="200" />
+          <Property Name="ConvolutedStroma" Type="nvarchar" MaxLength="200" />
+          <Property Name="EyeBellow" Type="nvarchar" MaxLength="200" />
+          <Property Name="NightVision" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="2000" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhysicalExamMinRecord">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Pulse" Type="int" Nullable="false" />
+          <Property Name="BloodPressure" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VisionLeft" Type="decimal" Precision="10" Scale="1" Nullable="false" />
+          <Property Name="VisionRight" Type="decimal" Precision="10" Scale="1" Nullable="false" />
+          <Property Name="Conclusion" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="RecuperationAccompany">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecuperationInformationID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="50" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RecuperationInformation">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SanatoriumID" Type="int" Nullable="false" />
+          <Property Name="HospitalEnterDate" Type="datetime" Nullable="false" />
+          <Property Name="HospitalLeaveDate" Type="datetime" Nullable="false" />
+          <Property Name="LeaderAircrewID" Type="int" />
+          <Property Name="AviationMedicineID" Type="int" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RecuperationMember">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecuperationInformationID" Type="int" Nullable="false" />
+          <Property Name="AircrewID" Type="int" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sanatorium">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RecommendTravelMode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="SkinSurgery">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Height" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LegLength" Type="nvarchar" MaxLength="200" />
+          <Property Name="SittingHeight" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChestMeasureCalm" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChestMeasureInhale" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChestMeasureExhalation" Type="nvarchar" MaxLength="200" />
+          <Property Name="VitalCapacity" Type="nvarchar" MaxLength="200" />
+          <Property Name="GripPowerLeft" Type="nvarchar" MaxLength="200" />
+          <Property Name="GripPowerRight" Type="nvarchar" MaxLength="200" />
+          <Property Name="MedicalHistory" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ExamFind" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DiagnosisConclusion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AviationMedicineID" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplementaryExam">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoutineBlood" Type="nvarchar" MaxLength="200" />
+          <Property Name="RoutineUrine" Type="nvarchar" MaxLength="200" />
+          <Property Name="RoutineDefecate" Type="nvarchar" MaxLength="200" />
+          <Property Name="LiverFunction" Type="nvarchar" MaxLength="200" />
+          <Property Name="BloodSugar" Type="nvarchar" MaxLength="200" />
+          <Property Name="Cholesterol" Type="nvarchar" MaxLength="200" />
+          <Property Name="Trilaurin" Type="nvarchar" MaxLength="200" />
+          <Property Name="Cardiogram" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChestXLine" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ultrasonic" Type="nvarchar" MaxLength="200" />
+          <Property Name="Other" Type="nvarchar" MaxLength="200" />
+          <Property Name="AircrewID" Type="int" Nullable="false" />
+          <Property Name="InDate" Type="datetime" Nullable="false" />
+          <Property Name="InUser" Type="varchar" MaxLength="15" />
+          <Property Name="LastEditDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEditUser" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="InDate" Type="datetime" />
+          <Property Name="InUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="UP_GetPhysicalExamAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UP_GetRecuperationPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SanatoriumID" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="HealthyInformationModelStoreContainer">
+          <EntitySet Name="Aircrew" EntityType="Self.Aircrew" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AviationAccident" EntityType="Self.AviationAccident" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AviationMedicine" EntityType="Self.AviationMedicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommonDisease" EntityType="Self.CommonDisease" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConclusionsPhysical" EntityType="Self.ConclusionsPhysical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ENTSection" EntityType="Self.ENTSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlightDiscomfortLevel" EntityType="Self.FlightDiscomfortLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlightRecord" EntityType="Self.FlightRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlyerType" EntityType="Self.FlyerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalMedicine" EntityType="Self.InternalMedicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalIdentification" EntityType="Self.MedicalIdentification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalTreatment" EntityType="Self.MedicalTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Neuropsychiatry" EntityType="Self.Neuropsychiatry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OralCavity" EntityType="Self.OralCavity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phthalmology" EntityType="Self.Phthalmology" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicalExamMinRecord" EntityType="Self.PhysicalExamMinRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecuperationAccompany" EntityType="Self.RecuperationAccompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecuperationInformation" EntityType="Self.RecuperationInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecuperationMember" EntityType="Self.RecuperationMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sanatorium" EntityType="Self.Sanatorium" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkinSurgery" EntityType="Self.SkinSurgery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplementaryExam" EntityType="Self.SupplementaryExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthyInformationModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HealthyInformationEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Aircrew" EntityType="HealthyInformationModel.Aircrew" />
+          <EntitySet Name="AviationMedicine" EntityType="HealthyInformationModel.AviationMedicine" />
+          <EntitySet Name="CommonDisease" EntityType="HealthyInformationModel.CommonDisease" />
+          <EntitySet Name="FlightDiscomfortLevel" EntityType="HealthyInformationModel.FlightDiscomfortLevel" />
+          <EntitySet Name="FlightRecord" EntityType="HealthyInformationModel.FlightRecord" />
+          <EntitySet Name="MedicalIdentification" EntityType="HealthyInformationModel.MedicalIdentification" />
+          <EntitySet Name="MedicalTreatment" EntityType="HealthyInformationModel.MedicalTreatment" />
+          <EntitySet Name="PhysicalExamMinRecord" EntityType="HealthyInformationModel.PhysicalExamMinRecord" />
+          <EntitySet Name="Sanatorium" EntityType="HealthyInformationModel.Sanatorium" />
+          <EntitySet Name="User" EntityType="HealthyInformationModel.User" />
+          <EntitySet Name="FlyerType" EntityType="HealthyInformationModel.FlyerType" />
+          <EntitySet Name="AviationAccident" EntityType="HealthyInformationModel.AviationAccident" />
+          <EntitySet Name="RecuperationAccompany" EntityType="HealthyInformationModel.RecuperationAccompany" />
+          <EntitySet Name="RecuperationMember" EntityType="HealthyInformationModel.RecuperationMember" />
+          <EntitySet Name="RecuperationInformation" EntityType="HealthyInformationModel.RecuperationInformation" />
+          <AssociationSet Name="RecuperationInformationRecuperationAccompany" Association="HealthyInformationModel.RecuperationInformationRecuperationAccompany">
+            <End Role="RecuperationInformation" EntitySet="RecuperationInformation" />
+            <End Role="RecuperationAccompany" EntitySet="RecuperationAccompany" />
+          </AssociationSet>
+          <AssociationSet Name="RecuperationInformationRecuperationMember" Association="HealthyInformationModel.RecuperationInformationRecuperationMember">
+            <End Role="RecuperationInformation" EntitySet="RecuperationInformation" />
+            <End Role="RecuperationMember" EntitySet="RecuperationMember" />
+          </AssociationSet>
+          <EntitySet Name="OralCavity" EntityType="HealthyInformationModel.OralCavity" />
+          <EntitySet Name="ENTSection" EntityType="HealthyInformationModel.ENTSection" />
+          <EntitySet Name="Phthalmology" EntityType="HealthyInformationModel.Phthalmology" />
+          <EntitySet Name="Neuropsychiatry" EntityType="HealthyInformationModel.Neuropsychiatry" />
+          <EntitySet Name="InternalMedicine" EntityType="HealthyInformationModel.InternalMedicine" />
+          <EntitySet Name="SkinSurgery" EntityType="HealthyInformationModel.SkinSurgery" />
+          <EntitySet Name="SupplementaryExam" EntityType="HealthyInformationModel.SupplementaryExam" />
+          <EntitySet Name="ConclusionsPhysical" EntityType="HealthyInformationModel.ConclusionsPhysicalExam" />
+          <FunctionImport Name="UP_GetRecuperationPlan" ReturnType="Collection(HealthyInformationModel.UP_GetRecuperationPlan_Result1)">
+            <Parameter Name="SanatoriumID" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetPhysicalExamAlarmInfo" ReturnType="Collection(HealthyInformationModel.UP_GetPhysicalExamAlarmInfo_Result)" />
+        </EntityContainer>
+        <EntityType Name="Aircrew">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Nation" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Degree" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="EnlistmentTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NativePlace" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TroopsType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="TroopsTel" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="MilitaryRank" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="GraduationJuniorDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GraduationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PilotPlaneDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TerminateContractDetail" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="AdmissionJuniorCollege" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="AdmissionCollege" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AviationMedicine">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="GraduationSchool" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Professional" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactPhone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Qualifications" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CommonDisease">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SymptomName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SymptomDetail" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="Medication" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="TreatmentPlan" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FlightDiscomfortLevel">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FlyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FlySubject" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="FlyHeight" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="FlyerType" Type="Int32" Nullable="false" />
+          <Property Name="FlySpeed" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="FlyTotalTime" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="WeatherCondition" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Complained" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Examination" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Measure" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="InDate" Type="DateTime" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FlightRecord">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+          <Property Name="FlightType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FlightTime" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MedicalIdentification">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalTreatment">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+          <Property Name="HospitalizationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DischargeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HospitalLocation" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="HospitalReason" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="CheckSituation" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Diagnosis" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Conclusion" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="NeedObservation" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ObservationStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ObservationEndDate" Type="DateTime" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PhysicalExamMinRecord">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Pulse" Type="Int32" Nullable="false" />
+          <Property Name="BloodPressure" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="VisionLeft" Type="Decimal" Nullable="false" Precision="10" Scale="1" />
+          <Property Name="VisionRight" Type="Decimal" Nullable="false" Precision="10" Scale="1" />
+          <Property Name="Conclusion" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Sanatorium">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="RecommendTravelMode" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ContactPhone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="InDate" Type="DateTime" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FlyerType">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AviationAccident">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FlyDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="FlySubject" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Condition" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nature" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Suggestion" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AvationMedicineID" Nullable="false" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RecuperationAccompany">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RecuperationInformationID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="ContactPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecuperationInformation" Relationship="HealthyInformationModel.RecuperationInformationRecuperationAccompany" FromRole="RecuperationAccompany" ToRole="RecuperationInformation" />
+        </EntityType>
+        <EntityType Name="RecuperationMember">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RecuperationInformationID" Nullable="false" />
+          <Property Type="Int32" Name="AircrewID" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecuperationInformation" Relationship="HealthyInformationModel.RecuperationInformationRecuperationMember" FromRole="RecuperationMember" ToRole="RecuperationInformation" />
+        </EntityType>
+        <EntityType Name="RecuperationInformation">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SanatoriumID" Nullable="false" />
+          <Property Type="DateTime" Name="HospitalEnterDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="HospitalLeaveDate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="LeaderAircrewID" />
+          <Property Type="Int32" Name="AviationMedicineID" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecuperationAccompany" Relationship="HealthyInformationModel.RecuperationInformationRecuperationAccompany" FromRole="RecuperationInformation" ToRole="RecuperationAccompany" />
+          <NavigationProperty Name="RecuperationMember" Relationship="HealthyInformationModel.RecuperationInformationRecuperationMember" FromRole="RecuperationInformation" ToRole="RecuperationMember" />
+        </EntityType>
+        <Association Name="RecuperationInformationRecuperationAccompany">
+          <End Type="HealthyInformationModel.RecuperationInformation" Role="RecuperationInformation" Multiplicity="1" />
+          <End Type="HealthyInformationModel.RecuperationAccompany" Role="RecuperationAccompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecuperationInformation">
+              <PropertyRef Name="TransactionNumber" />
+            </Principal>
+            <Dependent Role="RecuperationAccompany">
+              <PropertyRef Name="RecuperationInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RecuperationInformationRecuperationMember">
+          <End Type="HealthyInformationModel.RecuperationInformation" Role="RecuperationInformation" Multiplicity="1" />
+          <End Type="HealthyInformationModel.RecuperationMember" Role="RecuperationMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecuperationInformation">
+              <PropertyRef Name="TransactionNumber" />
+            </Principal>
+            <Dependent Role="RecuperationMember">
+              <PropertyRef Name="RecuperationInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OralCavity">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MedicalHistory" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CheckOut" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Diagnosis" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Conclusion" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Suggestion" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AircrewID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENTSection">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MedicalHistory" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CheckOut" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EarLeft" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EarRight" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EarWhisperLeft" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EarWhisperRight" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nose" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Smell" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ventilation" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Throat" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EarCompressor" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VestibularFunction" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiagnosisConclusion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Suggestion" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RecordDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AircrewID" Nullable="false" />
+          <Property Name="AviationMedicineID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Phthalmology">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AircrewID" Nullable="false" />
+          <Property Type="String" Name="VisionLeft" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VisionRight" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NearVisionLeft" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NearVisionRight" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DistantVisionLeft" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DistantVisionRight" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurveLightLeft" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurveLightRight" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Heterophoria" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ColorVision" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RangeRecognition" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MedicalHistory" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Eyelid" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Eyeball" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ConvolutedStroma" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EyeBellow" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NightVision" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiagnosisConclusion" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Suggestion" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AviationMedicineID" Nullable="false" />
+          <Property Type="DateTime" Name="InDate" Precision="3" />
+          <Property Type="String" Name="InUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastEditDate" Precision="3" />
+          <Property Type="String" Name="LastEditUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Neuropsychiatry">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicalHistory" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Psychosis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CranialNerve" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MovementsOfLimbs" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Quiescent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TendonReflex" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NerveEnding" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VegetativeNerve" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnosisConclusion" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Suggestion" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternalMedicine">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PulseStatic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PulseSquat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PulseRest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BloodPressureStatic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BloodPressureSquat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BloodPressureRest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MedicalHistory" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Development" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Skin" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LymphGland" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Thyroid" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Lungs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Heart" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Abdomen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Liver" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Spleen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Kidney" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnosisConclusion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Suggestion" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkinSurgery">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LegLength" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SittingHeight" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChestMeasureCalm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChestMeasureInhale" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChestMeasureExhalation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VitalCapacity" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GripPowerLeft" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GripPowerRight" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MedicalHistory" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ExamFind" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnosisConclusion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AviationMedicineID" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Precision="3" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplementaryExam">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoutineBlood" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RoutineUrine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RoutineDefecate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LiverFunction" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BloodSugar" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Cholesterol" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Trilaurin" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Cardiogram" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChestXLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Ultrasonic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Other" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ConclusionsPhysicalExam">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diagnosis" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Conclusion" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="HealthyGrade" Type="Int32" Nullable="false" />
+          <Property Name="Suggestion" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DiseaseKeyword" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CollegeCenter" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CertifyingCommission" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AircrewID" Type="Int32" Nullable="false" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="UP_GetRecuperationPlan_Result">
+          <Property Type="String" Name="SanatoriumName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LeaderName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AviationMedicineName" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UP_GetRecuperationPlan_Result1">
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" />
+          <Property Type="String" Name="SanatoriumName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LeaderName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AviationMedicineName" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="UP_GetPhysicalExamAlarmInfo_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TroopsTel" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthyInformationModelStoreContainer" CdmEntityContainer="HealthyInformationEntities">
+          <EntitySetMapping Name="Aircrew">
+            <EntityTypeMapping TypeName="HealthyInformationModel.Aircrew">
+              <MappingFragment StoreEntitySet="Aircrew">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Nation" ColumnName="Nation" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="EnlistmentTime" ColumnName="EnlistmentTime" />
+                <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+                <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="MilitaryRank" ColumnName="MilitaryRank" />
+                <ScalarProperty Name="GraduationJuniorDate" ColumnName="GraduationJuniorDate" />
+                <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+                <ScalarProperty Name="PilotPlaneDate" ColumnName="PilotPlaneDate" />
+                <ScalarProperty Name="TerminateContractDetail" ColumnName="TerminateContractDetail" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="AdmissionJuniorCollege" ColumnName="AdmissionJuniorCollege" />
+                <ScalarProperty Name="AdmissionCollege" ColumnName="AdmissionCollege" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AviationMedicine">
+            <EntityTypeMapping TypeName="HealthyInformationModel.AviationMedicine">
+              <MappingFragment StoreEntitySet="AviationMedicine">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="GraduationSchool" ColumnName="GraduationSchool" />
+                <ScalarProperty Name="Professional" ColumnName="Professional" />
+                <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="Qualifications" ColumnName="Qualifications" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommonDisease">
+            <EntityTypeMapping TypeName="HealthyInformationModel.CommonDisease">
+              <MappingFragment StoreEntitySet="CommonDisease">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
+                <ScalarProperty Name="SymptomDetail" ColumnName="SymptomDetail" />
+                <ScalarProperty Name="Medication" ColumnName="Medication" />
+                <ScalarProperty Name="TreatmentPlan" ColumnName="TreatmentPlan" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlightDiscomfortLevel">
+            <EntityTypeMapping TypeName="HealthyInformationModel.FlightDiscomfortLevel">
+              <MappingFragment StoreEntitySet="FlightDiscomfortLevel">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="FlyDate" ColumnName="FlyDate" />
+                <ScalarProperty Name="FlySubject" ColumnName="FlySubject" />
+                <ScalarProperty Name="FlyHeight" ColumnName="FlyHeight" />
+                <ScalarProperty Name="FlyerType" ColumnName="FlyerType" />
+                <ScalarProperty Name="FlySpeed" ColumnName="FlySpeed" />
+                <ScalarProperty Name="FlyTotalTime" ColumnName="FlyTotalTime" />
+                <ScalarProperty Name="WeatherCondition" ColumnName="WeatherCondition" />
+                <ScalarProperty Name="Complained" ColumnName="Complained" />
+                <ScalarProperty Name="Examination" ColumnName="Examination" />
+                <ScalarProperty Name="Measure" ColumnName="Measure" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlightRecord">
+            <EntityTypeMapping TypeName="HealthyInformationModel.FlightRecord">
+              <MappingFragment StoreEntitySet="FlightRecord">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="FlightType" ColumnName="FlightType" />
+                <ScalarProperty Name="FlightTime" ColumnName="FlightTime" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalIdentification">
+            <EntityTypeMapping TypeName="HealthyInformationModel.MedicalIdentification">
+              <MappingFragment StoreEntitySet="MedicalIdentification">
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalTreatment">
+            <EntityTypeMapping TypeName="HealthyInformationModel.MedicalTreatment">
+              <MappingFragment StoreEntitySet="MedicalTreatment">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="HospitalizationDate" ColumnName="HospitalizationDate" />
+                <ScalarProperty Name="DischargeDate" ColumnName="DischargeDate" />
+                <ScalarProperty Name="HospitalLocation" ColumnName="HospitalLocation" />
+                <ScalarProperty Name="HospitalReason" ColumnName="HospitalReason" />
+                <ScalarProperty Name="CheckSituation" ColumnName="CheckSituation" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+                <ScalarProperty Name="NeedObservation" ColumnName="NeedObservation" />
+                <ScalarProperty Name="ObservationStartDate" ColumnName="ObservationStartDate" />
+                <ScalarProperty Name="ObservationEndDate" ColumnName="ObservationEndDate" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicalExamMinRecord">
+            <EntityTypeMapping TypeName="HealthyInformationModel.PhysicalExamMinRecord">
+              <MappingFragment StoreEntitySet="PhysicalExamMinRecord">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Pulse" ColumnName="Pulse" />
+                <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+                <ScalarProperty Name="VisionLeft" ColumnName="VisionLeft" />
+                <ScalarProperty Name="VisionRight" ColumnName="VisionRight" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sanatorium">
+            <EntityTypeMapping TypeName="HealthyInformationModel.Sanatorium">
+              <MappingFragment StoreEntitySet="Sanatorium">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RecommendTravelMode" ColumnName="RecommendTravelMode" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="HealthyInformationModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlyerType">
+            <EntityTypeMapping TypeName="HealthyInformationModel.FlyerType">
+              <MappingFragment StoreEntitySet="FlyerType">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AviationAccident">
+            <EntityTypeMapping TypeName="HealthyInformationModel.AviationAccident">
+              <MappingFragment StoreEntitySet="AviationAccident">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AvationMedicineID" ColumnName="AvationMedicineID" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="FlySubject" ColumnName="FlySubject" />
+                <ScalarProperty Name="FlyDate" ColumnName="FlyDate" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecuperationAccompany">
+            <EntityTypeMapping TypeName="HealthyInformationModel.RecuperationAccompany">
+              <MappingFragment StoreEntitySet="RecuperationAccompany">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RecuperationInformationID" ColumnName="RecuperationInformationID" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecuperationMember">
+            <EntityTypeMapping TypeName="HealthyInformationModel.RecuperationMember">
+              <MappingFragment StoreEntitySet="RecuperationMember">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="RecuperationInformationID" ColumnName="RecuperationInformationID" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecuperationInformation">
+            <EntityTypeMapping TypeName="HealthyInformationModel.RecuperationInformation">
+              <MappingFragment StoreEntitySet="RecuperationInformation">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="LeaderAircrewID" ColumnName="LeaderAircrewID" />
+                <ScalarProperty Name="HospitalLeaveDate" ColumnName="HospitalLeaveDate" />
+                <ScalarProperty Name="HospitalEnterDate" ColumnName="HospitalEnterDate" />
+                <ScalarProperty Name="SanatoriumID" ColumnName="SanatoriumID" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OralCavity">
+            <EntityTypeMapping TypeName="HealthyInformationModel.OralCavity">
+              <MappingFragment StoreEntitySet="OralCavity">
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+                <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENTSection">
+            <EntityTypeMapping TypeName="HealthyInformationModel.ENTSection">
+              <MappingFragment StoreEntitySet="ENTSection">
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="DiagnosisConclusion" ColumnName="DiagnosisConclusion" />
+                <ScalarProperty Name="VestibularFunction" ColumnName="VestibularFunction" />
+                <ScalarProperty Name="EarCompressor" ColumnName="EarCompressor" />
+                <ScalarProperty Name="Throat" ColumnName="Throat" />
+                <ScalarProperty Name="Ventilation" ColumnName="Ventilation" />
+                <ScalarProperty Name="Smell" ColumnName="Smell" />
+                <ScalarProperty Name="Nose" ColumnName="Nose" />
+                <ScalarProperty Name="EarWhisperRight" ColumnName="EarWhisperRight" />
+                <ScalarProperty Name="EarWhisperLeft" ColumnName="EarWhisperLeft" />
+                <ScalarProperty Name="EarRight" ColumnName="EarRight" />
+                <ScalarProperty Name="EarLeft" ColumnName="EarLeft" />
+                <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phthalmology">
+            <EntityTypeMapping TypeName="HealthyInformationModel.Phthalmology">
+              <MappingFragment StoreEntitySet="Phthalmology">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="DiagnosisConclusion" ColumnName="DiagnosisConclusion" />
+                <ScalarProperty Name="NightVision" ColumnName="NightVision" />
+                <ScalarProperty Name="EyeBellow" ColumnName="EyeBellow" />
+                <ScalarProperty Name="ConvolutedStroma" ColumnName="ConvolutedStroma" />
+                <ScalarProperty Name="Eyeball" ColumnName="Eyeball" />
+                <ScalarProperty Name="Eyelid" ColumnName="Eyelid" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="RangeRecognition" ColumnName="RangeRecognition" />
+                <ScalarProperty Name="ColorVision" ColumnName="ColorVision" />
+                <ScalarProperty Name="Heterophoria" ColumnName="Heterophoria" />
+                <ScalarProperty Name="CurveLightRight" ColumnName="CurveLightRight" />
+                <ScalarProperty Name="CurveLightLeft" ColumnName="CurveLightLeft" />
+                <ScalarProperty Name="DistantVisionRight" ColumnName="DistantVisionRight" />
+                <ScalarProperty Name="DistantVisionLeft" ColumnName="DistantVisionLeft" />
+                <ScalarProperty Name="NearVisionRight" ColumnName="NearVisionRight" />
+                <ScalarProperty Name="NearVisionLeft" ColumnName="NearVisionLeft" />
+                <ScalarProperty Name="VisionRight" ColumnName="VisionRight" />
+                <ScalarProperty Name="VisionLeft" ColumnName="VisionLeft" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Neuropsychiatry">
+            <EntityTypeMapping TypeName="HealthyInformationModel.Neuropsychiatry">
+              <MappingFragment StoreEntitySet="Neuropsychiatry">
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="DiagnosisConclusion" ColumnName="DiagnosisConclusion" />
+                <ScalarProperty Name="VegetativeNerve" ColumnName="VegetativeNerve" />
+                <ScalarProperty Name="NerveEnding" ColumnName="NerveEnding" />
+                <ScalarProperty Name="TendonReflex" ColumnName="TendonReflex" />
+                <ScalarProperty Name="Quiescent" ColumnName="Quiescent" />
+                <ScalarProperty Name="MovementsOfLimbs" ColumnName="MovementsOfLimbs" />
+                <ScalarProperty Name="CranialNerve" ColumnName="CranialNerve" />
+                <ScalarProperty Name="Psychosis" ColumnName="Psychosis" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalMedicine">
+            <EntityTypeMapping TypeName="HealthyInformationModel.InternalMedicine">
+              <MappingFragment StoreEntitySet="InternalMedicine">
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="DiagnosisConclusion" ColumnName="DiagnosisConclusion" />
+                <ScalarProperty Name="Kidney" ColumnName="Kidney" />
+                <ScalarProperty Name="Spleen" ColumnName="Spleen" />
+                <ScalarProperty Name="Liver" ColumnName="Liver" />
+                <ScalarProperty Name="Abdomen" ColumnName="Abdomen" />
+                <ScalarProperty Name="Heart" ColumnName="Heart" />
+                <ScalarProperty Name="Lungs" ColumnName="Lungs" />
+                <ScalarProperty Name="Thyroid" ColumnName="Thyroid" />
+                <ScalarProperty Name="LymphGland" ColumnName="LymphGland" />
+                <ScalarProperty Name="Skin" ColumnName="Skin" />
+                <ScalarProperty Name="Development" ColumnName="Development" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="BloodPressureRest" ColumnName="BloodPressureRest" />
+                <ScalarProperty Name="BloodPressureSquat" ColumnName="BloodPressureSquat" />
+                <ScalarProperty Name="BloodPressureStatic" ColumnName="BloodPressureStatic" />
+                <ScalarProperty Name="PulseRest" ColumnName="PulseRest" />
+                <ScalarProperty Name="PulseSquat" ColumnName="PulseSquat" />
+                <ScalarProperty Name="PulseStatic" ColumnName="PulseStatic" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkinSurgery">
+            <EntityTypeMapping TypeName="HealthyInformationModel.SkinSurgery">
+              <MappingFragment StoreEntitySet="SkinSurgery">
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="AviationMedicineID" ColumnName="AviationMedicineID" />
+                <ScalarProperty Name="DiagnosisConclusion" ColumnName="DiagnosisConclusion" />
+                <ScalarProperty Name="ExamFind" ColumnName="ExamFind" />
+                <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+                <ScalarProperty Name="GripPowerRight" ColumnName="GripPowerRight" />
+                <ScalarProperty Name="GripPowerLeft" ColumnName="GripPowerLeft" />
+                <ScalarProperty Name="VitalCapacity" ColumnName="VitalCapacity" />
+                <ScalarProperty Name="ChestMeasureExhalation" ColumnName="ChestMeasureExhalation" />
+                <ScalarProperty Name="ChestMeasureInhale" ColumnName="ChestMeasureInhale" />
+                <ScalarProperty Name="ChestMeasureCalm" ColumnName="ChestMeasureCalm" />
+                <ScalarProperty Name="SittingHeight" ColumnName="SittingHeight" />
+                <ScalarProperty Name="LegLength" ColumnName="LegLength" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplementaryExam">
+            <EntityTypeMapping TypeName="HealthyInformationModel.SupplementaryExam">
+              <MappingFragment StoreEntitySet="SupplementaryExam">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="Ultrasonic" ColumnName="Ultrasonic" />
+                <ScalarProperty Name="ChestXLine" ColumnName="ChestXLine" />
+                <ScalarProperty Name="Cardiogram" ColumnName="Cardiogram" />
+                <ScalarProperty Name="Trilaurin" ColumnName="Trilaurin" />
+                <ScalarProperty Name="Cholesterol" ColumnName="Cholesterol" />
+                <ScalarProperty Name="BloodSugar" ColumnName="BloodSugar" />
+                <ScalarProperty Name="LiverFunction" ColumnName="LiverFunction" />
+                <ScalarProperty Name="RoutineDefecate" ColumnName="RoutineDefecate" />
+                <ScalarProperty Name="RoutineUrine" ColumnName="RoutineUrine" />
+                <ScalarProperty Name="RoutineBlood" ColumnName="RoutineBlood" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConclusionsPhysical">
+            <EntityTypeMapping TypeName="HealthyInformationModel.ConclusionsPhysicalExam">
+              <MappingFragment StoreEntitySet="ConclusionsPhysical">
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="AircrewID" ColumnName="AircrewID" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="CertifyingCommission" ColumnName="CertifyingCommission" />
+                <ScalarProperty Name="CollegeCenter" ColumnName="CollegeCenter" />
+                <ScalarProperty Name="DiseaseKeyword" ColumnName="DiseaseKeyword" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="HealthyGrade" ColumnName="HealthyGrade" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetRecuperationPlan" FunctionName="HealthyInformationModel.Store.UP_GetRecuperationPlan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetRecuperationPlan_Result1">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="SanatoriumName" ColumnName="SanatoriumName" />
+                <ScalarProperty Name="LeaderName" ColumnName="LeaderName" />
+                <ScalarProperty Name="AviationMedicineName" ColumnName="AviationMedicineName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetPhysicalExamAlarmInfo" FunctionName="HealthyInformationModel.Store.UP_GetPhysicalExamAlarmInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetPhysicalExamAlarmInfo_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

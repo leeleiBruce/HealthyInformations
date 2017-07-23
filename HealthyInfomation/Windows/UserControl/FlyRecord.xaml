@@ -1,0 +1,62 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.UserControl.FlyRecord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="飞行记录" Height="420" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" 
+                  Margin="0,5,0,5" 
+                  AutoGenerateColumns="False"
+                  Height="300"
+                  ItemsSource="{Binding FlightRecordList,Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerType}" Width="5*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding DataContext.FlyerTypeList,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                      SelectedValue="{Binding FlightType,Mode=TwoWay}"
+                                      SelectedValuePath="TransactionNumber"
+                                      DisplayMemberPath="TypeName"></ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerTime}" Width="5*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding FlightTime,Mode=TwoWay}" Padding="2" MaxLength="15"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerDate}" Width="5*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding RegisterDate,Mode=TwoWay}" Padding="2"></DatePicker>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding NewCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_New}" Grid.Column="0" Style="{StaticResource btn-info}"></Button>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                <Button Command="{Binding SaveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{StaticResource btn-primary}"></Button>
+                <Button Command="{Binding CloseCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{StaticResource btn-warning}" Margin="5,0,0,0"></Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Base:WindowBase>

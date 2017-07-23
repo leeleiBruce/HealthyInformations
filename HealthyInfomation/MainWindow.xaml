@@ -1,0 +1,99 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.MainWindow"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="第二飞行训练团健康登记管理系统"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        Height="600"
+        Width="999" Icon="Images/main.ico" WindowStartupLocation="CenterScreen">
+    <Base:WindowBase.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#336699"></Setter>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Vertical"></Setter>
+            <Setter Property="Margin" Value="0,0,5,0"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="0,5,0,0"></Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="ImageButton">
+            <Setter Property="Stretch" Value="Fill"></Setter>
+            <Setter Property="Height" Value="48"></Setter>
+            <Setter Property="Width" Value="48"></Setter>
+        </Style>
+    </Base:WindowBase.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="1">
+            <ToolBarTray Background="#0099CC" Cursor="Hand">
+                <ToolBar DockPanel.Dock="Top" Height="Auto" Background="#0099CC" Foreground="White" FontWeight="Bold" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="pilot">
+                            <Image Source="Images/pilot.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_PersonRegister}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="sanatorium">
+                            <Image Source="Images/general.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_Sanatorium}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="doctor">
+                            <Image Source="Images/doctorair.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_AviationMedicine}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="disease">
+                            <Image Source="Images/book.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_CommonDisease}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="recuperation">
+                            <Image Source="Images/recuperation.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_RecuperationInformation}"></TextBlock>
+                    </StackPanel>
+                    <Separator></Separator>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="alarm">
+                            <Image Source="Images/reminder.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_Remind}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="recuperation">
+                            <Image Source="Images/chart.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_Analysis}"></TextBlock>
+                    </StackPanel>
+                </ToolBar>
+            </ToolBarTray>
+        </DockPanel>
+        <Image Grid.Row="2" Source="Images/main.jpg" Stretch="Fill"></Image>
+        <DockPanel Grid.Row="3">
+            <StatusBar DockPanel.Dock="Bottom" Background="#0099CC">
+                <StatusBarItem Height="35" Width="Auto">
+                    <TextBlock Foreground="White" Text="{x:Static local:MainResource.Title}" FontSize="14" />
+                </StatusBarItem>
+                <Separator></Separator>
+                <StatusBarItem>
+                    <TextBlock Text="{Binding CurrentTime,Mode=OneWay}" Foreground="White"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
+    </Grid>
+</Base:WindowBase>

@@ -1,0 +1,16 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.RecuperationPrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthyInfomation.Windows"
+        mc:Ignorable="d"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
+        Title="疗养信息打印" Height="600" Width="800">
+    <Grid Margin="10">
+        <WindowsFormsHost>
+            <rv:ReportViewer x:Name="ReportViewer"></rv:ReportViewer>
+        </WindowsFormsHost>
+    </Grid>
+</Base:WindowBase>

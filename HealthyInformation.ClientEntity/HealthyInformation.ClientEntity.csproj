@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInformation.ClientEntity</RootNamespace>
+    <AssemblyName>HealthyInformation.ClientEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRemoveRequest.cs" />
+    <Compile Include="BaseRequest.cs" />
+    <Compile Include="BaseResponse.cs" />
+    <Compile Include="PhysicalExam\Entity\ConclusionsphysicalexamEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\ENTSectionEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\InternalMedicineEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\MedicalIdentificationEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\NeuropsychiatryEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\OralCavityEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\PhthalmologyEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\SkinSurgeryEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\SupplementaryExamEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\UP_GetPhysicalExamAlarmInfo_Result.cs" />
+    <Compile Include="PhysicalExam\Request\AviationAccidentRequest.cs" />
+    <Compile Include="PhysicalExam\Request\ConclusionPhysicalRequest.cs" />
+    <Compile Include="PhysicalExam\Request\ENTSectionRequest.cs" />
+    <Compile Include="PhysicalExam\Request\FlightDiscomfortLevelRequest.cs" />
+    <Compile Include="PhysicalExam\Request\InternalMedicineRequest.cs" />
+    <Compile Include="PhysicalExam\Request\MedicalIdentificationRequest.cs" />
+    <Compile Include="PhysicalExam\Request\MedicalTreatmentRequest.cs" />
+    <Compile Include="PhysicalExam\Request\NeuropsychiatryRequest.cs" />
+    <Compile Include="PhysicalExam\Request\OralCavityRequest.cs" />
+    <Compile Include="PhysicalExam\Request\PhthalmologyRequest.cs" />
+    <Compile Include="PhysicalExam\Request\PhysicalExamMinRecordRequest.cs" />
+    <Compile Include="PhysicalExam\Request\SkinSurgeryRequest.cs" />
+    <Compile Include="PhysicalExam\Request\SupplementaryExamRequest.cs" />
+    <Compile Include="PhysicalExam\ViewModel\AviationAccidentModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\ConclusionPhysicalModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\ENTSectionModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\FlightDiscomfortLevelModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\InternalMedicineModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\MedicalTreatmentModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\NeuropsychiatryModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\OphthalmologyModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\OralCavityModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\PhysicalExamMinModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\SkinSurgeryModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\SupplementaryExamModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\Entity\AircrewEntity.cs" />
+    <Compile Include="SystemManage\Entity\AviationMedicineEntity.cs" />
+    <Compile Include="SystemManage\Entity\CommonDiseaseEntity.cs" />
+    <Compile Include="SystemManage\Entity\FlightRecordEntity.cs" />
+    <Compile Include="SystemManage\Entity\FlyerTypeEntity.cs" />
+    <Compile Include="SystemManage\Entity\RecuperationAccompanyEntity.cs" />
+    <Compile Include="SystemManage\Entity\RecuperationInformationEntity.cs" />
+    <Compile Include="SystemManage\Entity\RecuperationMemberEntity.cs" />
+    <Compile Include="SystemManage\Entity\SanatoriumEntity.cs" />
+    <Compile Include="SystemManage\Entity\UP_GetRecuperationPlan_Result.cs" />
+    <Compile Include="SystemManage\Entity\UserEntity.cs" />
+    <Compile Include="SystemManage\Request\AircrewPhotoRequest.cs" />
+    <Compile Include="SystemManage\Request\AircrewRequest.cs" />
+    <Compile Include="SystemManage\Request\AviationMedicineRequest.cs" />
+    <Compile Include="SystemManage\Request\CommonDiseaseRequest.cs" />
+    <Compile Include="SystemManage\Request\FlightRecordRequest.cs" />
+    <Compile Include="SystemManage\Request\RecuperationInformationRequest.cs" />
+    <Compile Include="SystemManage\Request\SanatoriumRequest.cs" />
+    <Compile Include="SystemManage\Response\AircrewResponse.cs" />
+    <Compile Include="SystemManage\Response\AviationMedicineResponse.cs" />
+    <Compile Include="SystemManage\Response\CommonDiseaseResponse.cs" />
+    <Compile Include="SystemManage\Response\RecuperationInformationResponse.cs" />
+    <Compile Include="SystemManage\Response\SanatoriumResponse.cs" />
+    <Compile Include="SystemManage\ViewModel\AircrewMemberModel.cs" />
+    <Compile Include="SystemManage\ViewModel\AircrewModel.cs" />
+    <Compile Include="SystemManage\ViewModel\AviationMedicineModel.cs" />
+    <Compile Include="SystemManage\ViewModel\AviationMedicineSearchModel.cs" />
+    <Compile Include="SystemManage\ViewModel\CommonDiseaseModel.cs" />
+    <Compile Include="SystemManage\ViewModel\CommonDiseaseSearchModel.cs" />
+    <Compile Include="PhysicalExam\ViewModel\MedicalIdentificationModel.cs" />
+    <Compile Include="SystemManage\ViewModel\RecuperationInformationModel.cs" />
+    <Compile Include="SystemManage\ViewModel\SanatoriumModel.cs" />
+    <Compile Include="SystemManage\ViewModel\SanatoriumSearchModel.cs" />
+    <Compile Include="SystemManage\ViewModel\AircrewSearchModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthyInformation.FrameWork\HealthyInformation.FrameWork.csproj">
+      <Project>{9f02518d-9c84-467c-a158-8058265dee66}</Project>
+      <Name>HealthyInformation.FrameWork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PhysicalExam\Response\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

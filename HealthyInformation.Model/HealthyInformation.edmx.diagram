@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f313e5cb70404041b2b85423229cf47c" Name="关系图1">
+        <EntityTypeShape EntityType="HealthyInformationModel.Aircrew" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.AviationMedicine" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.CommonDisease" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.FlightDiscomfortLevel" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.FlightRecord" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.MedicalIdentification" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.MedicalTreatment" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.PhysicalExamMinRecord" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.Sanatorium" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.User" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyInformationModel.FlyerType" Width="1.5" PointX="4.875" PointY="9.625" />
+        <EntityTypeShape EntityType="HealthyInformationModel.AviationAccident" Width="2" PointX="7" PointY="9.25" />
+        <EntityTypeShape EntityType="HealthyInformationModel.RecuperationAccompany" Width="2" PointX="10.625" PointY="5.75" />
+        <EntityTypeShape EntityType="HealthyInformationModel.RecuperationMember" Width="2.125" PointX="9.5" PointY="9.375" />
+        <EntityTypeShape EntityType="HealthyInformationModel.RecuperationInformation" Width="2.5" PointX="12.25" PointY="9.25" />
+        <AssociationConnector Association="HealthyInformationModel.RecuperationInformationRecuperationAccompany" />
+        <AssociationConnector Association="HealthyInformationModel.RecuperationInformationRecuperationMember" />
+        <EntityTypeShape EntityType="HealthyInformationModel.OralCavity" Width="1.5" PointX="2.625" PointY="12.25" />
+        <EntityTypeShape EntityType="HealthyInformationModel.ENTSection" Width="2" PointX="4.625" PointY="12.25" />
+        <EntityTypeShape EntityType="HealthyInformationModel.Phthalmology" Width="2.125" PointX="7" PointY="12.875" />
+        <EntityTypeShape EntityType="HealthyInformationModel.Neuropsychiatry" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HealthyInformationModel.InternalMedicine" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HealthyInformationModel.SkinSurgery" Width="1.5" PointX="10.375" PointY="13.75" />
+        <EntityTypeShape EntityType="HealthyInformationModel.SupplementaryExam" Width="2" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="HealthyInformationModel.ConclusionsPhysicalExam" Width="1.5" PointX="15.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

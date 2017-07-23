@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="HealthyInformation.WCFService.Services.PhysicalExam.MedicalIdentificationWCF" CodeBehind="MedicalIdentificationWCF.svc.cs" %>

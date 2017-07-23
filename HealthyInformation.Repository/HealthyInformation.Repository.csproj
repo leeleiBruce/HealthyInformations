@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0092067E-31B8-4D56-A67D-5BFEAAEA833C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInformation.Repository</RootNamespace>
+    <AssemblyName>HealthyInformation.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="ConfigDictionary\FlyerTypeRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="LoginManage\IUserRepository.cs" />
+    <Compile Include="LoginManage\UserRepository.cs" />
+    <Compile Include="PhysicalExam\FlightDiscomfortableLevelRepository.cs" />
+    <Compile Include="PhysicalExam\IFlightDiscomfortableLevelRepository.cs" />
+    <Compile Include="ConfigDictionary\IFlyerTypeRepository.cs" />
+    <Compile Include="PhysicalExam\IMedicalIdentificationRepository.cs" />
+    <Compile Include="PhysicalExam\IMedicalTreatmentRepository.cs" />
+    <Compile Include="PhysicalExam\IPhysicalExamMinRepository.cs" />
+    <Compile Include="PhysicalExam\MedicalIdentificationRepository.cs" />
+    <Compile Include="PhysicalExam\MedicalTreatmentRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\ConclusionPhysicalRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\ENTSectionRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\IConclusionPhysicalRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\IENTSectionRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\IInternalMedicineRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\INeuropsychiatryRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\InternalMedicineRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\IOralCavityRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\IPhthalmologyRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\ISkinSurgeryRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\ISupplementaryExamRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\NeuropsychiatryRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\OralCavityRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\PhthalmologyRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\SkinSurgeryRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMax\SupplementaryExamRepository.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMinRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\AircrewRepository.cs" />
+    <Compile Include="SystemManage\AviationMedicineRepository.cs" />
+    <Compile Include="SystemManage\DiseaseRepository.cs" />
+    <Compile Include="SystemManage\FlightRecordRepository.cs" />
+    <Compile Include="SystemManage\IAircrewRepository.cs" />
+    <Compile Include="SystemManage\IAviationMedicineRepository.cs" />
+    <Compile Include="SystemManage\IDiseaseRepository.cs" />
+    <Compile Include="SystemManage\IFlightRecordRepository.cs" />
+    <Compile Include="SystemManage\IRecuperationInformationRepository.cs" />
+    <Compile Include="SystemManage\ISanatoriumRepository.cs" />
+    <Compile Include="SystemManage\RecuperationInformationRepository.cs" />
+    <Compile Include="SystemManage\SanatoriumRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthyInformation.Entity\HealthyInformation.Entity.csproj">
+      <Project>{517ad33e-e5c7-4fc9-b78a-706df25df2d0}</Project>
+      <Name>HealthyInformation.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Infrastructrue\HealthyInformation.Infrastructrue.csproj">
+      <Project>{8b87fbdd-52e6-40a3-b622-ebd61625fe4b}</Project>
+      <Name>HealthyInformation.Infrastructrue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Model\HealthyInformation.Domain.csproj">
+      <Project>{acd63766-f6db-4d29-9b4f-b8fff02bbe19}</Project>
+      <Name>HealthyInformation.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

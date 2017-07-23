@@ -1,0 +1,66 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.PhysicalExam.AviationAccident"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="飞行事故及原因" Height="490" Width="530">
+    <Base:WindowBase.Resources>
+        <local:AviationAccidentResource x:Key="LocalResource"></local:AviationAccidentResource>
+    </Base:WindowBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/Images/PhysicalExam/flyaccident.jpg" Grid.Row="0"></Image>
+        <Grid Grid.Row="1" Margin="10,5,10,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Lab_FlyDate,Source={StaticResource LocalResource}}" Grid.Column="0"></TextBlock>
+                <DatePicker Grid.Column="1" Width="120" Margin="-5,0,0,0" SelectedDate="{Binding AviationAccidentModel.FlyDate,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></DatePicker>
+                <TextBlock Text="{Binding Lab_FlySubject,Source={StaticResource LocalResource}}" Grid.Column="2" Margin="20,0,0,0"></TextBlock>
+                <TextBox Grid.Column="3" Text="{Binding AviationAccidentModel.FlySubject,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></TextBox>
+            </Grid>
+            <TextBlock Text="{Binding Lab_Condition,Source={StaticResource LocalResource}}" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+            <TextBox Text="{Binding AviationAccidentModel.Condition,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="1" Grid.Column="1" Height="60" Margin="0,5,0,0" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto"></TextBox>
+            <TextBlock Text="{Binding Lab_Reason,Source={StaticResource LocalResource}}" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+            <TextBox Text="{Binding AviationAccidentModel.Reason,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="2" Grid.Column="1" Height="60" Margin="0,5,0,0" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto"></TextBox>
+            <TextBlock Text="{Binding Lab_Nature,Source={StaticResource LocalResource}}" Grid.Row="3" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+            <TextBox Text="{Binding AviationAccidentModel.Nature,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="3" Grid.Column="1" Height="60" Margin="0,5,0,0" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto"></TextBox>
+            <TextBlock Text="{Binding Lab_Suggestion,Source={StaticResource LocalResource}}" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+            <TextBox Text="{Binding AviationAccidentModel.Suggestion,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="4" Grid.Column="1" Height="60" Margin="0,5,0,0" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto"></TextBox>
+            <TextBlock Text="{Binding Lab_AvationMedicine,Source={StaticResource LocalResource}}" Grid.Row="5" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+            <ComboBox Grid.Row="5"
+                      Grid.Column="1" 
+                      Margin="0,5,0,0"
+                      DisplayMemberPath="Name"
+                      SelectedValuePath="TransactionNumber"
+                      ItemsSource="{Binding AviationMedicineList,Mode=OneWay}"
+                      SelectedValue="{Binding AviationAccidentModel.AvationMedicineID,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></ComboBox>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5,10,10,10" HorizontalAlignment="Right">
+            <Button Command="{Binding SaveCommand}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{DynamicResource btn-primary}"></Button>
+            <Button Command="{Binding CloseCommand}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
+        </StackPanel>
+    </Grid>
+</Base:WindowBase>

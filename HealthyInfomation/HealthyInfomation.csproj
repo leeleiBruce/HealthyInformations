@@ -1,0 +1,754 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6684069D-967F-4EC4-9099-F352A4667294}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInfomation</RootNamespace>
+    <AssemblyName>HealthyInfomation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="RDLCPrinter">
+      <HintPath>..\packages\RDLCPrinter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converter\SexConverter.cs" />
+    <Compile Include="Facade\AircrewFacade.cs" />
+    <Compile Include="Facade\AviationAccidentFacade.cs" />
+    <Compile Include="Facade\AviationMedicineFacade.cs" />
+    <Compile Include="Facade\CommonDiseaseFacade.cs" />
+    <Compile Include="Facade\ConfigDictionaryFacade.cs" />
+    <Compile Include="Facade\FlightDiscomfortLevelFacade.cs" />
+    <Compile Include="Facade\PhysicalExamMaxFacade.cs" />
+    <Compile Include="Facade\RecuperationInformationFacade.cs" />
+    <Compile Include="Facade\MedicalIdentificationFacade.cs" />
+    <Compile Include="Facade\MedicalTreatmentFacade.cs" />
+    <Compile Include="Facade\PhysicalExamMinFacade.cs" />
+    <Compile Include="Facade\SanatoriumFacade.cs" />
+    <Compile Include="Facade\UserFacade.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportObject\RecuperationReport.cs" />
+    <Compile Include="Resource\AviationAccidentResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AviationAccidentResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\AviationMedicineResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AviationMedicineResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\CommonDiseaseResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonDiseaseResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\CommonMsgResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonMsgResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\CommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\ConclusionsPhysicalResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConclusionsPhysicalResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\ENTSectionResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ENTSectionResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\FlightDiscomfortLevelResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlightDiscomfortLevelResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\InternalMedicineResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternalMedicineResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\LoginResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\MainResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\MedicalIdentificationResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalIdentificationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\MedicalTreatmentResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalTreatmentResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\NeuropsychiatryResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NeuropsychiatryResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\OphthalmologyResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OphthalmologyResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\OralCavityResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OralCavityResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\PhysicalExamResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhysicalExamResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\RecuperationInformationResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecuperationInformationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\SanatoriumResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatoriumResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\AircrewResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AircrewResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\SkinSurgeryResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkinSurgeryResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\SupplementaryExamResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupplementaryExamResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AviationMedicine.xaml.cs">
+      <DependentUpon>AviationMedicine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CommonDisease.xaml.cs">
+      <DependentUpon>CommonDisease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExamAlarm.xaml.cs">
+      <DependentUpon>PhysicalExamAlarm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\AviationAccident.xaml.cs">
+      <DependentUpon>AviationAccident.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\FlightDiscomfortLevel.xaml.cs">
+      <DependentUpon>FlightDiscomfortLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\MedicalTreatment.xaml.cs">
+      <DependentUpon>MedicalTreatment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\PhysicalExamAnalysis.xaml.cs">
+      <DependentUpon>PhysicalExamAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\PhysicalExamMain.xaml.cs">
+      <DependentUpon>PhysicalExamMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\PhysicalExamMin.xaml.cs">
+      <DependentUpon>PhysicalExamMin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\ENTSection.xaml.cs">
+      <DependentUpon>ENTSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\Neuropsychiatry.xaml.cs">
+      <DependentUpon>Neuropsychiatry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\RecuperationInformation.xaml.cs">
+      <DependentUpon>RecuperationInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\ConclusionsPhysical.xaml.cs">
+      <DependentUpon>ConclusionsPhysical.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\InternalMedicine.xaml.cs">
+      <DependentUpon>InternalMedicine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\MedicalIdentification.xaml.cs">
+      <DependentUpon>MedicalIdentification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\Ophthalmology.xaml.cs">
+      <DependentUpon>Ophthalmology.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\OralCavity.xaml.cs">
+      <DependentUpon>OralCavity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\SkinSurgery.xaml.cs">
+      <DependentUpon>SkinSurgery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PhysicalExam\UserControl\SupplementaryExam.xaml.cs">
+      <DependentUpon>SupplementaryExam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RecuperationPlan.xaml.cs">
+      <DependentUpon>RecuperationPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\RecuperationInformationModify.xaml.cs">
+      <DependentUpon>RecuperationInformationModify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\RecuperationPrint.xaml.cs">
+      <DependentUpon>RecuperationPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Sanatorium.xaml.cs">
+      <DependentUpon>Sanatorium.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\AircrewMember.xaml.cs">
+      <DependentUpon>AircrewMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\AviationMedicineCreate.xaml.cs">
+      <DependentUpon>AviationMedicineCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\AviationMedicineUpdate.xaml.cs">
+      <DependentUpon>AviationMedicineUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\CommonDiseaseCreate.xaml.cs">
+      <DependentUpon>CommonDiseaseCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\CommonDiseaseUpdate.xaml.cs">
+      <DependentUpon>CommonDiseaseUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\FlyRecord.xaml.cs">
+      <DependentUpon>FlyRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\SanatoriumCreate.xaml.cs">
+      <DependentUpon>SanatoriumCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\SanatoriumUpdate.xaml.cs">
+      <DependentUpon>SanatoriumUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\AircrewCreate.xaml.cs">
+      <DependentUpon>AircrewCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\AircrewUpdate.xaml.cs">
+      <DependentUpon>AircrewUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AircrewManage.xaml.cs">
+      <DependentUpon>AircrewManage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Theme\BootStrap\BaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Bootstrap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\FormControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\InputGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Path.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Sizes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BootStrap\Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\FormStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\GenericTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AviationMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CommonDisease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExamAlarm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\AviationAccident.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\FlightDiscomfortLevel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\MedicalTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\PhysicalExamAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\PhysicalExamMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\PhysicalExamMin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\ENTSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\Neuropsychiatry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\RecuperationInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\ConclusionsPhysical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\InternalMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\MedicalIdentification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\Ophthalmology.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\OralCavity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\SkinSurgery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\UserControl\SupplementaryExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RecuperationPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\RecuperationInformationModify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\RecuperationPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Sanatorium.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\AircrewMember.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\AviationMedicineCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\AviationMedicineUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\CommonDiseaseCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\CommonDiseaseUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\FlyRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\SanatoriumCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\SanatoriumUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\AircrewCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\AircrewUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AircrewManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Recuperation.rdlc" />
+    <EmbeddedResource Include="Report\RecuperationAccompany.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RecuperationMember.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\AviationAccidentResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AviationAccidentResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\AviationMedicineResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AviationMedicineResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\CommonDiseaseResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonDiseaseResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\CommonMsgResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonMsgResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\CommonResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\ConclusionsPhysicalResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConclusionsPhysicalResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\ENTSectionResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ENTSectionResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\FlightDiscomfortLevelResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlightDiscomfortLevelResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\InternalMedicineResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InternalMedicineResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\LoginResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\MainResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\MedicalIdentificationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MedicalIdentificationResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\MedicalTreatmentResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MedicalTreatmentResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\NeuropsychiatryResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NeuropsychiatryResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\OphthalmologyResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OphthalmologyResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\OralCavityResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OralCavityResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\PhysicalExamResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PhysicalExamResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\RecuperationInformationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecuperationInformationResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SanatoriumResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SanatoriumResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\AircrewResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AircrewResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SkinSurgeryResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SkinSurgeryResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SupplementaryExamResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SupplementaryExamResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\HealthyInfomation.Report.ReportObject.RecuperationMember.datasource" />
+    <None Include="Properties\DataSources\HealthyInfomation.Report.ReportObject.RecuperationReport.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\main.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pilot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\doctors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dangerous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\doctorair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\helicopte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bookinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthyInformation.ClientEntity\HealthyInformation.ClientEntity.csproj">
+      <Project>{5b2cc43b-54a2-42dc-a2d9-9e9b008ecf38}</Project>
+      <Name>HealthyInformation.ClientEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.FrameWork\HealthyInformation.FrameWork.csproj">
+      <Project>{9f02518d-9c84-467c-a158-8058265dee66}</Project>
+      <Name>HealthyInformation.FrameWork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\sanatourim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\sanatourimupdate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\aircrewnew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\aircrewupdate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PhysicalExam\medicinetreat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PhysicalExam\discomfatable.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PhysicalExam\flyaccident.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PhysicalExam\recuperationinfor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\recuperation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reminder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chart.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

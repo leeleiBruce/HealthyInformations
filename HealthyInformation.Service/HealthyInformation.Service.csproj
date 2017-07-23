@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{135A7337-30BD-4F28-B7AE-5BA057D2746C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInformation.Service</RootNamespace>
+    <AssemblyName>HealthyInformation.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="LoginManage\IUserService.cs" />
+    <Compile Include="LoginManage\UserService.cs" />
+    <Compile Include="PhysicalExam\AviationAccidentService.cs" />
+    <Compile Include="PhysicalExam\FlightDiscomfortableLevelService.cs" />
+    <Compile Include="PhysicalExam\IAviationAccidentService.cs" />
+    <Compile Include="PhysicalExam\IFlightDiscomfortableLevelService.cs" />
+    <Compile Include="PhysicalExam\IMedicalIdentificationService.cs" />
+    <Compile Include="PhysicalExam\IMedicalTreatmentService.cs" />
+    <Compile Include="PhysicalExam\IPhysicalExamMaxService.cs" />
+    <Compile Include="PhysicalExam\IPhysicalExamMinService.cs" />
+    <Compile Include="PhysicalExam\MedicalIdentificationService.cs" />
+    <Compile Include="PhysicalExam\MedicalTreatmentService.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMaxService.cs" />
+    <Compile Include="PhysicalExam\PhysicalExamMinService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\AircrewManageService.cs" />
+    <Compile Include="SystemManage\AviationMedicineService.cs" />
+    <Compile Include="SystemManage\ConfigDictionaryService.cs" />
+    <Compile Include="SystemManage\DiseaseService.cs" />
+    <Compile Include="SystemManage\FlightRecordService.cs" />
+    <Compile Include="SystemManage\IAircrewManageService.cs" />
+    <Compile Include="SystemManage\IAviationMedicineService.cs" />
+    <Compile Include="SystemManage\IConfigDictionaryService.cs" />
+    <Compile Include="SystemManage\IDiseaseService.cs" />
+    <Compile Include="SystemManage\IFlightRecordService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\IRecuperationAccompanyService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\IRecuperationInformationMemberService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\IRecuperationInformationService.cs" />
+    <Compile Include="SystemManage\ISanatoriumManageService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\RecuperationAccompanyService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\RecuperationInformationMemberService.cs" />
+    <Compile Include="SystemManage\RecuperationInfor\RecuperationInformationService.cs" />
+    <Compile Include="SystemManage\SanatoriumManageService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthyInfomation\HealthyInfomation.csproj">
+      <Project>{6684069D-967F-4EC4-9099-F352A4667294}</Project>
+      <Name>HealthyInfomation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Entity\HealthyInformation.Entity.csproj">
+      <Project>{517ad33e-e5c7-4fc9-b78a-706df25df2d0}</Project>
+      <Name>HealthyInformation.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Infrastructrue\HealthyInformation.Infrastructrue.csproj">
+      <Project>{8b87fbdd-52e6-40a3-b622-ebd61625fe4b}</Project>
+      <Name>HealthyInformation.Infrastructrue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Model\HealthyInformation.Domain.csproj">
+      <Project>{acd63766-f6db-4d29-9b4f-b8fff02bbe19}</Project>
+      <Name>HealthyInformation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Repository\HealthyInformation.Repository.csproj">
+      <Project>{0092067e-31b8-4d56-a67d-5bfeaaea833c}</Project>
+      <Name>HealthyInformation.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

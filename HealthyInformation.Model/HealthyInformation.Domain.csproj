@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthyInformation.Model</RootNamespace>
+    <AssemblyName>HealthyInformation.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aircrew.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AviationAccident.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AviationMedicine.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonDisease.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConclusionsPhysicalExam.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ENTSection.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlightDiscomfortLevel.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlightRecord.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlyerType.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HealthyInformation.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HealthyInformation.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HealthyInformation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HealthyInformation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HealthyInformation.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InternalMedicine.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalIdentification.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalTreatment.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Neuropsychiatry.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OralCavity.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phthalmology.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhysicalExamMinRecord.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecuperationAccompany.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperationInformation.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperationMember.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sanatorium.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkinSurgery.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplementaryExam.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetPhysicalExamAlarmInfo_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetRecuperationPlan_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetRecuperationPlan_Result1.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="HealthyInformation.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HealthyInformation.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HealthyInformation.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HealthyInformation.edmx</DependentUpon>
+      <LastGenOutput>HealthyInformation.Context.cs</LastGenOutput>
+    </None>
+    <None Include="HealthyInformation.edmx.diagram">
+      <DependentUpon>HealthyInformation.edmx</DependentUpon>
+    </None>
+    <None Include="HealthyInformation.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HealthyInformation.edmx</DependentUpon>
+      <LastGenOutput>HealthyInformation.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HealthyInformation.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

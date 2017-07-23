@@ -1,0 +1,61 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.PhysicalExam.UserControl.SupplementaryExam"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        mc:Ignorable="d"
+        Height="550"
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="辅助检查">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_RoutineBlood}" Grid.Row="0" Grid.Column="0"></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SupplementaryExamModel.RoutineBlood,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_RoutineUrine}" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.RoutineUrine,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_RoutineDefecate}" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.RoutineDefecate,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_LiverFunction}" Grid.Row="3" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.LiverFunction,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_BloodSugar}" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.BloodSugar,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_Cholesterol}" Grid.Row="5" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.Cholesterol,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_Trilaurin}" Grid.Row="6" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.Trilaurin,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_Cardiogram}" Grid.Row="7" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.Cardiogram,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_ChestXLine}" Grid.Row="8" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="8" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.ChestXLine,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_Ultrasonic}" Grid.Row="9" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="9" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.Ultrasonic,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <TextBlock Text="{x:Static local:SupplementaryExamResource.Lab_Orther}" Grid.Row="10" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Grid.Row="10" Grid.Column="1" Margin="0,5,0,0" Text="{Binding SupplementaryExamModel.Other,Mode=TwoWay}" MaxLength="100"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="11" Grid.ColumnSpan="2" Margin="0,10,0,0" HorizontalAlignment="Right">
+            <Button Command="{Binding SaveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{StaticResource btn-primary}"></Button>
+            <Button Command="{Binding RemoveCommand}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Visibility="{Binding RemoveVisibility,Mode=OneWay}" Margin="5,0,0,0"/>
+            <Button Command="{Binding CloseCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{StaticResource btn-warning}" Margin="5,0,0,0"></Button>
+        </StackPanel>
+    </Grid>
+</Base:WindowBase>

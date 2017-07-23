@@ -1,0 +1,44 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.PhysicalExam.UserControl.MedicalIdentification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:control="clr-namespace:HealthyInfomation.Windows.PhysicalExam.UserControl"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        Height="400" Width="700"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="医务鉴定"
+        mc:Ignorable="d">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{x:Static local:MedicalIdentificationResource.Lab_Content}" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Text="{Binding ViewModel.Content,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="1" Margin="0,5,0,0" Height="Auto" VerticalContentAlignment="Top"></TextBox>
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <TextBlock Text="{x:Static local:MedicalIdentificationResource.Lab_AviationMedicine}"></TextBlock>
+                <ComboBox Width="150"
+                      ItemsSource="{Binding ViewModel.AviationMedicineList}"
+                      DisplayMemberPath="Name"
+                      SelectedValuePath="TransactionNumber"
+                      SelectedValue="{Binding ViewModel.AviationMedicineID,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></ComboBox>
+                <TextBlock Text="登记日期：" Margin="20,0,0,0"></TextBlock>
+                <DatePicker Width="130" SelectedDate="{Binding ViewModel.RecordDate,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                <Button Command="{Binding SaveCommand}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{DynamicResource btn-primary}"></Button>
+                <Button Command="{Binding RemoveCommand}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Visibility="{Binding RemoveVisibility,Mode=OneWay}" Margin="5,0,0,0"/>
+                <Button Command="{Binding CloseCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Base:WindowBase>

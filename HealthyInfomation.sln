@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInfomation", "HealthyInfomation\HealthyInfomation.csproj", "{6684069D-967F-4EC4-9099-F352A4667294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Utility", "HealthyInformation.Utility\HealthyInformation.Utility.csproj", "{2FA51420-DC99-4675-8B04-6D618AF377E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestService", "RestService", "{202A90FA-C447-4406-BC55-C998298F4D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.WCFService", "HealthyInformation.WCFService\HealthyInformation.WCFService.csproj", "{358393AE-4525-43BB-B2BC-1838C7925BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Domain", "HealthyInformation.Model\HealthyInformation.Domain.csproj", "{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Entity", "HealthyInformation.Entity\HealthyInformation.Entity.csproj", "{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Repository", "HealthyInformation.Repository\HealthyInformation.Repository.csproj", "{0092067E-31B8-4D56-A67D-5BFEAAEA833C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Service", "HealthyInformation.Service\HealthyInformation.Service.csproj", "{135A7337-30BD-4F28-B7AE-5BA057D2746C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Infrastructrue", "HealthyInformation.Infrastructrue\HealthyInformation.Infrastructrue.csproj", "{8B87FBDD-52E6-40A3-B622-EBD61625FE4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.FrameWork", "HealthyInformation.FrameWork\HealthyInformation.FrameWork.csproj", "{9F02518D-9C84-467C-A158-8058265DEE66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.ClientEntity", "HealthyInformation.ClientEntity\HealthyInformation.ClientEntity.csproj", "{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6684069D-967F-4EC4-9099-F352A4667294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6684069D-967F-4EC4-9099-F352A4667294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6684069D-967F-4EC4-9099-F352A4667294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6684069D-967F-4EC4-9099-F352A4667294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA51420-DC99-4675-8B04-6D618AF377E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA51420-DC99-4675-8B04-6D618AF377E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA51420-DC99-4675-8B04-6D618AF377E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA51420-DC99-4675-8B04-6D618AF377E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358393AE-4525-43BB-B2BC-1838C7925BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358393AE-4525-43BB-B2BC-1838C7925BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358393AE-4525-43BB-B2BC-1838C7925BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358393AE-4525-43BB-B2BC-1838C7925BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0092067E-31B8-4D56-A67D-5BFEAAEA833C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0092067E-31B8-4D56-A67D-5BFEAAEA833C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0092067E-31B8-4D56-A67D-5BFEAAEA833C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0092067E-31B8-4D56-A67D-5BFEAAEA833C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135A7337-30BD-4F28-B7AE-5BA057D2746C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135A7337-30BD-4F28-B7AE-5BA057D2746C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135A7337-30BD-4F28-B7AE-5BA057D2746C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135A7337-30BD-4F28-B7AE-5BA057D2746C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B87FBDD-52E6-40A3-B622-EBD61625FE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B87FBDD-52E6-40A3-B622-EBD61625FE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B87FBDD-52E6-40A3-B622-EBD61625FE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B87FBDD-52E6-40A3-B622-EBD61625FE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F02518D-9C84-467C-A158-8058265DEE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F02518D-9C84-467C-A158-8058265DEE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F02518D-9C84-467C-A158-8058265DEE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F02518D-9C84-467C-A158-8058265DEE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2CC43B-54A2-42DC-A2D9-9E9B008ECF38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{358393AE-4525-43BB-B2BC-1838C7925BB2} = {202A90FA-C447-4406-BC55-C998298F4D62}
+		{ACD63766-F6DB-4D29-9B4F-B8FFF02BBE19} = {202A90FA-C447-4406-BC55-C998298F4D62}
+		{517AD33E-E5C7-4FC9-B78A-706DF25DF2D0} = {202A90FA-C447-4406-BC55-C998298F4D62}
+		{0092067E-31B8-4D56-A67D-5BFEAAEA833C} = {202A90FA-C447-4406-BC55-C998298F4D62}
+		{135A7337-30BD-4F28-B7AE-5BA057D2746C} = {202A90FA-C447-4406-BC55-C998298F4D62}
+		{8B87FBDD-52E6-40A3-B622-EBD61625FE4B} = {202A90FA-C447-4406-BC55-C998298F4D62}
+	EndGlobalSection
+EndGlobal

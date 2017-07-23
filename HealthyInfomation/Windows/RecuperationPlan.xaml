@@ -1,0 +1,72 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.RecuperationPlan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthyInfomation.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        Title="疗养计划" Height="600" Width="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="疗养院：" Grid.Column="0"></TextBlock>
+            <ComboBox Grid.Column="1" 
+                      Width="150" 
+                      SelectedValue="{Binding SanatoriumID,Mode=TwoWay}"
+                      ItemsSource="{Binding SanatoriumList,Mode=OneWay}"
+                      DisplayMemberPath="Name"
+                      SelectedValuePath="TransactionNumber"></ComboBox>
+            <TextBlock Text="开始时间：" Grid.Column="2" Margin="20,0,0,0"></TextBlock>
+            <DatePicker Width="100" Grid.Column="3" SelectedDate="{Binding StartDate,Mode=TwoWay}"></DatePicker>
+            <TextBlock Text="结束时间：" Grid.Column="4" Margin="5,0,0,0"></TextBlock>
+            <DatePicker Width="100" Grid.Column="5" SelectedDate="{Binding EndDate,Mode=TwoWay}"></DatePicker>
+            <Button Command="{Binding SearchCommand,Mode=OneWay}" Content="查询" Grid.Column="6" Margin="20,0,0,0" Style="{DynamicResource btn-primary}"></Button>
+        </Grid>
+        <DataGrid x:Name="DG_AviationMedicine"
+                  Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  Cursor="Hand"
+                  Margin="0,5,0,0"
+                  AlternatingRowBackground="#CCCCCC"
+                  SelectedItem="{Binding SelectedRecuperationPlan,Mode=TwoWay}"
+                  ItemsSource="{Binding RecuperationPlanList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="疗养院名称" Binding="{Binding SanatoriumName, Mode=OneWay}" MinWidth="120"/>
+                <DataGridTextColumn Header="带队领导"  Binding="{Binding LeaderName, Mode=OneWay}"/>
+                <DataGridTextColumn Header="责任医师" Binding="{Binding AviationMedicineName, Mode=OneWay}"/>
+                <DataGridTextColumn Header="入院时间" Binding="{Binding StartDate, Mode=OneWay,StringFormat=yyyy-MM-dd}"/>
+                <DataGridTextColumn Header="出院时间" Binding="{Binding EndDate,Mode=OneWay,StringFormat=yyyy-MM-dd}" MinWidth="200"/>
+                <DataGridTemplateColumn Header="操作" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Command="{Binding ModifyCommand,Mode=OneWay,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" Content="修改" Style="{StaticResource btn-info}"></Button>
+                                <Button Command="{Binding RemoveCommand,Mode=OneWay,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" Content="删除" Style="{StaticResource btn-danger}" Margin="5,0,0,0"></Button>
+                                <Button Command="{Binding PrintCommand,Mode=OneWay,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}" Content="打印" Style="{StaticResource btn-primary}" Margin="5,0,0,0"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding NewCommand,Mode=OneWay}" Content="新增" Grid.Row="2" Margin="5,10,0,0" Style="{StaticResource btn-success}" HorizontalAlignment="Left"></Button>
+    </Grid>
+</Base:WindowBase>

@@ -1,0 +1,42 @@
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.PhysicalExam.UserControl.OralCavity"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
+        xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        Width="500" Height="450"
+        Title="口腔科"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        mc:Ignorable="d">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{x:Static local:OralCavityResource.Lab_MedicalHistory}" Grid.Row="0" Grid.Column="0"></TextBlock>
+        <TextBox Text="{Binding OralCavityModel.MedicalHistory,Mode=TwoWay}" MaxLength="2000"  Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Height="60" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"></TextBox>
+        <TextBlock Text="{x:Static local:OralCavityResource.Lab_CheckOut}" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Text="{Binding OralCavityModel.CheckOut,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" MaxLength="2000" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Height="60" Margin="0,5,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"></TextBox>
+        <TextBlock Text="{x:Static local:OralCavityResource.Lab_DiagnosisConclusion}" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Text="{Binding OralCavityModel.Diagnosis,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" MaxLength="2000" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Height="60" Margin="0,5,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"></TextBox>
+        <TextBlock Text="{x:Static local:OralCavityResource.Lab_Conclusion}" Grid.Row="3" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Text="{Binding OralCavityModel.Conclusion,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" MaxLength="2000" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Height="60" Margin="0,5,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"></TextBox>
+        <TextBlock Text="{x:Static local:OralCavityResource.Lab_Suggestion}" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
+        <TextBox Text="{Binding OralCavityModel.Suggestion,Mode=TwoWay}" MaxLength="1000" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Height="60" Margin="0,5,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,10,0,5">
+            <Button Command="{Binding SaveCommand}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{DynamicResource btn-primary}"></Button>
+            <Button Command="{Binding RemoveCommand}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Visibility="{Binding RemoveVisibility,Mode=OneWay}" Margin="5,0,0,0"/>
+            <Button Command="{Binding CloseCommand}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
+        </StackPanel>
+    </Grid>
+</Base:WindowBase>
