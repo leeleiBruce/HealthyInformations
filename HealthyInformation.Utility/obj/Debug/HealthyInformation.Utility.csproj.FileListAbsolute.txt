@@ -9,3 +9,10 @@ E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Utility\obj\De
 E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Utility\bin\Debug\Newtonsoft.Json.dll
 E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Utility\bin\Debug\Newtonsoft.Json.xml
 E:\ASP.NET\HealthyInfomation\HealthyInfomation\HealthyInformation.Utility\obj\Debug\HealthyInformation.Utility.csprojResolveAssemblyReference.cache
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\bin\Debug\HealthyInformation.Utility.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\bin\Debug\HealthyInformation.Utility.pdb
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\bin\Debug\Newtonsoft.Json.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\bin\Debug\Newtonsoft.Json.xml
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\obj\Debug\HealthyInformation.Utility.csprojResolveAssemblyReference.cache
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\obj\Debug\HealthyInformation.Utility.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Utility\obj\Debug\HealthyInformation.Utility.pdb

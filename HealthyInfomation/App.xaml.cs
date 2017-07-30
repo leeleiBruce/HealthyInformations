@@ -65,6 +65,7 @@ namespace HealthyInfomation
                 cfg.CreateMap<PhthalmologyEntity, PhthalmologyModel>();
                 cfg.CreateMap<OralCavityEntity, OralCavityModel>();
                 cfg.CreateMap<SupplementaryExamEntity, SupplementaryExamModel>();
+                cfg.CreateMap<PhysicalExamMinRecord, PhysicalExamMinModel>();
             });
         }
     }

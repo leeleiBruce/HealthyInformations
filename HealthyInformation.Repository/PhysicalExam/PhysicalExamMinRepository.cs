@@ -14,6 +14,11 @@ namespace HealthyInformation.Repository.PhysicalExam
             : base(context)
         { }
 
+        public PhysicalExamMinRecord GetPhysicalExamMin(int year)
+        {
+            return this._context.Set<PhysicalExamMinRecord>().FirstOrDefault(p => p.RecordDate.Year == year);
+        }
+
         public PhysicalExamMinRecord GetPhysicalExamMinRecordByKey(int transactionNumber)
         {
             return this._context.Set<PhysicalExamMinRecord>().FirstOrDefault(p => p.TransactionNumber == transactionNumber);

@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam;
+using HealthyInformation.Model;
 using HealthyInformation.Service.PhysicalExam;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
     public class PhysicalExamMinWCF : IPhysicalExamMinWCF
     {
         IPhysicalExamMinService service = new PhysicalExamMinService();
+
+        public PhysicalExamMinRecord GetPhysicalExamMin(string year)
+        {
+            return service.GetPhysicalExamMin(int.Parse(year));
+        }
+
         public BaseResponse CreatePhysicalExamMin(PhysicalExamMinRecordRequest request)
         {
             return service.CreatePhysicalExamMin(request);

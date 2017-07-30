@@ -51,6 +51,7 @@
     <Compile Include="PhysicalExam\Entity\NeuropsychiatryEntity.cs" />
     <Compile Include="PhysicalExam\Entity\OralCavityEntity.cs" />
     <Compile Include="PhysicalExam\Entity\PhthalmologyEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\PhysicalExamMinRecordEntity.cs" />
     <Compile Include="PhysicalExam\Entity\SkinSurgeryEntity.cs" />
     <Compile Include="PhysicalExam\Entity\SupplementaryExamEntity.cs" />
     <Compile Include="PhysicalExam\Entity\UP_GetPhysicalExamAlarmInfo_Result.cs" />

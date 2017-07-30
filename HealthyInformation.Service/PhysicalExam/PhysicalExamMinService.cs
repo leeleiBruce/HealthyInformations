@@ -18,6 +18,11 @@ namespace HealthyInformation.Service.PhysicalExam
             this.repository = new PhysicalExamMinRepository(this.dbContext);
         }
 
+        public PhysicalExamMinRecord GetPhysicalExamMin(int year)
+        {
+            return repository.GetPhysicalExamMin(year);
+        }
+
         public BaseResponse CreatePhysicalExamMin(PhysicalExamMinRecordRequest request)
         {
             var physicalExamMinRecord = new PhysicalExamMinRecord

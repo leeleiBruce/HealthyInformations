@@ -9,6 +9,8 @@ namespace HealthyInformation.Repository.PhysicalExam
 {
     public interface IPhysicalExamMinRepository : IRepository<PhysicalExamMinRecord>
     {
+        PhysicalExamMinRecord GetPhysicalExamMin(int year);
+
         PhysicalExamMinRecord GetPhysicalExamMinRecordByKey(int transactionNumber);
     }
 }

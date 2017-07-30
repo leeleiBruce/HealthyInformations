@@ -1,4 +1,5 @@
 ﻿using HealthyInformation.ClientEntity;
+using HealthyInformation.ClientEntity.PhysicalExam.Entity;
 using HealthyInformation.ClientEntity.PhysicalExam.Request;
 using HealthyInformation.FrameWork;
 using HealthyInformation.FrameWork.ClientHelper;
@@ -15,6 +16,11 @@ namespace HealthyInfomation.Facade
         public PhysicalExamMinFacade(WindowBase windowBase)
             : base("PhysicalExamMinWCF", "PhysicalExam", windowBase)
         {
+        }
+
+        public async Task<PhysicalExamMinRecord> GetPhysicalExamMinByYear(int year)
+        {
+            return await this.GetAsync<PhysicalExamMinRecord>(string.Format("get/year/{0}", year));
         }
 
         public async Task<BaseResponse> CreatePhysicalExamMin(PhysicalExamMinRecordRequest request)

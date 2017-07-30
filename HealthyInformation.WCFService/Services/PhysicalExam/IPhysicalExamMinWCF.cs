@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam;
+using HealthyInformation.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,15 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
     public interface IPhysicalExamMinWCF
     {
         [OperationContract]
+        [WebGet(UriTemplate = "get/year/{year}",ResponseFormat = WebMessageFormat.Json)]
+        PhysicalExamMinRecord GetPhysicalExamMin(string year);
+
+        [OperationContract]
         [WebInvoke(UriTemplate = "create", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         BaseResponse CreatePhysicalExamMin(PhysicalExamMinRecordRequest request);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "update", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "UPDATE")]
+        [WebInvoke(UriTemplate = "update", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "PUT")]
         BaseResponse UpdatePhysicalExamMin(PhysicalExamMinRecordRequest request);
 
         [OperationContract]
