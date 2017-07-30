@@ -10,5 +10,7 @@ namespace HealthyInformation.Repository.PhysicalExam
     public interface IMedicalTreatmentRepository : IRepository<MedicalTreatment>
     {
         MedicalTreatment GetMedicalTreatmentByKey(int medicalTreatId);
+
+        MedicalTreatment GetMedicalTreatmentByYear(int year);
     }
 }

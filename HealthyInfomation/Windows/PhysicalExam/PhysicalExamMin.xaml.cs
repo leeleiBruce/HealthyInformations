@@ -206,6 +206,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
             await this.facade.UpdatePhysicalExamMin(request);
             this.ShowMessage(CommonMsgResource.Msg_SaveSuccess);
             this.IsSaveEnabled = false;
+            this.IsUpdateEnabled = true;
         }
 
         private PhysicalExamMinRecordRequest BuildRequest()

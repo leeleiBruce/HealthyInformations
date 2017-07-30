@@ -13,12 +13,17 @@ namespace HealthyInformation.Repository.PhysicalExam
         public MedicalTreatmentRepository(DbContext dbContext)
             : base(dbContext)
         {
-            
+
         }
 
         public MedicalTreatment GetMedicalTreatmentByKey(int medicalTreatId)
         {
             return this._context.Set<MedicalTreatment>().FirstOrDefault(m => m.TransactionNumber == medicalTreatId);
+        }
+
+        public MedicalTreatment GetMedicalTreatmentByYear(int year)
+        {
+            return this._context.Set<MedicalTreatment>().FirstOrDefault(m => m.RecordDate.Year == year);
         }
     }
 }

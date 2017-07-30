@@ -13,5 +13,9 @@ namespace HealthyInformation.Service.PhysicalExam
     public interface IMedicalTreatmentService : IService<MedicalTreatment>
     {
         BaseResponse CreateMedicalTreatment(MedicalTreatmentRequest request);
+
+        BaseResponse UpdateMedicalTreatment(MedicalTreatmentRequest request);
+
+        MedicalTreatment GetMedicalTreatmentByYear(int year);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam.Request;
+using HealthyInformation.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,13 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         [OperationContract]
         [WebInvoke(UriTemplate = "create", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         BaseResponse CreateMedicalTreatment(MedicalTreatmentRequest request);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "update", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "PUT")]
+        BaseResponse UpdateMedicalTreatment(MedicalTreatmentRequest request);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "get/year/{year}", ResponseFormat = WebMessageFormat.Json)]
+        MedicalTreatment GetMedicalTreatmentByYear(string year);
     }
 }

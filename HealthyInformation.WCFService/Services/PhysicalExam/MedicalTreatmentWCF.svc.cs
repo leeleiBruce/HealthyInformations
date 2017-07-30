@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Service.PhysicalExam;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,16 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         public BaseResponse CreateMedicalTreatment(MedicalTreatmentRequest request)
         {
             return medicalTreatmentService.CreateMedicalTreatment(request);
+        }
+
+        public BaseResponse UpdateMedicalTreatment(MedicalTreatmentRequest request)
+        {
+            return medicalTreatmentService.UpdateMedicalTreatment(request);
+        }
+
+        public MedicalTreatment GetMedicalTreatmentByYear(string year)
+        {
+            return medicalTreatmentService.GetMedicalTreatmentByYear(int.Parse(year));
         }
     }
 }
