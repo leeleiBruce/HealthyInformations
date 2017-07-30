@@ -48,6 +48,7 @@
     <Compile Include="PhysicalExam\Entity\ENTSectionEntity.cs" />
     <Compile Include="PhysicalExam\Entity\InternalMedicineEntity.cs" />
     <Compile Include="PhysicalExam\Entity\MedicalIdentificationEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\MedicalTreatmentEntity.cs" />
     <Compile Include="PhysicalExam\Entity\NeuropsychiatryEntity.cs" />
     <Compile Include="PhysicalExam\Entity\OralCavityEntity.cs" />
     <Compile Include="PhysicalExam\Entity\PhthalmologyEntity.cs" />
