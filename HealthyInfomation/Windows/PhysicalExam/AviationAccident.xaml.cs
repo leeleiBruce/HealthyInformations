@@ -260,11 +260,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
                     {
                         IsNextEnabled = false;
                     }
-                    else
-                    {
-                        IsPreviousEnabled = true;
-                    }
-
+                    IsPreviousEnabled = true;
                     this.AviationAccidentModel = AutoMapper.Mapper.Map<AviationAccidentModel>(aviationAccidentList[dataIndex]);
                 });
             }

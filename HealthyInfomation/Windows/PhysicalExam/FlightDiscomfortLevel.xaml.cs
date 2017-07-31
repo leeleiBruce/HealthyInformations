@@ -277,11 +277,8 @@ namespace HealthyInfomation.Windows.PhysicalExam
                     {
                         IsNextEnabled = false;
                     }
-                    else
-                    {
-                        IsPreviousEnabled = true;
-                    }
-
+          
+                    IsPreviousEnabled = true;
                     this.FlightDiscomfortLevelModel = AutoMapper.Mapper.Map<FlightDiscomfortLevelModel>(flightDiscomfortLevelList[dataIndex]);
                 });
             }

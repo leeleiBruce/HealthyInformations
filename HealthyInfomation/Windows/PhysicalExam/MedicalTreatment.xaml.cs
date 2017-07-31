@@ -239,10 +239,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
                     {
                         IsNextEnabled = false;
                     }
-                    else
-                    {
-                        IsPreviousEnabled = true;
-                    }
+                    IsPreviousEnabled = true;
 
                     this.MedicalTreatmentModel = AutoMapper.Mapper.Map<MedicalTreatmentModel>(medicalTreatmentList[dataIndex]);
                 });

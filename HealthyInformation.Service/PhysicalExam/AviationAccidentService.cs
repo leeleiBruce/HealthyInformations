@@ -53,14 +53,17 @@ namespace HealthyInformation.Service.PhysicalExam
             return this.Update(aviationAccident);
         }
 
-        public AviationAccident GetAviationAccidentByKey(int key)
-        {
-            return repository.GetAviationAccidentByKey(key);
-        }
-
         public List<AviationAccident> GetAviationAccidentByYear(int year)
         {
             return repository.GetAviationAccidentByYear(year);
+        }
+
+        public void DeleteAviationAccident(int key)
+        {
+            var aviationAccident = repository.GetAviationAccidentByKey(key);
+            if (aviationAccident == null) return;
+
+            this.Remove(aviationAccident);
         }
     }
 }

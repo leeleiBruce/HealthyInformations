@@ -26,14 +26,14 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
             return service.UpdateAviationAccident(request);
         }
 
-        public AviationAccident GetAviationAccidentByKey(int key)
+        public List<AviationAccident> GetAviationAccidentByYear(string year)
         {
-            return service.GetAviationAccidentByKey(key);
+            return service.GetAviationAccidentByYear(int.Parse(year));
         }
 
-        public List<AviationAccident> GetAviationAccidentByYear(int year)
+        public void DeleteAviationAccident(string key)
         {
-            return service.GetAviationAccidentByYear(year);
+           service.DeleteAviationAccident(int.Parse(key));
         }
     }
 }

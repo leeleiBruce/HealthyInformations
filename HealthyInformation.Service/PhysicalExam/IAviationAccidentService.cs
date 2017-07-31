@@ -13,8 +13,7 @@ namespace HealthyInformation.Service.PhysicalExam
     {
         BaseResponse CreateAviationAccident(AviationAccidentRequest request);
         BaseResponse UpdateAviationAccident(AviationAccidentRequest request);
-        AviationAccident GetAviationAccidentByKey(int key);
         List<AviationAccident> GetAviationAccidentByYear(int year);
-
+        void DeleteAviationAccident(int key);
     }
 }
