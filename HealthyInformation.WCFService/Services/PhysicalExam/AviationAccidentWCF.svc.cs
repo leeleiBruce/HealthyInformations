@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Service.PhysicalExam;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,21 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         public BaseResponse CreateAviationAccident(AviationAccidentRequest request)
         {
             return service.CreateAviationAccident(request);
+        }
+
+        public BaseResponse UpdateAviationAccident(AviationAccidentRequest request)
+        {
+            return service.UpdateAviationAccident(request);
+        }
+
+        public AviationAccident GetAviationAccidentByKey(int key)
+        {
+            return service.GetAviationAccidentByKey(key);
+        }
+
+        public List<AviationAccident> GetAviationAccidentByYear(int year)
+        {
+            return service.GetAviationAccidentByYear(year);
         }
     }
 }

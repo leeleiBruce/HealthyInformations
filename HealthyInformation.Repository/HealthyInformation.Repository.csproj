@@ -48,7 +48,9 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="LoginManage\IUserRepository.cs" />
     <Compile Include="LoginManage\UserRepository.cs" />
+    <Compile Include="PhysicalExam\AviationAccidentRepository.cs" />
     <Compile Include="PhysicalExam\FlightDiscomfortableLevelRepository.cs" />
+    <Compile Include="PhysicalExam\IAviationAccidentRepository.cs" />
     <Compile Include="PhysicalExam\IFlightDiscomfortableLevelRepository.cs" />
     <Compile Include="ConfigDictionary\IFlyerTypeRepository.cs" />
     <Compile Include="PhysicalExam\IMedicalIdentificationRepository.cs" />

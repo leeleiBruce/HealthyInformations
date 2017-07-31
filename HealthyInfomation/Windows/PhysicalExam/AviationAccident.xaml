@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:HealthyInfomation.Resource"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="飞行事故及原因" Height="490" Width="530">
+        Title="飞行事故及原因" Height="550" Width="530">
     <Base:WindowBase.Resources>
         <local:AviationAccidentResource x:Key="LocalResource"></local:AviationAccidentResource>
     </Base:WindowBase.Resources>
@@ -14,9 +14,35 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Image Source="/Images/PhysicalExam/flyaccident.jpg" Grid.Row="0"></Image>
-        <Grid Grid.Row="1" Margin="10,5,10,5">
+        <Grid Grid.Row="1" Margin="0,5,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="年份：" Grid.Row="0" Grid.Column="0" Margin="35,0,0,0"></TextBlock>
+            <ComboBox 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="120"
+                    ItemsSource="{Binding YearList,Mode=OneWay}"
+                    DisplayMemberPath="Value"
+                    SelectedValuePath="Key"
+                    SelectedValue="{Binding SelectedYear,Mode=TwoWay}"></ComboBox>
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <Button Command="{Binding PreviousCommand,Mode=OneWay}" Content="上一条" Style="{DynamicResource btn-info}" IsEnabled="{Binding IsPreviousEnabled,Mode=OneWay}"></Button>
+                <Button Command="{Binding NextCommand,Mode=OneWay}" Content="下一条" Style="{DynamicResource btn-info}" IsEnabled="{Binding IsNextEnabled,Mode=OneWay}" Margin="5,0,0,0"></Button>
+            </StackPanel>
+            <Line X1="5" Y1="5" X2="620" Y2="5" Grid.Row="1" Stroke="Black" Grid.ColumnSpan="3" StrokeThickness="1"></Line>
+        </Grid>
+        <Grid Grid.Row="2" Margin="10,5,10,5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -58,8 +84,10 @@
                       ItemsSource="{Binding AviationMedicineList,Mode=OneWay}"
                       SelectedValue="{Binding AviationAccidentModel.AvationMedicineID,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></ComboBox>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5,10,10,10" HorizontalAlignment="Right">
-            <Button Command="{Binding SaveCommand}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{DynamicResource btn-primary}"></Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5,10,10,10" HorizontalAlignment="Right">
+            <Button Command="{Binding UpdateCommand}" Content="{x:Static local:CommonResource.Btn_Update}" IsEnabled="{Binding IsUpdateEnabled,Mode=OneWay}" Visibility="{Binding UpdateVisibility,Mode=OneWay}" Style="{DynamicResource btn-info}"></Button>
+            <Button Command="{Binding SaveCommand}" Content="{x:Static local:CommonResource.Btn_Save}" IsEnabled="{Binding IsSaveEnabled,Mode=OneWay}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0"></Button>
+            <Button Command="{Binding DeleteCommand}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" IsEnabled="{Binding IsRemoveEnabled,Mode=OneWay}" Margin="5,0,0,0"></Button>
             <Button Command="{Binding CloseCommand}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
         </StackPanel>
     </Grid>

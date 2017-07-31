@@ -68,6 +68,8 @@ namespace HealthyInfomation
                 cfg.CreateMap<PhysicalExamMinRecord, PhysicalExamMinModel>();
                 cfg.CreateMap<MedicalTreatmentEntity, MedicalTreatmentModel>()
                  .ForMember(dest => dest.NeedObservation, mo => mo.MapFrom(m => m.NeedObservation=="1"));
+                cfg.CreateMap<FlightDiscomfortLevelEntity, FlightDiscomfortLevelModel>();
+                cfg.CreateMap<AviationAccidentEntity, AviationAccidentModel > ();
             });
         }
     }

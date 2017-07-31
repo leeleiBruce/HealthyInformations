@@ -1,6 +1,7 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam.Request;
 using HealthyInformation.Model;
+using HealthyInformation.Repository.PhysicalExam;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,10 @@ namespace HealthyInformation.Service.PhysicalExam
 {
     public class AviationAccidentService : BaseService<AviationAccident>, IAviationAccidentService
     {
+        IAviationAccidentRepository repository;
         public AviationAccidentService()
         {
- 
+            repository = new AviationAccidentRepository(this.dbContext);
         }
 
         public BaseResponse CreateAviationAccident(AviationAccidentRequest request)
@@ -34,6 +36,31 @@ namespace HealthyInformation.Service.PhysicalExam
 
 
             return this.BuildSuccessResponse();
+        }
+
+        public BaseResponse UpdateAviationAccident(AviationAccidentRequest request)
+        {
+            var aviationAccident = this.repository.GetAviationAccidentByKey(request.TransactionNumber);
+            aviationAccident.Condition = request.Condition;
+            aviationAccident.FlyDate = request.FlyDate.Value;
+            aviationAccident.FlySubject = request.FlySubject;
+            aviationAccident.Nature = request.Nature;
+            aviationAccident.Reason = request.Reason;
+            aviationAccident.Suggestion = request.Suggestion;
+            aviationAccident.LastEditDate = DateTime.Now;
+            aviationAccident.LastEditUser = request.ActionUserID;
+
+            return this.Update(aviationAccident);
+        }
+
+        public AviationAccident GetAviationAccidentByKey(int key)
+        {
+            return repository.GetAviationAccidentByKey(key);
+        }
+
+        public List<AviationAccident> GetAviationAccidentByYear(int year)
+        {
+            return repository.GetAviationAccidentByYear(year);
         }
     }
 }

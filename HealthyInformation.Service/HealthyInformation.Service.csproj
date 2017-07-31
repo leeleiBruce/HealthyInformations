@@ -82,10 +82,6 @@
     <Compile Include="SystemManage\SanatoriumManageService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HealthyInfomation\HealthyInfomation.csproj">
-      <Project>{6684069D-967F-4EC4-9099-F352A4667294}</Project>
-      <Name>HealthyInfomation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HealthyInformation.Entity\HealthyInformation.Entity.csproj">
       <Project>{517ad33e-e5c7-4fc9-b78a-706df25df2d0}</Project>
       <Name>HealthyInformation.Entity</Name>

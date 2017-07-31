@@ -44,8 +44,10 @@
     <Compile Include="BaseRemoveRequest.cs" />
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />
+    <Compile Include="PhysicalExam\Entity\AviationAccidentEntity.cs" />
     <Compile Include="PhysicalExam\Entity\ConclusionsphysicalexamEntity.cs" />
     <Compile Include="PhysicalExam\Entity\ENTSectionEntity.cs" />
+    <Compile Include="PhysicalExam\Entity\FlightDiscomfortLevelEntity.cs" />
     <Compile Include="PhysicalExam\Entity\InternalMedicineEntity.cs" />
     <Compile Include="PhysicalExam\Entity\MedicalIdentificationEntity.cs" />
     <Compile Include="PhysicalExam\Entity\MedicalTreatmentEntity.cs" />

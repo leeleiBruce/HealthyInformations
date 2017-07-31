@@ -1,5 +1,6 @@
 ﻿using HealthyInformation.Entity;
 using HealthyInformation.Entity.PhysicalExam.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Service.PhysicalExam;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,21 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         public BaseResponse CreateFlightDiscomfortableLevel(FlightDiscomfortLevelRequest request)
         {
             return service.CreateFlightDiscomfortableLevel(request);
+        }
+
+        public BaseResponse UpdateFlightDiscomfortableLevel(FlightDiscomfortLevelRequest request)
+        {
+            return service.UpdateFlightDiscomfortableLevel(request);
+        }
+
+        public List<FlightDiscomfortLevel> GetFlightDiscomfortableLevelByYear(string year)
+        {
+            return service.GetFlightDiscomfortableLevelByYear(int.Parse(year));
+        }
+
+        public void DeleteFlightDiscomfortableLevel(string key)
+        {
+            service.DeleteFlightDiscomfortableLevel(int.Parse(key));
         }
     }
 }
