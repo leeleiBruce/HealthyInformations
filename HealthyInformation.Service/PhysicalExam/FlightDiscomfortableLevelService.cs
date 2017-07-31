@@ -34,8 +34,39 @@ namespace HealthyInformation.Service.PhysicalExam
                 return this.BuildExceptionResponse(ex);
             }
 
-
             return this.BuildSuccessResponse();
+        }
+
+        public BaseResponse UpdateFlightDiscomfortableLevel(FlightDiscomfortLevelRequest request)
+        {
+            var flightDiscomfortable = this.repository.GetFlightDiscomfortLevelByKey(request.TransactionNumber);
+            flightDiscomfortable.Complained = request.Complained;
+            flightDiscomfortable.Examination = request.Examination;
+            flightDiscomfortable.FlyDate = request.FlyDate;
+            flightDiscomfortable.FlyerType = request.FlyerType;
+            flightDiscomfortable.FlyHeight = request.FlyHeight;
+            flightDiscomfortable.FlySpeed = request.FlySpeed;
+            flightDiscomfortable.FlySubject = request.FlySubject;
+            flightDiscomfortable.FlyTotalTime = request.FlyTotalTime;
+            flightDiscomfortable.LastEditDate = DateTime.Now;
+            flightDiscomfortable.LastEditUser = request.ActionUserID;
+            flightDiscomfortable.Measure = request.Measure;
+            flightDiscomfortable.WeatherCondition = request.WeatherCondition;
+
+            return this.Update(flightDiscomfortable);
+        }
+
+        public List<FlightDiscomfortLevel> GetFlightDiscomfortableLevelByYear(int year)
+        {
+            return this.repository.GetFlightDiscomfortLevelByYear(year);
+        }
+
+        public void DeleteFlightDiscomfortableLevel(int key)
+        {
+            var flightComfortable = this.repository.GetFlightDiscomfortLevelByKey(key);
+            if (flightComfortable == null) return;
+
+            this.Remove(flightComfortable);
         }
     }
 }

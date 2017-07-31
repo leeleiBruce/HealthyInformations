@@ -20,5 +20,10 @@ namespace HealthyInformation.Repository.PhysicalExam
         {
             return this._context.Set<FlightDiscomfortLevel>().FirstOrDefault(f => f.TransactionNumber == key);
         }
+
+        public List<FlightDiscomfortLevel> GetFlightDiscomfortLevelByYear(int year)
+        {
+            return this._context.Set<FlightDiscomfortLevel>().Where(f=>f.InDate.Value.Year== year).ToList();
+        }
     }
 }

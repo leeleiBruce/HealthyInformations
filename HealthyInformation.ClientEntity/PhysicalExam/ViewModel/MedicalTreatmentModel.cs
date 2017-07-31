@@ -125,7 +125,23 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
             set
             {
                 needObservation = value;
+                NotNeedObervation = !value;
+                RaisePropertyChanged("NotNeedObervation");
                 RaisePropertyChanged("NeedObservation");
+            }
+        }
+
+        private bool notNeedObservation;
+        public bool NotNeedObervation
+        {
+            get
+            {
+                return notNeedObservation;
+            }
+            set
+            {
+                notNeedObservation = value;
+                RaisePropertyChanged("NotNeedObervation");
             }
         }
 

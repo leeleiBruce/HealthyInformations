@@ -21,9 +21,9 @@ namespace HealthyInformation.Repository.PhysicalExam
             return this._context.Set<MedicalTreatment>().FirstOrDefault(m => m.TransactionNumber == medicalTreatId);
         }
 
-        public MedicalTreatment GetMedicalTreatmentByYear(int year)
+        public List<MedicalTreatment> GetMedicalTreatmentByYear(int year)
         {
-            return this._context.Set<MedicalTreatment>().FirstOrDefault(m => m.RecordDate.Year == year);
+            return this._context.Set<MedicalTreatment>().Where(m => m.RecordDate.Year == year).ToList();
         }
     }
 }

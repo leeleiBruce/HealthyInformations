@@ -10,5 +10,7 @@ namespace HealthyInformation.Repository.PhysicalExam
     public interface IFlightDiscomfortableLevelRepository : IRepository<FlightDiscomfortLevel>
     {
         FlightDiscomfortLevel GetFlightDiscomfortLevelByKey(int key);
+
+        List<FlightDiscomfortLevel> GetFlightDiscomfortLevelByYear(int year);
     }
 }

@@ -29,9 +29,14 @@ namespace HealthyInfomation.Facade
             return await this.PutAsync<MedicalTreatmentRequest, BaseResponse>("update", request);
         }
 
-        public async Task<MedicalTreatmentEntity> GetMedicalTreatmentByYear(int year)
+        public async Task<List<MedicalTreatmentEntity>> GetMedicalTreatmentByYear(int year)
         {
-            return await this.GetAsync<MedicalTreatmentEntity>(string.Format("get/year/{0}", year));
+            return await this.GetAsync<List<MedicalTreatmentEntity>>(string.Format("get/year/{0}", year));
+        }
+
+        public async void DeleteMedicalTreatment(int key)
+        {
+            await this.DeleteAsync<string>(string.Format("delete/{0}", key));
         }
     }
 }

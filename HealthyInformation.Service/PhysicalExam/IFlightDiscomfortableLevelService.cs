@@ -12,5 +12,11 @@ namespace HealthyInformation.Service.PhysicalExam
     public interface IFlightDiscomfortableLevelService : IService<FlightDiscomfortLevel>
     {
         BaseResponse CreateFlightDiscomfortableLevel(FlightDiscomfortLevelRequest request);
+
+        BaseResponse UpdateFlightDiscomfortableLevel(FlightDiscomfortLevelRequest request);
+
+        List<FlightDiscomfortLevel> GetFlightDiscomfortableLevelByYear(int year);
+
+        void DeleteFlightDiscomfortableLevel(int key);
     }
 }

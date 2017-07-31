@@ -12,6 +12,7 @@ using HealthyInformation.FrameWork.Extension;
 using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
+using HealthyInformation.ClientEntity.PhysicalExam.Entity;
 
 namespace HealthyInfomation.Windows.PhysicalExam
 {
@@ -20,9 +21,12 @@ namespace HealthyInfomation.Windows.PhysicalExam
     /// </summary>
     public partial class MedicalTreatment : WindowBase
     {
+        int dataIndex = 0;
         int minYear = 2010;
         AircrewEntity aircrewEntity;
         MedicalTreatmentFacade facade;
+        List<MedicalTreatmentEntity> medicalTreatmentList;
+
         public MedicalTreatment()
         {
             InitializeComponent();
@@ -31,7 +35,13 @@ namespace HealthyInfomation.Windows.PhysicalExam
             this.facade = new MedicalTreatmentFacade(this);
             this.MedicalTreatmentModel.NeedObservation = true;
             this.InitData();
-            this.MedicalTreatmentModel.PropertyChanged += MedicalTreatmentModel_PropertyChanged;
+            this.PropertyChanged += MedicalTreatmentModel_PropertyChanged;
+        }
+
+        public MedicalTreatment(AircrewEntity aircrewEntity)
+            : this()
+        {
+            this.aircrewEntity = aircrewEntity;
         }
 
         #region property
@@ -106,6 +116,48 @@ namespace HealthyInfomation.Windows.PhysicalExam
             }
         }
 
+        private bool isRemoveEnabled;
+        public bool IsRemoveEnabled
+        {
+            get
+            {
+                return isRemoveEnabled;
+            }
+            set
+            {
+                isRemoveEnabled = value;
+                RaisePropertyChanged("IsRemoveEnabled");
+            }
+        }
+
+        private bool isPreviousEnabled;
+        public bool IsPreviousEnabled
+        {
+            get
+            {
+                return isPreviousEnabled;
+            }
+            set
+            {
+                isPreviousEnabled = value;
+                RaisePropertyChanged("IsPreviousEnabled");
+            }
+        }
+
+        private bool isNextEnabled;
+        public bool IsNextEnabled
+        {
+            get
+            {
+                return isNextEnabled;
+            }
+            set
+            {
+                isNextEnabled = value;
+                RaisePropertyChanged("IsNextEnabled");
+            }
+        }
+
         public List<KeyValuePair<int, string>> YearList
         {
             get
@@ -123,12 +175,6 @@ namespace HealthyInfomation.Windows.PhysicalExam
         }
 
         #endregion
-
-        public MedicalTreatment(AircrewEntity aircrewEntity)
-            : this()
-        {
-            this.aircrewEntity = aircrewEntity;
-        }
 
         #region Command
 
@@ -162,6 +208,65 @@ namespace HealthyInfomation.Windows.PhysicalExam
             }
         }
 
+        public ICommand PreviousCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    if (medicalTreatmentList == null || medicalTreatmentList.Count == 0) return;
+                    this.dataIndex -= 1;
+                    if (dataIndex == 0)
+                    {
+                        IsNextEnabled = true;
+                        IsPreviousEnabled = false;
+                    }
+
+                    this.MedicalTreatmentModel = AutoMapper.Mapper.Map<MedicalTreatmentModel>(medicalTreatmentList[dataIndex]);
+                });
+            }
+        }
+
+        public ICommand NextCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    if (medicalTreatmentList == null || medicalTreatmentList.Count == 0) return;
+                    this.dataIndex += 1;
+                    if (dataIndex == medicalTreatmentList.Count - 1)
+                    {
+                        IsNextEnabled = false;
+                    }
+                    else
+                    {
+                        IsPreviousEnabled = true;
+                    }
+
+                    this.MedicalTreatmentModel = AutoMapper.Mapper.Map<MedicalTreatmentModel>(medicalTreatmentList[dataIndex]);
+                });
+            }
+        }
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand(async (obj) =>
+                {
+                    if (MedicalTreatmentModel == null) return;
+
+                    if (this.ShowConfirm(CommonMsgResource.Msg_RemoveConfirm) == MessageBoxResult.Yes)
+                    {
+                        this.facade.DeleteMedicalTreatment(MedicalTreatmentModel.TransactionNumber);
+                        this.ShowMessage(CommonMsgResource.Msg_RemoveSuccess);
+                        await this.RefreshUIData();
+                    }
+                });
+            }
+        }
+
         #endregion
 
         #region Method
@@ -169,6 +274,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
         private void InitData()
         {
             this.IsSaveEnabled = true;
+            this.IsRemoveEnabled = false;
             this.UpdateVisibility = Visibility.Collapsed;
         }
 
@@ -191,6 +297,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
                 if (response.IsSucess)
                 {
                     this.ShowMessage(CommonMsgResource.Msg_SaveSuccess);
+                    await RefreshUIData();
                 }
                 else
                 {
@@ -218,6 +325,7 @@ namespace HealthyInfomation.Windows.PhysicalExam
                 if (response.IsSucess)
                 {
                     this.ShowMessage(CommonMsgResource.Msg_SaveSuccess);
+                    await RefreshUIData();
                 }
                 else
                 {
@@ -258,21 +366,32 @@ namespace HealthyInfomation.Windows.PhysicalExam
         {
             if (e.PropertyName == "SelectedYear")
             {
-                var medicalTreatment = await this.facade.GetMedicalTreatmentByYear(SelectedYear);
-                this.MedicalTreatmentModel = AutoMapper.Mapper.Map<MedicalTreatmentModel>(medicalTreatment);
-                if (medicalTreatment != null)
-                {
-                    this.UpdateVisibility = Visibility.Visible;
-                    this.IsUpdateEnabled = true;
-                    this.IsSaveEnabled = false;
-                }
-                else
-                {
-                    this.MedicalTreatmentModel = new MedicalTreatmentModel();
-                    this.UpdateVisibility = Visibility.Collapsed;
-                    this.IsSaveEnabled = true;
-                }
+                await RefreshUIData();
             }
+        }
+
+        private async Task RefreshUIData()
+        {
+            dataIndex = 0;
+            medicalTreatmentList = await this.facade.GetMedicalTreatmentByYear(SelectedYear);
+            if (medicalTreatmentList == null || medicalTreatmentList.Count == 0)
+            {
+                this.UpdateVisibility = Visibility.Collapsed;
+                this.IsSaveEnabled = true;
+                this.IsRemoveEnabled = false;
+                this.MedicalTreatmentModel = new MedicalTreatmentModel();
+            }
+            else
+            {
+                this.UpdateVisibility = Visibility.Visible;
+                this.IsUpdateEnabled = true;
+                this.IsRemoveEnabled = true;
+                this.IsSaveEnabled = false;
+                this.MedicalTreatmentModel = AutoMapper.Mapper.Map<MedicalTreatmentModel>(medicalTreatmentList[0]);
+            }
+
+            this.IsPreviousEnabled = false;
+            this.IsNextEnabled = medicalTreatmentList != null && medicalTreatmentList.Count > 1;
         }
     }
 }

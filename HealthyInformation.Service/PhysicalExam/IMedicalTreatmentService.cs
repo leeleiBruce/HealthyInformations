@@ -16,6 +16,8 @@ namespace HealthyInformation.Service.PhysicalExam
 
         BaseResponse UpdateMedicalTreatment(MedicalTreatmentRequest request);
 
-        MedicalTreatment GetMedicalTreatmentByYear(int year);
+        List<MedicalTreatment> GetMedicalTreatmentByYear(int year);
+
+        void DeleteMedicalTreatment(int key);
     }
 }

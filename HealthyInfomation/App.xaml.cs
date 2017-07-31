@@ -66,6 +66,8 @@ namespace HealthyInfomation
                 cfg.CreateMap<OralCavityEntity, OralCavityModel>();
                 cfg.CreateMap<SupplementaryExamEntity, SupplementaryExamModel>();
                 cfg.CreateMap<PhysicalExamMinRecord, PhysicalExamMinModel>();
+                cfg.CreateMap<MedicalTreatmentEntity, MedicalTreatmentModel>()
+                 .ForMember(dest => dest.NeedObservation, mo => mo.MapFrom(m => m.NeedObservation=="1"));
             });
         }
     }
