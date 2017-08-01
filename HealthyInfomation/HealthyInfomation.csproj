@@ -210,6 +210,9 @@
     <Compile Include="Windows\CommonDisease.xaml.cs">
       <DependentUpon>CommonDisease.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ModifyPassWord.xaml.cs">
+      <DependentUpon>ModifyPassWord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PhysicalExamAlarm.xaml.cs">
       <DependentUpon>PhysicalExamAlarm.xaml</DependentUpon>
     </Compile>
@@ -395,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CommonDisease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ModifyPassWord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -742,7 +749,12 @@
   <ItemGroup>
     <Resource Include="Images\chart.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\System\pwdmodify.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\lock.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

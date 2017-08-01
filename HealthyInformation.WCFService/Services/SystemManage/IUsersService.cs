@@ -1,4 +1,5 @@
-﻿using HealthyInformation.Model;
+﻿using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,9 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         [OperationContract]
         [WebGet(UriTemplate = "get?userName={userName}", ResponseFormat = WebMessageFormat.Json)]
         User GetUser(string userName);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "update/pwd", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "PUT")]
+        void UpdateUserPassWord(UserPwdUpdateRequest request);
     }
 }

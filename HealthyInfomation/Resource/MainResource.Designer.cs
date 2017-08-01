@@ -133,6 +133,15 @@ namespace HealthyInfomation.Resource {
         }
         
         /// <summary>
+        ///   查找类似 修改密码 的本地化字符串。
+        /// </summary>
+        public static string ToolBar_ModifyPwd {
+            get {
+                return ResourceManager.GetString("ToolBar_ModifyPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 空勤人员 的本地化字符串。
         /// </summary>
         public static string ToolBar_PersonRegister {

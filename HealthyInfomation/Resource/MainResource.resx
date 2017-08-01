@@ -141,6 +141,9 @@
   <data name="ToolBar_MedicalTreatment" xml:space="preserve">
     <value>外出就医</value>
   </data>
+  <data name="ToolBar_ModifyPwd" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
   <data name="ToolBar_PersonRegister" xml:space="preserve">
     <value>空勤人员</value>
   </data>

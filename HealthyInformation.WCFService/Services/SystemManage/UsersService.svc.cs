@@ -1,4 +1,5 @@
-﻿using HealthyInformation.Model;
+﻿using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Service.LoginManage;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         public User GetUser(string userName)
         {
             return userService.GetUser(userName);
+        }
+
+        public void UpdateUserPassWord(UserPwdUpdateRequest request)
+        {
+            userService.UpdateUserPassWord(request);
         }
     }
 }

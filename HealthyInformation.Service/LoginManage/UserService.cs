@@ -1,4 +1,5 @@
-﻿using HealthyInformation.Model;
+﻿using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Repository.LoginManage;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,16 @@ namespace HealthyInformation.Service.LoginManage
         public User GetUser(string userName)
         {
             return this.userRepository.GetUser(userName);
+        }
+
+        public void UpdateUserPassWord(UserPwdUpdateRequest request)
+        {
+            var user = this.GetUser(request.UserName);
+            if (user != null)
+            {
+                user.PassWord = request.NewPassWord;
+                Update(user);
+            }
         }
     }
 }

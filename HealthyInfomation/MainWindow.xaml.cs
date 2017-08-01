@@ -96,6 +96,11 @@ namespace HealthyInfomation
             {
                 new PhysicalExamAlarm().ShowDialog();
             }
+            else if (param == "userpwd")
+            {
+                new ModifyPassWord().ShowDialog();
+            }
+            
         }
 
         protected override void OnClosing(CancelEventArgs e)
