@@ -1,6 +1,7 @@
 ﻿using HealthyInfomation.Resource;
 using HealthyInfomation.Windows;
 using HealthyInfomation.Windows.PhysicalExam;
+using HealthyInfomation.Windows.UserControl;
 using HealthyInformation.FrameWork;
 using HealthyInformation.FrameWork.AuthorUser;
 using System;
@@ -33,7 +34,8 @@ namespace HealthyInfomation
             InitializeComponent();
             timer.Elapsed += timer_Elapsed;
             timer.Start();
-            this.DataContext = this;
+            DataContext = this;
+            InitData();
         }
 
         private string currentTime;
@@ -100,7 +102,11 @@ namespace HealthyInfomation
             {
                 new ModifyPassWord().ShowDialog();
             }
-            
+        }
+
+        private void InitData()
+        {
+            this.CurrentTime = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
         }
 
         protected override void OnClosing(CancelEventArgs e)

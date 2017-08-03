@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="第二飞行训练团健康登记管理系统"
         xmlns:local="clr-namespace:HealthyInfomation.Resource"
+        xmlns:Custom="clr-namespace:HealthyInfomation.Windows.UserControl"
         Height="600"
         Width="999" Icon="Images/main.ico" WindowStartupLocation="CenterScreen">
     <Base:WindowBase.Resources>
@@ -99,6 +100,12 @@
                 <Separator></Separator>
                 <StatusBarItem>
                     <TextBlock Text="{Binding CurrentTime,Mode=OneWay}" Foreground="White"></TextBlock>
+                </StatusBarItem>
+                <Separator></Separator>
+                <StatusBarItem>
+                    <Grid>
+                        <Custom:Marquee x:Name="marqueeAlarm" FontSize="14" MarqueeTimeInSeconds="10" Foreground="Yellow" Margin="2" Width="200" MarqueeType="LeftToRight"></Custom:Marquee>
+                    </Grid>
                 </StatusBarItem>
             </StatusBar>
         </DockPanel>

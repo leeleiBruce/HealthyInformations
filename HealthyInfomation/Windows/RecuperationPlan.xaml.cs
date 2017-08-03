@@ -33,6 +33,7 @@ namespace HealthyInfomation.Windows
             sanatoriumFacade = new SanatoriumFacade(this);
             DataContext = this;
             InitData();
+            SearchRecuperationPlan();
         }
 
         #region ViewModel
