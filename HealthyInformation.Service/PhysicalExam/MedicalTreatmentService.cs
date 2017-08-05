@@ -82,7 +82,7 @@ namespace HealthyInformation.Service.PhysicalExam
             }
         }
 
-        public List<MedicalTreatment> GetMedicalTreatmentByAlarmDate()
+        public List<UP_GetMedicalTreatAlarmInfo_Result> GetMedicalTreatmentByAlarmDate()
         {
             return this.medicalTreatmentRepository.GetMedicalTreatmentByAlarmDate();
         }

@@ -73,5 +73,10 @@ namespace HealthyInformation.Model
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetPhysicalExamAlarmInfo_Result>("UP_GetPhysicalExamAlarmInfo");
         }
+    
+        public virtual ObjectResult<UP_GetMedicalTreatAlarmInfo_Result> UP_GetMedicalTreatAlarmInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetMedicalTreatAlarmInfo_Result>("UP_GetMedicalTreatAlarmInfo");
+        }
     }
 }

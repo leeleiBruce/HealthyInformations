@@ -13,6 +13,6 @@ namespace HealthyInformation.Repository.PhysicalExam
 
         List<MedicalTreatment> GetMedicalTreatmentByYear(int year);
 
-        List<MedicalTreatment> GetMedicalTreatmentByAlarmDate();
+        List<UP_GetMedicalTreatAlarmInfo_Result> GetMedicalTreatmentByAlarmDate();
     }
 }

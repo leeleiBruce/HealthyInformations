@@ -8,6 +8,6 @@
              Height="30"
              d:DesignHeight="300" d:DesignWidth="300">
     <Canvas ClipToBounds="True" Name="canMain" Height="30">
-        <TextBlock Name="tbmarquee"></TextBlock>
+        <TextBlock Name="tbmarquee" MouseLeftButtonDown="tbmarquee_MouseLeftButtonDown"></TextBlock>
     </Canvas>
 </UserControl>

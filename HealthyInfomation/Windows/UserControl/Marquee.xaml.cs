@@ -42,6 +42,8 @@ namespace HealthyInfomation.Windows.UserControl
             set { _marqueeTimeInSeconds = value; }
         }
 
+        public delegate void PopupHandler();
+        public event PopupHandler PopupDetail;
 
         public Marquee()
         {
@@ -119,6 +121,14 @@ namespace HealthyInfomation.Windows.UserControl
             doubleAnimation.RepeatBehavior = RepeatBehavior.Forever;
             doubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(_marqueeTimeInSeconds));
             tbmarquee.BeginAnimation(Canvas.BottomProperty, doubleAnimation);
+        }
+
+        private void tbmarquee_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (PopupDetail != null)
+            {
+                PopupDetail();
+            }
         }
     }
     public enum MarqueeType

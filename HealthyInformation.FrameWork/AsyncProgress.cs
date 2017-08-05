@@ -29,7 +29,7 @@ namespace HealthyInformation.FrameWork
             return asyncProgress;
         }
 
-        public void InjectWindowBase(WindowBase pagebase, bool isShowProgress = false)
+        public void InjectWindowBase(WindowBase pagebase, bool isShowProgress = true)
         {
             this.windowBase = pagebase;
             this.isShowProgress = isShowProgress;

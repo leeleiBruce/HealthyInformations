@@ -32,7 +32,7 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
             return medicalTreatmentService.GetMedicalTreatmentByYear(int.Parse(year));
         }
 
-        public List<MedicalTreatment> GetMedicalTreatmentByAlarmDate()
+        public List<UP_GetMedicalTreatAlarmInfo_Result> GetMedicalTreatmentByAlarmDate()
         {
             return medicalTreatmentService.GetMedicalTreatmentByAlarmDate();
         }

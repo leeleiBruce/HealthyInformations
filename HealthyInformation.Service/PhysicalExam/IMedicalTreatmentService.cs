@@ -20,6 +20,6 @@ namespace HealthyInformation.Service.PhysicalExam
 
         void DeleteMedicalTreatment(int key);
 
-        List<MedicalTreatment> GetMedicalTreatmentByAlarmDate();
+        List<UP_GetMedicalTreatAlarmInfo_Result> GetMedicalTreatmentByAlarmDate();
     }
 }

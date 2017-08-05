@@ -3,6 +3,7 @@ using HealthyInfomation.Resource;
 using HealthyInfomation.Windows;
 using HealthyInfomation.Windows.PhysicalExam;
 using HealthyInfomation.Windows.UserControl;
+using HealthyInformation.ClientEntity.PhysicalExam.Entity;
 using HealthyInformation.FrameWork;
 using HealthyInformation.FrameWork.AuthorUser;
 using System;
@@ -31,14 +32,29 @@ namespace HealthyInfomation
     {
         MedicalTreatmentFacade medicalTreatmentFacade;
         Timer timer = new Timer(1000);
+        Timer timerAlarm = new Timer(60 * 1000 * 10);
+        List<UP_GetMedicalTreatAlarmInfo_Result> medicalTreatAlarmList;
+
         public MainWindow()
         {
             InitializeComponent();
             timer.Elapsed += timer_Elapsed;
             timer.Start();
+            timerAlarm.Elapsed += timerAlarm_Elasped;
+            timerAlarm.Start();
             DataContext = this;
             medicalTreatmentFacade = new MedicalTreatmentFacade(this, false);
-            Loaded += (obj, args) => { InitData(); };
+            CurrentTime = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
+            InitData();
+            marqueeAlarm.PopupDetail += MarqueeAlarm_PopupDetail;
+        }
+
+        private void MarqueeAlarm_PopupDetail()
+        {
+            if (medicalTreatAlarmList?.Count > 0)
+            {
+                new MedicalTreatmentAlarm(medicalTreatAlarmList).ShowDialog();
+            }
         }
 
         private string currentTime;
@@ -109,11 +125,10 @@ namespace HealthyInfomation
 
         private async void InitData()
         {
-            this.CurrentTime = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
-            var alarmList = await this.medicalTreatmentFacade.GetMedicalTreatmentByAlarm();
-            if (alarmList?.Count > 0)
+            medicalTreatAlarmList = await this.medicalTreatmentFacade.GetMedicalTreatmentByAlarm();
+            if (medicalTreatAlarmList?.Count > 0)
             {
-                this.marqueeAlarm.MarqueeContent = string.Format("共有{0}名人员地观日期将至，请提前处理！", alarmList.Count);
+                this.marqueeAlarm.MarqueeContent = string.Format("共有{0}名人员地观日期将至，请提前处理！", medicalTreatAlarmList.Count);
             }
         }
 
@@ -132,6 +147,11 @@ namespace HealthyInfomation
         private void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             this.CurrentTime = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
+        }
+
+        private void timerAlarm_Elasped(object sender, ElapsedEventArgs e)
+        {
+            InitData();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace HealthyInformation.FrameWork.ClientHelper
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public RestClientWrapper(string serviceBase, string folder, WindowBase windowBase, bool isShow = false)
+        public RestClientWrapper(string serviceBase, string folder, WindowBase windowBase, bool isShow = true)
             : this()
         {
             client.BaseAddress = new Uri(client.BaseAddress, serviceBase);

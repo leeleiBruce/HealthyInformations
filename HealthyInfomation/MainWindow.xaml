@@ -104,7 +104,7 @@
                 <Separator></Separator>
                 <StatusBarItem>
                     <Grid>
-                        <Custom:Marquee x:Name="marqueeAlarm" FontSize="14" MarqueeTimeInSeconds="10" Foreground="Yellow" Margin="2" Width="200" MarqueeType="LeftToRight"></Custom:Marquee>
+                        <Custom:Marquee x:Name="marqueeAlarm" FontSize="14" MarqueeTimeInSeconds="10" Foreground="Yellow" Margin="2" Width="600" MarqueeType="LeftToRight"></Custom:Marquee>
                     </Grid>
                 </StatusBarItem>
             </StatusBar>

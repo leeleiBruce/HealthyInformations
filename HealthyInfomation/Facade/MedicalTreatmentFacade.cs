@@ -34,9 +34,9 @@ namespace HealthyInfomation.Facade
             return await this.GetAsync<List<MedicalTreatmentEntity>>(string.Format("get/year/{0}", year));
         }
 
-        public async Task<List<MedicalTreatmentEntity>> GetMedicalTreatmentByAlarm()
+        public async Task<List<UP_GetMedicalTreatAlarmInfo_Result>> GetMedicalTreatmentByAlarm()
         {
-            return await this.GetAsync<List<MedicalTreatmentEntity>>("get/alarm");
+            return await this.GetAsync<List<UP_GetMedicalTreatAlarmInfo_Result>>("get/alarm");
         }
 
         public async void DeleteMedicalTreatment(int key)

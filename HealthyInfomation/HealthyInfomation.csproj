@@ -225,6 +225,9 @@
     <Compile Include="Windows\PhysicalExam\MedicalTreatment.xaml.cs">
       <DependentUpon>MedicalTreatment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PhysicalExam\MedicalTreatmentAlarm.xaml.cs">
+      <DependentUpon>MedicalTreatmentAlarm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PhysicalExam\PhysicalExamAnalysis.xaml.cs">
       <DependentUpon>PhysicalExamAnalysis.xaml</DependentUpon>
     </Compile>
@@ -421,6 +424,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\PhysicalExam\MedicalTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PhysicalExam\MedicalTreatmentAlarm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
