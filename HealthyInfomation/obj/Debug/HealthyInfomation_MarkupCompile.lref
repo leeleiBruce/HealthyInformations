@@ -4,6 +4,7 @@ FE:\ASP.NET\HealthyProject\HealthyInfomation\Login.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\MainWindow.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\AviationMedicine.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\CommonDisease.xaml;;
+FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\ModifyPassWord.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExamAlarm.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\AviationAccident.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\FlightDiscomfortLevel.xaml;;
@@ -13,6 +14,7 @@ FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\PhysicalExamMa
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\PhysicalExamMin.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\UserControl\ENTSection.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\UserControl\Neuropsychiatry.xaml;;
+FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\UserControl\Marquee.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\UserControl\RecuperationInformation.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\UserControl\ConclusionsPhysical.xaml;;
 FE:\ASP.NET\HealthyProject\HealthyInfomation\Windows\PhysicalExam\UserControl\InternalMedicine.xaml;;

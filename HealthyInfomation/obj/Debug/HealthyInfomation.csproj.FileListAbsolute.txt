@@ -391,3 +391,9 @@ E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\HealthyInfomation.Resource
 E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\HealthyInfomation.csproj.GenerateResource.Cache
 E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\RdlCompile.cache
 E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\RdlCompile.compiled
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\ModifyPassWord.g.cs
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\ModifyPassWord.baml
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\UserControl\Marquee.g.cs
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\UserControl\Marquee.baml
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\PhysicalExam\MedicalTreatmentAlarm.baml
+E:\ASP.NET\HealthyProject\HealthyInfomation\obj\Debug\Windows\PhysicalExam\MedicalTreatmentAlarm.g.cs

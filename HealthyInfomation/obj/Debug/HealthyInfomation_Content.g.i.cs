@@ -8,18 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/.gitattributes")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/.gitignore")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/mrdsoft.rdlc/dsoft.rdlc.csproj")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/mrdsoft.rdlc/dsoft.rdlc.csproj.user")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/mrdsoft.rdlc/dsoft.rdlc.csproj.vspscc")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/northwind.sdf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/rdlcdemo.csproj")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/rdlcdemo.csproj.user")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/rdlcdemo.csproj.vspscc")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/rdlcreport.sln")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcdemo/rdlcreport.vssscc")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcreport.sln")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("rdlcprinter/rdlcreport.vssscc")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/system/lock.png")]
 
 

@@ -22,6 +22,6 @@ E:\ASP.NET\HealthyProject\HealthyInformation.Model\bin\Debug\HealthyInformation.
 E:\ASP.NET\HealthyProject\HealthyInformation.Model\bin\Debug\EntityFramework.dll
 E:\ASP.NET\HealthyProject\HealthyInformation.Model\bin\Debug\EntityFramework.xml
 E:\ASP.NET\HealthyProject\HealthyInformation.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
-E:\ASP.NET\HealthyProject\HealthyInformation.Model\obj\Debug\HealthyInformation.Domain.csprojResolveAssemblyReference.cache
 E:\ASP.NET\HealthyProject\HealthyInformation.Model\obj\Debug\HealthyInformation.Model.dll
 E:\ASP.NET\HealthyProject\HealthyInformation.Model\obj\Debug\HealthyInformation.Model.pdb
+E:\ASP.NET\HealthyProject\HealthyInformation.Model\obj\Debug\HealthyInformation.Domain.csprojResolveAssemblyReference.cache

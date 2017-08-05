@@ -16,3 +16,12 @@ E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Infrastructrue
 E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.dll
 E:\ASP.Net\HealthyInfomation\HealthyInfomation\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.pdb
 E:\ASP.NET\HealthyInfomation\HealthyInfomation\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.csprojResolveAssemblyReference.cache
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\HealthyInformation.Infrastructrue.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\HealthyInformation.Infrastructrue.pdb
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\EntityFramework.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\log4net.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\EntityFramework.xml
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.dll
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.pdb
+E:\ASP.NET\HealthyProject\HealthyInformation.Infrastructrue\obj\Debug\HealthyInformation.Infrastructrue.csprojResolveAssemblyReference.cache
