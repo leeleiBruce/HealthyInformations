@@ -12,5 +12,7 @@ namespace HealthyInformation.Repository.PhysicalExam
         MedicalTreatment GetMedicalTreatmentByKey(int medicalTreatId);
 
         List<MedicalTreatment> GetMedicalTreatmentByYear(int year);
+
+        List<MedicalTreatment> GetMedicalTreatmentByAlarmDate();
     }
 }

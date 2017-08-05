@@ -25,5 +25,15 @@ namespace HealthyInformation.Repository.PhysicalExam
         {
             return this._context.Set<MedicalTreatment>().Where(m => m.RecordDate.Year == year).ToList();
         }
+
+        public List<MedicalTreatment> GetMedicalTreatmentByAlarmDate()
+        {
+            var date = DateTime.Now.AddMonths(1);
+            return this._context.Set<MedicalTreatment>()
+                .Where(m => m.NeedObservation == "1"
+                && m.ObservationEndDate.HasValue
+                && date >= m.ObservationEndDate.Value
+                && m.ObservationEndDate >= DateTime.Now).ToList();
+        }
     }
 }

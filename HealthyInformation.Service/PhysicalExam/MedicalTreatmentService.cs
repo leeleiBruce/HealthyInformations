@@ -81,5 +81,10 @@ namespace HealthyInformation.Service.PhysicalExam
                 this.Remove(medicalTreatment);
             }
         }
+
+        public List<MedicalTreatment> GetMedicalTreatmentByAlarmDate()
+        {
+            return this.medicalTreatmentRepository.GetMedicalTreatmentByAlarmDate();
+        }
     }
 }

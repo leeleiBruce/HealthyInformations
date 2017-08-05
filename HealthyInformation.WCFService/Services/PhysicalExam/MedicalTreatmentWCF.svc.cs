@@ -32,6 +32,11 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
             return medicalTreatmentService.GetMedicalTreatmentByYear(int.Parse(year));
         }
 
+        public List<MedicalTreatment> GetMedicalTreatmentByAlarmDate()
+        {
+            return medicalTreatmentService.GetMedicalTreatmentByAlarmDate();
+        }
+
         public void DeleteMedicalTreatment(string key)
         {
             medicalTreatmentService.DeleteMedicalTreatment(int.Parse(key));

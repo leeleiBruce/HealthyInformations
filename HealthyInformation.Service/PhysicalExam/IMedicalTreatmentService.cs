@@ -19,5 +19,7 @@ namespace HealthyInformation.Service.PhysicalExam
         List<MedicalTreatment> GetMedicalTreatmentByYear(int year);
 
         void DeleteMedicalTreatment(int key);
+
+        List<MedicalTreatment> GetMedicalTreatmentByAlarmDate();
     }
 }

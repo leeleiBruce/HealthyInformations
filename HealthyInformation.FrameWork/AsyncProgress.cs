@@ -17,6 +17,7 @@ namespace HealthyInformation.FrameWork
         Popup asyncPopup;
         WindowBase windowBase;
         object lockObj = new object();
+        bool isShowProgress;
         static List<WindowBase> runWindowList = new List<WindowBase>();
         static AsyncProgress asyncProgress = new AsyncProgress();
         private AsyncProgress()
@@ -28,14 +29,16 @@ namespace HealthyInformation.FrameWork
             return asyncProgress;
         }
 
-        public void InjectWindowBase(WindowBase pagebase)
+        public void InjectWindowBase(WindowBase pagebase, bool isShowProgress = false)
         {
             this.windowBase = pagebase;
-
+            this.isShowProgress = isShowProgress;
         }
 
         public void ShowPopup()
         {
+            if (!isShowProgress) return;
+
             lock (lockObj)
             {
                 if (runWindowList.Contains(windowBase)) return;

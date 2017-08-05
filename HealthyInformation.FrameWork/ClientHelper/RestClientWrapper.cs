@@ -22,13 +22,13 @@ namespace HealthyInformation.FrameWork.ClientHelper
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public RestClientWrapper(string serviceBase, string folder, WindowBase windowBase)
+        public RestClientWrapper(string serviceBase, string folder, WindowBase windowBase, bool isShow = false)
             : this()
         {
             client.BaseAddress = new Uri(client.BaseAddress, serviceBase);
             client.DefaultRequestHeaders.Add("Folder", folder);
             this.windowBase = windowBase;
-            AsyncProgress.GetInstance().InjectWindowBase(windowBase);
+            AsyncProgress.GetInstance().InjectWindowBase(windowBase, isShow);
         }
 
         protected async Task<T> GetAsync<T>(string relativeUri)

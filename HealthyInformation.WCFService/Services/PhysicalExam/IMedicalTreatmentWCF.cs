@@ -28,6 +28,10 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         List<MedicalTreatment> GetMedicalTreatmentByYear(string year);
 
         [OperationContract]
+        [WebGet(UriTemplate = "get/alarm", ResponseFormat = WebMessageFormat.Json)]
+        List<MedicalTreatment> GetMedicalTreatmentByAlarmDate();
+
+        [OperationContract]
         [WebInvoke(UriTemplate = "delete/{key}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         void DeleteMedicalTreatment(string key);
     }

@@ -13,8 +13,8 @@ namespace HealthyInfomation.Facade
 {
     public class MedicalTreatmentFacade : RestClientWrapper
     {
-        public MedicalTreatmentFacade(WindowBase windowBase)
-            : base("MedicalTreatmentWCF", "PhysicalExam", windowBase)
+        public MedicalTreatmentFacade(WindowBase windowBase, bool isShow = false)
+            : base("MedicalTreatmentWCF", "PhysicalExam", windowBase, isShow)
         {
 
         }
@@ -32,6 +32,11 @@ namespace HealthyInfomation.Facade
         public async Task<List<MedicalTreatmentEntity>> GetMedicalTreatmentByYear(int year)
         {
             return await this.GetAsync<List<MedicalTreatmentEntity>>(string.Format("get/year/{0}", year));
+        }
+
+        public async Task<List<MedicalTreatmentEntity>> GetMedicalTreatmentByAlarm()
+        {
+            return await this.GetAsync<List<MedicalTreatmentEntity>>("get/alarm");
         }
 
         public async void DeleteMedicalTreatment(int key)
