@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:HealthyInfomation.Windows.UserControl"
         xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
         mc:Ignorable="d"
+        xmlns:converter="clr-namespace:HealthyInfomation.Converter"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="疗养信息统计" Height="700" Width="550">
+    <Base:WindowBase.Resources>
+        <converter:SexUIConverter x:Key="SexUIConverter"></converter:SexUIConverter>
+    </Base:WindowBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -31,12 +35,12 @@
                   ItemsSource="{Binding AviationMedicineSearchModel.AviationMedicineList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name, Mode=OneWay}" MinWidth="70"/>
-                <DataGridTextColumn Header="性别" Binding="{Binding Sex, Mode=OneWay}" MinWidth="40"/>
+                <DataGridTextColumn Header="性别" Binding="{Binding Sex, Mode=OneWay,Converter={StaticResource SexUIConverter}, ConverterParameter=1}" MinWidth="40"/>
                 <DataGridTextColumn Header="部门" Binding="{Binding TroopsType, Mode=OneWay}" MinWidth="100"/>
                 <DataGridTextColumn Header="职别" Binding="{Binding JobTitle, Mode=OneWay}" MinWidth="80"/>
                 <DataGridTextColumn Header="疗养院" Binding="{Binding SanatoriumName, Mode=OneWay}" MinWidth="120"/>
-                <DataGridTextColumn Header="计划入院日期" Binding="{Binding StartDate, Mode=OneWay,StringFormat=yyyy-MM-dd HH:mm:ss}" MinWidth="120"/>
-                <DataGridTextColumn Header="计划出院日期" Binding="{Binding EndDate, Mode=OneWay,StringFormat=yyyy-MM-dd HH:mm:ss}" MinWidth="120"/>
+                <DataGridTextColumn Header="计划入院日期" Binding="{Binding HospitalEnterDate, Mode=OneWay,StringFormat=yyyy-MM-dd HH:mm:ss}" MinWidth="120"/>
+                <DataGridTextColumn Header="计划出院日期" Binding="{Binding HospitalLeaveDate, Mode=OneWay,StringFormat=yyyy-MM-dd HH:mm:ss}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -59,6 +59,7 @@ namespace HealthyInfomation.Windows.UserControl
 
             //设置标题的名称
             title.Text = name;
+            title.Foreground = new SolidColorBrush(Colors.Orange);
             title.Padding = new Thickness(0, 10, 5, 0);
 
             //向图标添加标题
@@ -100,7 +101,7 @@ namespace HealthyInfomation.Windows.UserControl
 
         private async void dataPoint_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if ((sender as DataPoint).Tag.ToString() == "1")
+            if ((sender as DataPoint).Tag.ToString() == "参加疗养人员")
             {
                 var result = await facade.GetRecuperationAnalysisResult();
                 this.DG_Detail.ItemsSource = result;
