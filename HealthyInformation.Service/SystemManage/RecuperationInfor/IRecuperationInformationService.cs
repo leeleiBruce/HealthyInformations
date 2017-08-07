@@ -18,5 +18,7 @@ namespace HealthyInformation.Service.SystemManage.RecuperationInfor
         RecuperationInformationResponse GetRecuperationInformation(int key);
         void RemoveRecuperationPlanByKey(int key);
         RecuperationDetailResponse GetRecuperationDetail(int key);
+        List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult();
+        UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult();
     }
 }

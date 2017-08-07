@@ -62,5 +62,14 @@ namespace HealthyInformation.Service.SystemManage.RecuperationInfor
         {
             return recuperationInformationRepository.GetRecuperationDetail(key);
         }
+
+        public List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult()
+        {
+            return recuperationInformationRepository.GetRecuperationAnalysisResult();
+        }
+        public UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult()
+        {
+            return recuperationInformationRepository.GetRecuperationAnalysisCountResult();
+        }
     }
 }

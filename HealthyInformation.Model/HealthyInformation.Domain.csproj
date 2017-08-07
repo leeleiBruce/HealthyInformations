@@ -135,6 +135,12 @@
     <Compile Include="UP_GetPhysicalExamAlarmInfo_Result.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>
+    <Compile Include="UP_GetRecuperationCountAnalysis_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetRecuperationInfoAnalysis_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
     <Compile Include="UP_GetRecuperationPlan_Result.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>

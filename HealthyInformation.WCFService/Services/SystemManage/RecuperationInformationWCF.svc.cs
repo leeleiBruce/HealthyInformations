@@ -33,7 +33,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
             recuperationMemberService.RemoveRecuperationMember(request.TransactionNumber);
             recuperationMemberService.CreateRecuperationMember(request);
             recuperationAccompanyService.RemoveRecuperationAccompany(request.TransactionNumber);
-           
+
             return recuperationAccompanyService.CreateRecuperationAccompany(request);
         }
 
@@ -71,6 +71,16 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         public RecuperationDetailResponse GetRecuperationDetail(string key)
         {
             return recuperationInformationService.GetRecuperationDetail(int.Parse(key));
+        }
+
+        public List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult()
+        {
+            return recuperationInformationService.GetRecuperationAnalysisResult();
+        }
+
+        public UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult()
+        {
+            return recuperationInformationService.GetRecuperationAnalysisCountResult();
         }
     }
 }

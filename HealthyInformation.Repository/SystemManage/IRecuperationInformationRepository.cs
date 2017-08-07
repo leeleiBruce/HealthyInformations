@@ -16,5 +16,7 @@ namespace HealthyInformation.Repository.SystemManage
         RecuperationDetailResponse GetRecuperationDetail(int key);
         List<RecuperationMember> GetRecuperationMembers(int key);
         List<RecuperationAccompany> GetRecuperationAccompanies(int key);
+        List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult();
+        UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult();
     }
 }

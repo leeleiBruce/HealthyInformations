@@ -39,5 +39,13 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         [OperationContract]
         [WebGet(UriTemplate = "detail/get/{key}", ResponseFormat = WebMessageFormat.Json)]
         RecuperationDetailResponse GetRecuperationDetail(string key);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "analysis", ResponseFormat = WebMessageFormat.Json)]
+        List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult();
+
+        [OperationContract]
+        [WebGet(UriTemplate = "analysis/count", ResponseFormat = WebMessageFormat.Json)]
+        UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult();
     }
 }

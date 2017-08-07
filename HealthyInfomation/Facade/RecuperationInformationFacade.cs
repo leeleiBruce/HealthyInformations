@@ -1,4 +1,5 @@
 ﻿using HealthyInformation.ClientEntity;
+using HealthyInformation.ClientEntity.PhysicalExam.Entity;
 using HealthyInformation.ClientEntity.SystemManage.Entity;
 using HealthyInformation.ClientEntity.SystemManage.Request;
 using HealthyInformation.ClientEntity.SystemManage.Response;
@@ -47,6 +48,16 @@ namespace HealthyInfomation.Facade
         public async Task<RecuperationInformationEntity> GetRecuperationDetail(int key)
         {
             return await this.GetAsync<RecuperationInformationEntity>(string.Format("detail/get/{0}", key));
+        }
+
+        public async Task<List<UP_GetRecuperationInfoAnalysis_Result>> GetRecuperationAnalysisResult()
+        {
+            return await this.GetAsync<List<UP_GetRecuperationInfoAnalysis_Result>>("analysis");
+        }
+
+        public async Task<UP_GetRecuperationCountAnalysis_Result> GetRecuperationAnalysisCountResult()
+        {
+            return await this.GetAsync<UP_GetRecuperationCountAnalysis_Result>("analysis/count");
         }
     }
 }

@@ -59,6 +59,8 @@
     <Compile Include="PhysicalExam\Entity\SupplementaryExamEntity.cs" />
     <Compile Include="PhysicalExam\Entity\UP_GetMedicalTreatAlarmInfo_Result.cs" />
     <Compile Include="PhysicalExam\Entity\UP_GetPhysicalExamAlarmInfo_Result.cs" />
+    <Compile Include="PhysicalExam\Entity\UP_GetRecuperationCountAnalysis_Result.cs" />
+    <Compile Include="PhysicalExam\Entity\UP_GetRecuperationInfoAnalysis_Result.cs" />
     <Compile Include="PhysicalExam\Request\AviationAccidentRequest.cs" />
     <Compile Include="PhysicalExam\Request\ConclusionPhysicalRequest.cs" />
     <Compile Include="PhysicalExam\Request\ENTSectionRequest.cs" />

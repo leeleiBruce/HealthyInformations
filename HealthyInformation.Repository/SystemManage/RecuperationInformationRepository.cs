@@ -129,5 +129,15 @@ namespace HealthyInformation.Repository.SystemManage
         {
             return this._context.Set<RecuperationAccompany>().Where(r => r.RecuperationInformationID == key).ToList();
         }
+
+        public List<UP_GetRecuperationInfoAnalysis_Result> GetRecuperationAnalysisResult()
+        {
+            return (this._context as HealthyInformationEntities).UP_GetRecuperationInfoAnalysis().ToList();
+        }
+
+        public UP_GetRecuperationCountAnalysis_Result GetRecuperationAnalysisCountResult()
+        {
+            return (this._context as HealthyInformationEntities).UP_GetRecuperationCountAnalysis().First();
+        }
     }
 }

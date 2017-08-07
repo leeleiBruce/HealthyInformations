@@ -121,15 +121,23 @@ namespace HealthyInfomation
             {
                 new ModifyPassWord().ShowDialog();
             }
+            else if (param == "recuperationAnalysis")
+            {
+                new RecuperationInformationAnalysis().ShowDialog();
+            }
         }
 
-        private async void InitData()
+        private  void InitData()
         {
-            medicalTreatAlarmList = await this.medicalTreatmentFacade.GetMedicalTreatmentByAlarm();
-            if (medicalTreatAlarmList?.Count > 0)
+            App.Current.Dispatcher.Invoke((Action)(async () =>
             {
-                this.marqueeAlarm.MarqueeContent = string.Format("共有{0}名人员地观日期将至，请提前处理！", medicalTreatAlarmList.Count);
-            }
+                medicalTreatAlarmList = await this.medicalTreatmentFacade.GetMedicalTreatmentByAlarm();
+                if (medicalTreatAlarmList?.Count > 0)
+                {
+                    this.marqueeAlarm.MarqueeContent = string.Format("共有{0}名人员地观日期将至，请提前处理！", medicalTreatAlarmList.Count);
+                }
+            }));
+
         }
 
         protected override void OnClosing(CancelEventArgs e)

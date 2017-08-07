@@ -445,6 +445,8 @@
         </EntityType>
         <Function Name="UP_GetMedicalTreatAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UP_GetPhysicalExamAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UP_GetRecuperationCountAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UP_GetRecuperationInfoAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UP_GetRecuperationPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="SanatoriumID" Type="int" Mode="In" />
           <Parameter Name="StartDate" Type="datetime" Mode="In" />
@@ -518,6 +520,8 @@
           </FunctionImport>
           <FunctionImport Name="UP_GetPhysicalExamAlarmInfo" ReturnType="Collection(HealthyInformationModel.UP_GetPhysicalExamAlarmInfo_Result)" />
           <FunctionImport Name="UP_GetMedicalTreatAlarmInfo" ReturnType="Collection(HealthyInformationModel.UP_GetMedicalTreatAlarmInfo_Result)" />
+          <FunctionImport Name="UP_GetRecuperationCountAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetRecuperationCountAnalysis_Result)" />
+          <FunctionImport Name="UP_GetRecuperationInfoAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetRecuperationInfoAnalysis_Result)" />
         </EntityContainer>
         <EntityType Name="Aircrew">
           <Key>
@@ -1016,6 +1020,19 @@
           <Property Type="DateTime" Name="ObservationEndDate" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="ObservationStartDate" Nullable="true" Precision="23" />
           <Property Type="String" Name="HospitalLocation" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="UP_GetRecuperationCountAnalysis_Result">
+          <Property Type="Int32" Name="AppendCount" Nullable="true" />
+          <Property Type="Int32" Name="TotalCont" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UP_GetRecuperationInfoAnalysis_Result">
+          <Property Type="DateTime" Name="HospitalEnterDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="HospitalLeaveDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="SanatoriumName" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1518,6 +1535,27 @@
                 <ScalarProperty Name="ObservationEndDate" ColumnName="ObservationEndDate" />
                 <ScalarProperty Name="ObservationStartDate" ColumnName="ObservationStartDate" />
                 <ScalarProperty Name="HospitalLocation" ColumnName="HospitalLocation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetRecuperationCountAnalysis" FunctionName="HealthyInformationModel.Store.UP_GetRecuperationCountAnalysis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetRecuperationCountAnalysis_Result">
+                <ScalarProperty Name="AppendCount" ColumnName="AppendCount" />
+                <ScalarProperty Name="TotalCont" ColumnName="TotalCont" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetRecuperationInfoAnalysis" FunctionName="HealthyInformationModel.Store.UP_GetRecuperationInfoAnalysis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetRecuperationInfoAnalysis_Result">
+                <ScalarProperty Name="HospitalEnterDate" ColumnName="HospitalEnterDate" />
+                <ScalarProperty Name="HospitalLeaveDate" ColumnName="HospitalLeaveDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="SanatoriumName" ColumnName="SanatoriumName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
