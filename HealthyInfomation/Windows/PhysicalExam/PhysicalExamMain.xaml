@@ -14,12 +14,14 @@
     <Window.Resources>
         <Style TargetType='Button'>
             <Setter Property="Foreground" Value="AntiqueWhite"></Setter>
-            <Setter Property="Background" Value="#FF1162A9"></Setter>
+            <Setter Property="Background" Value="#003366"></Setter>
             <Setter Property="BorderBrush" Value="#269abc"/>
-            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="FontFamily" Value="微软雅黑"></Setter>
             <Setter Property="Width" Value="120"></Setter>
             <Setter Property="Height" Value="100"></Setter>
             <Setter Property="Margin" Value="20"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#f0ad4e"/>

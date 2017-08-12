@@ -1,6 +1,7 @@
 ﻿using HealthyInfomation.Facade;
 using HealthyInfomation.Resource;
 using HealthyInfomation.Windows;
+using HealthyInfomation.Windows.Analysis;
 using HealthyInfomation.Windows.PhysicalExam;
 using HealthyInfomation.Windows.UserControl;
 using HealthyInformation.ClientEntity.PhysicalExam.Entity;
@@ -121,9 +122,9 @@ namespace HealthyInfomation
             {
                 new ModifyPassWord().ShowDialog();
             }
-            else if (param == "recuperationAnalysis")
+            else if (param == "Analysis")
             {
-                new RecuperationInformationAnalysis().ShowDialog();
+                new AnalysisMain().ShowDialog();
             }
         }
 

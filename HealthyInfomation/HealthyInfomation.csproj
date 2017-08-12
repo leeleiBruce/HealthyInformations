@@ -204,6 +204,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SupplementaryExamResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Analysis\AnalysisMain.xaml.cs">
+      <DependentUpon>AnalysisMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Analysis\CommonDiseaseAnalysis.xaml.cs">
+      <DependentUpon>CommonDiseaseAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Analysis\HealthyLevelAnalysis.xaml.cs">
+      <DependentUpon>HealthyLevelAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Analysis\MaladyAnalysis.xaml.cs">
+      <DependentUpon>MaladyAnalysis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AviationMedicine.xaml.cs">
       <DependentUpon>AviationMedicine.xaml</DependentUpon>
     </Compile>
@@ -273,7 +285,7 @@
     <Compile Include="Windows\RecuperationPlan.xaml.cs">
       <DependentUpon>RecuperationPlan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\UserControl\RecuperationInformationAnalysis.xaml.cs">
+    <Compile Include="Windows\Analysis\RecuperationInformationAnalysis.xaml.cs">
       <DependentUpon>RecuperationInformationAnalysis.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\UserControl\RecuperationInformationModify.xaml.cs">
@@ -402,6 +414,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Analysis\AnalysisMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Analysis\CommonDiseaseAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Analysis\HealthyLevelAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Analysis\MaladyAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AviationMedicine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -494,7 +522,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\UserControl\RecuperationInformationAnalysis.xaml">
+    <Page Include="Windows\Analysis\RecuperationInformationAnalysis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

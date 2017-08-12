@@ -71,6 +71,9 @@
     <Compile Include="ControlStyle\EasyProgressBar.xaml.cs">
       <DependentUpon>EasyProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlStyle\SystemProgressBar.xaml.cs">
+      <DependentUpon>SystemProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enums\EventEnums.cs" />
     <Compile Include="Enums\SexEnums.cs" />
     <Compile Include="Extension\BitmapSourceExtension.cs" />
@@ -88,6 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="ControlStyle\EasyProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle\SystemProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
