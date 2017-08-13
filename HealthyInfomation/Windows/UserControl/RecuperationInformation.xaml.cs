@@ -141,6 +141,21 @@ namespace HealthyInfomation.Windows
             }
         }
 
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) => 
+                {
+                    var recuperationAccompany = obj as RecuperationAccompanyEntity;
+                    if (obj != null)
+                    {
+                        this.RecuperationAccompanyList.Remove(recuperationAccompany);
+                    }
+                });
+            }
+        }
+
         #endregion
 
         #region Method

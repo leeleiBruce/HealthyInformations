@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="飞行记录" Height="420" Width="500">
+        Title="飞行记录" Height="420" Width="600">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -17,14 +17,30 @@
         <DataGrid Grid.Row="0" 
                   Margin="0,5,0,5" 
                   AutoGenerateColumns="False"
+                  CanUserAddRows="False"
                   Height="300"
                   ItemsSource="{Binding FlightRecordList,Mode=TwoWay}">
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header="操作" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding RemoveCommand,Mode=OneWay,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                    CommandParameter="{Binding}" 
+                                    HorizontalAlignment="Center">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Image Source="/Images/trash.png"></Image>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerType}" Width="5*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox ItemsSource="{Binding DataContext.FlyerTypeList,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                      SelectedValue="{Binding FlightType,Mode=TwoWay}"
+                                      SelectedValue="{Binding FlightType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                       SelectedValuePath="TransactionNumber"
                                       DisplayMemberPath="TypeName"></ComboBox>
                         </DataTemplate>
@@ -33,14 +49,14 @@
                 <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerTime}" Width="5*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox Text="{Binding FlightTime,Mode=TwoWay}" Padding="2" MaxLength="15"></TextBox>
+                            <TextBox Text="{Binding FlightTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Padding="2" MaxLength="15"></TextBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="{x:Static local:AircrewResource.DgHeader_FlyerDate}" Width="5*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <DatePicker SelectedDate="{Binding RegisterDate,Mode=TwoWay}" Padding="2"></DatePicker>
+                            <DatePicker SelectedDate="{Binding RegisterDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Padding="2"></DatePicker>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -53,10 +69,8 @@
             </Grid.ColumnDefinitions>
             <Button Command="{Binding NewCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_New}" Grid.Column="0" Style="{StaticResource btn-info}"></Button>
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
-                <Button Command="{Binding SaveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{StaticResource btn-primary}"></Button>
-                <Button Command="{Binding CloseCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{StaticResource btn-warning}" Margin="5,0,0,0"></Button>
+                <Button Command="{Binding EnsureCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Sure}" Style="{StaticResource btn-primary}" Margin="5,0,0,0"></Button>
             </StackPanel>
-
         </Grid>
     </Grid>
 </Base:WindowBase>

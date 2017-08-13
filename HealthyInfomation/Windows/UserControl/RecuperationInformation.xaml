@@ -75,9 +75,30 @@
             <StackPanel  Grid.Row="10" Grid.ColumnSpan="2" Background="Orange" Margin="0,5,0,0" Height="28">
                 <TextBlock Text="{Binding Lab_SupplementsMember,Source={StaticResource LocalResource}}" FontSize="16" FontWeight="Black" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
-            <DataGrid Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,5" AutoGenerateColumns="False" Height="150"
+            <DataGrid Grid.Row="11" 
+                      Grid.Column="0" 
+                      Grid.ColumnSpan="2" 
+                      Margin="0,5,0,5" 
+                      AutoGenerateColumns="False"
+                      Height="150"
+                      CanUserAddRows="False"
                       ItemsSource="{Binding RecuperationAccompanyList,Mode=TwoWay}">
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="操作" Width="2*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding RemoveCommand,Mode=OneWay,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                    CommandParameter="{Binding}" 
+                                    HorizontalAlignment="Center">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <Image Source="/Images/trash.png"></Image>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="{Binding DgHeader_Name,Source={StaticResource LocalResource}}" Width="5*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

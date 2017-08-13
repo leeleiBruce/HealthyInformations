@@ -17,6 +17,7 @@ using System.Drawing;
 using HealthyInformation.FrameWork.Extension;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HealthyInfomation.Windows.UserControl
 {
@@ -69,17 +70,6 @@ namespace HealthyInfomation.Windows.UserControl
             }
         }
 
-        public ICommand CloseCommand
-        {
-            get
-            {
-                return CommandFactory.CreateCommand((obj) =>
-                {
-                    this.Close();
-                });
-            }
-        }
-
         public ICommand PhotoCommand
         {
             get
@@ -95,9 +85,9 @@ namespace HealthyInfomation.Windows.UserControl
         {
             get
             {
-                return CommandFactory.CreateCommand((obj) =>
+                return CommandFactory.CreateCommand(async(obj) =>
                 {
-
+                    await this.InitFlightRecordList();
                     var flightRecord = new FlyRecord(this.flightRecordList);
                     flightRecord.ShowDialog();
                     if (flightRecord.FlightRecordList != null
@@ -181,7 +171,6 @@ namespace HealthyInfomation.Windows.UserControl
         {
             this.IsEditEnabled = true;
             this.IsSaveEnabled = false;
-            this.InitFlightRecordList();
             this.AircrewModel = AutoMapper.Mapper.Map<AircrewEntity, AircrewModel>(aircrewEntity);
             if (!string.IsNullOrEmpty(AircrewModel.Photo))
             {
@@ -192,7 +181,7 @@ namespace HealthyInfomation.Windows.UserControl
             }
         }
 
-        private async void InitFlightRecordList()
+        private async Task InitFlightRecordList()
         {
             var flightRecords = await facade.GetFlightRecord(aircrewEntity.TransactionNumber);
             this.flightRecordList = flightRecords;

@@ -2,20 +2,12 @@
 using HealthyInfomation.Resource;
 using HealthyInformation.ClientEntity.SystemManage.Entity;
 using HealthyInformation.FrameWork;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Linq;
+using HealthyInformation.FrameWork.Extension;
 
 namespace HealthyInfomation.Windows.UserControl
 {
@@ -29,8 +21,8 @@ namespace HealthyInfomation.Windows.UserControl
         {
             InitializeComponent();
             this.configDictionaryFacade = new ConfigDictionaryFacade(this);
-            this.FlightRecordList = new ObservableCollection<FlightRecordEntity>();
             this.DataContext = this;
+            this.FlightRecordList = new ObservableCollection<FlightRecordEntity>();
             this.InitData();
         }
 
@@ -39,8 +31,9 @@ namespace HealthyInfomation.Windows.UserControl
             InitializeComponent();
             this.configDictionaryFacade = new ConfigDictionaryFacade(this);
             this.InitData();
-            this.FlightRecordList = new ObservableCollection<FlightRecordEntity>(flightRecordList);
             this.DataContext = this;
+            this.FlightRecordList = new ObservableCollection<FlightRecordEntity>(flightRecordList);
+            this.Closing += FlyRecord_Closing;
         }
 
         #region ViewModel
@@ -88,17 +81,28 @@ namespace HealthyInfomation.Windows.UserControl
             }
         }
 
-        public ICommand SaveCommand
+        public ICommand EnsureCommand
         {
             get
             {
                 return CommandFactory.CreateCommand((obj) =>
                 {
+                    if (this.FlightRecordList != null && this.FlightRecordList.Any(f => f.HasValidationError())) return;
+                    this.Close();
+                });
+            }
+        }
 
-                    PrintDialog dialog = new PrintDialog();
-                    if (dialog.ShowDialog() == true)
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    var flightRecord = obj as FlightRecordEntity;
+                    if (flightRecord != null)
                     {
-                        dialog.PrintVisual(this, "Print Test");
+                        this.FlightRecordList.Remove(flightRecord);
                     }
                 });
             }
@@ -112,7 +116,12 @@ namespace HealthyInfomation.Windows.UserControl
             var flyerTypes = await configDictionaryFacade.GetFlyerTypeList();
             flyerTypes.Insert(0, new FlyerTypeEntity { TransactionNumber = 0, TypeName = CommonResource.Default_Select });
             this.FlyerTypeList = flyerTypes;
-            this.FlightRecordList.Add(new FlightRecordEntity { FlightType = "0" });
+        }
+
+        private void FlyRecord_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.FlightRecordList != null && this.FlightRecordList.Any(f => f.HasValidationError()))
+                e.Cancel = true;
         }
 
         #endregion
