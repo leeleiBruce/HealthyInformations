@@ -13,11 +13,22 @@ namespace HealthyInformation.WCFService.Services.Analysis
     [ServiceContract]
     public interface IAnalysisWCFService
     {
-        [OperationContract]
-        [WebGet(UriTemplate = "get?year={year}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "healthyGrade?year={year}", ResponseFormat = WebMessageFormat.Json)]
         List<UP_GetHealthyGradeAnalysis_Result> GetGetHealthyGradeAnalysis(string year);
 
-        [WebGet(UriTemplate = "detail/get?year={year}&grade={grade}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "healthyGrade/detail?year={year}&grade={grade}", ResponseFormat = WebMessageFormat.Json)]
         List<UP_GetHealthyGradeDetail_Result> GetHealthyGradeDetail(string year, string grade);
+
+        [WebGet(UriTemplate = "commonDisease?year={year}", ResponseFormat = WebMessageFormat.Json)]
+        List<UP_GetCommonDiseaseAnalysis_Result> GetCommonDiseaseAnalysis(string year);
+
+        [WebGet(UriTemplate = "commonDisease/detail?year={year}&commonDiseaseID={commonDiseaseID}", ResponseFormat = WebMessageFormat.Json)]
+        List<UP_GetCommonDiseaseDetail_Result> GetCommonDiseaseDetail(string year, string commonDiseaseID);
+
+        [WebGet(UriTemplate = "commonDiseaseCount?year={year}", ResponseFormat = WebMessageFormat.Json)]
+        List<UP_GetCommonDiseaseCountAnalysis_Result> GetCommonDiseaseCountAnalysis(string year);
+
+        [WebGet(UriTemplate = "commonDiseaseCount/detail?year={year}&commonDiseaseID={commonDiseaseID}", ResponseFormat = WebMessageFormat.Json)]
+        List<UP_GetCommonDiseaseCountDetail_Result> GetCommonDiseaseCountDetail(string year, string commonDiseaseID);
     }
 }

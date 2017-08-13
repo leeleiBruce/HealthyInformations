@@ -30,5 +30,39 @@ namespace HealthyInformation.WCFService.Services.Analysis
 
             return analysisService.GetHealthyGradeDetail(convertYear, convertGrade);
         }
+
+        public List<UP_GetCommonDiseaseAnalysis_Result> GetCommonDiseaseAnalysis(string year)
+        {
+            int convertYear = 0;
+            int.TryParse(year, out convertYear);
+            return analysisService.GetCommonDiseaseAnalysis(convertYear);
+        }
+
+        public List<UP_GetCommonDiseaseDetail_Result> GetCommonDiseaseDetail(string year, string commonDiseaseID)
+        {
+            int convertYear = 0;
+            int convertDiseaseID = 0;
+            int.TryParse(year, out convertYear);
+            int.TryParse(commonDiseaseID, out convertDiseaseID);
+
+            return analysisService.GetCommonDiseaseDetail(convertYear, convertDiseaseID);
+        }
+
+        public List<UP_GetCommonDiseaseCountAnalysis_Result> GetCommonDiseaseCountAnalysis(string year)
+        {
+            int convertYear = 0;
+            int.TryParse(year, out convertYear);
+            return analysisService.GetCommonDiseaseCountAnalysis(convertYear);
+        }
+
+        public List<UP_GetCommonDiseaseCountDetail_Result> GetCommonDiseaseCountDetail(string year, string commonDiseaseID)
+        {
+            int convertYear = 0;
+            int convertDiseaseID = 0;
+            int.TryParse(year, out convertYear);
+            int.TryParse(commonDiseaseID, out convertDiseaseID);
+
+            return analysisService.GetCommonDiseaseCountDetail(convertYear, convertDiseaseID);
+        }
     }
 }

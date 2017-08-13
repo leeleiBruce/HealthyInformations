@@ -32,9 +32,9 @@
     <Grid>
         <WrapPanel Orientation="Horizontal" Margin="0,0,2,0">
             <Button Content="疗养情况统计" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="Recuperation" />
-            <Button Content="常见病分析" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="CommonDisease"/>
+            <Button Content="常见病分析" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="Malady"/>
             <Button Content="健康等级统计" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="HealthyLevel"/>
-            <Button Content="病症分布统计" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="Malady"/>
+            <Button Content="病症分布统计" Command="{Binding OpenCommand,Mode=OneWay}" CommandParameter="CommonDisease"/>
         </WrapPanel>
     </Grid>
 </Base:WindowBase>

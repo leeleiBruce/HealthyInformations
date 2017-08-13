@@ -1,12 +1,50 @@
-﻿<Window x:Class="HealthyInfomation.Windows.Analysis.MaladyAnalysis"
+﻿<Base:WindowBase x:Class="HealthyInfomation.Windows.Analysis.MaladyAnalysis"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthyInfomation.Windows.Analysis"
+        xmlns:converter="clr-namespace:HealthyInfomation.Converter"
+        xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
         mc:Ignorable="d"
-        Title="MaladyAnalysis" Height="300" Width="300">
-    <Grid>
-        
+        Title="个人身体状况统计" Height="610" Width="500">
+    <Base:WindowBase.Resources>
+        <converter:SexUIConverter x:Key="SexUIConverter"></converter:SexUIConverter>
+    </Base:WindowBase.Resources>
+    <Grid Margin="10,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,5,0,5">
+            <TextBlock Text="年份："></TextBlock>
+            <ComboBox ItemsSource="{Binding YearList,Mode=OneWay}"
+                      DisplayMemberPath="Value" 
+                      SelectedValuePath="Key"
+                      SelectedValue="{Binding Year,Mode=TwoWay}"
+                      Width="120"
+                      Margin="5,0,0,0"></ComboBox>
+        </StackPanel>
+        <Grid x:Name="AnalysisChart" Grid.Row="1" Height="270" Width="500" Margin="0,0,0,5"></Grid>
+        <DataGrid x:Name="DG_Detail"
+                  Grid.Row="2"
+                  RowHeight="25"
+                  Width="500"
+                  Height="250"
+                  HorizontalScrollBarVisibility="Auto"
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  Cursor="Hand"
+                  AlternatingRowBackground="#CCCCCC">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Binding="{Binding Name, Mode=OneWay}" MinWidth="70"/>
+                <DataGridTextColumn Header="性别" Binding="{Binding Sex, Mode=OneWay,Converter={StaticResource SexUIConverter}, ConverterParameter=1}" MinWidth="40"/>
+                <DataGridTextColumn Header="部门" Binding="{Binding TroopsType, Mode=OneWay}" MinWidth="100"/>
+                <DataGridTextColumn Header="职别" Binding="{Binding JobTitle, Mode=OneWay}" MinWidth="80"/>
+                <DataGridTextColumn Header="体检结论" Binding="{Binding Conclusion, Mode=OneWay}" MinWidth="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
-</Window>
+</Base:WindowBase>

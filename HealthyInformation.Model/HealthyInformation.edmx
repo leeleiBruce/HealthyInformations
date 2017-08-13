@@ -443,6 +443,20 @@
           <Property Name="InDate" Type="datetime" />
           <Property Name="InUser" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="UP_GetCommonDiseaseAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UP_GetCommonDiseaseCountAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UP_GetCommonDiseaseCountDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="CommonDiseaseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UP_GetCommonDiseaseDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="CommonDiseaseID" Type="int" Mode="In" />
+        </Function>
         <Function Name="UP_GetHealthyGradeAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Year" Type="int" Mode="In" />
         </Function>
@@ -535,6 +549,20 @@
           <FunctionImport Name="UP_GetHealthyGradeDetail" ReturnType="Collection(HealthyInformationModel.UP_GetHealthyGradeDetail_Result)">
             <Parameter Name="Grade" Mode="In" Type="Int32" />
             <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetCommonDiseaseAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseAnalysis_Result)">
+          <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetCommonDiseaseDetail" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseDetail_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="CommonDiseaseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetCommonDiseaseCountAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseCountAnalysis_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetCommonDiseaseCountDetail" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseCountDetail_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="CommonDiseaseID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aircrew">
@@ -1058,6 +1086,32 @@
           <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="Conclusion" Nullable="false" MaxLength="4000" />
+        </ComplexType>
+        <ComplexType Name="UP_GetCommonDiseaseAnalysis_Result">
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" />
+          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UP_GetCommonDiseaseDetail_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Conclusion" Nullable="true" MaxLength="4000" />
+        </ComplexType>
+        <ComplexType Name="UP_GetCommonDiseaseCountAnalysis_Result">
+          <Property Type="Int32" Name="TransactionNumber" Nullable="true" />
+          <Property Type="String" Name="SymptomName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UP_GetCommonDiseaseCountDetail_Result">
+          <Property Type="Int32" Name="TransactionNumber" Nullable="false" />
+          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Conclusion" Nullable="true" MaxLength="4000" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1595,6 +1649,48 @@
           <FunctionImportMapping FunctionImportName="UP_GetHealthyGradeDetail" FunctionName="HealthyInformationModel.Store.UP_GetHealthyGradeDetail">
             <ResultMapping>
               <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetHealthyGradeDetail_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetCommonDiseaseAnalysis" FunctionName="HealthyInformationModel.Store.UP_GetCommonDiseaseAnalysis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetCommonDiseaseAnalysis_Result">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetCommonDiseaseDetail" FunctionName="HealthyInformationModel.Store.UP_GetCommonDiseaseDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetCommonDiseaseDetail_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetCommonDiseaseCountAnalysis" FunctionName="HealthyInformationModel.Store.UP_GetCommonDiseaseCountAnalysis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetCommonDiseaseCountAnalysis_Result">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetCommonDiseaseCountDetail" FunctionName="HealthyInformationModel.Store.UP_GetCommonDiseaseCountDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetCommonDiseaseCountDetail_Result">
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />

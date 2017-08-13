@@ -19,12 +19,32 @@ namespace HealthyInfomation.Facade
 
         public async Task<List<UP_GetHealthyGradeAnalysis_Result>> GetGetHealthyGradeAnalysis(int year)
         {
-            return await this.GetAsync<List<UP_GetHealthyGradeAnalysis_Result>>(string.Format("get?year={0}", year));
+            return await this.GetAsync<List<UP_GetHealthyGradeAnalysis_Result>>(string.Format("healthyGrade?year={0}", year));
         }
 
         public async Task<List<UP_GetHealthyGradeDetail_Result>> GetHealthyGradeDetail(int grade, int year)
         {
-            return await this.GetAsync<List<UP_GetHealthyGradeDetail_Result>>(string.Format("detail/get?year={0}&grade={1}", year, grade));
+            return await this.GetAsync<List<UP_GetHealthyGradeDetail_Result>>(string.Format("healthyGrade/detail?year={0}&grade={1}", year, grade));
+        }
+
+        public async Task<List<UP_GetCommonDiseaseAnalysis_Result>> GetCommonDiseaseAnalysis(int year)
+        {
+            return await this.GetAsync<List<UP_GetCommonDiseaseAnalysis_Result>>(string.Format("commonDisease?year={0}", year));
+        }
+
+        public async Task<List<UP_GetCommonDiseaseDetail_Result>> GetCommonDiseaseDetail(int year, int commonDiseaseID)
+        {
+            return await this.GetAsync<List<UP_GetCommonDiseaseDetail_Result>>(string.Format("commonDisease/detail?year={0}&commonDiseaseID={1}", year, commonDiseaseID));
+        }
+
+        public async Task<List<UP_GetCommonDiseaseCountAnalysis_Result>> GetCommonDiseaseCountAnalysis(int year)
+        {
+            return await this.GetAsync<List<UP_GetCommonDiseaseCountAnalysis_Result>>(string.Format("commonDiseaseCount?year={0}", year));
+        }
+
+        public async Task<List<UP_GetCommonDiseaseCountDetail_Result>> GetCommonDiseaseCountDetail(int year, int commonDiseaseID)
+        {
+            return await this.GetAsync<List<UP_GetCommonDiseaseCountDetail_Result>>(string.Format("commonDiseaseCount/detail?year={0}&commonDiseaseID={1}", year, commonDiseaseID));
         }
     }
 }

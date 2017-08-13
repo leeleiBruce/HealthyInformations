@@ -110,5 +110,49 @@ namespace HealthyInformation.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetHealthyGradeDetail_Result>("UP_GetHealthyGradeDetail", gradeParameter, yearParameter);
         }
+    
+        public virtual ObjectResult<UP_GetCommonDiseaseAnalysis_Result> UP_GetCommonDiseaseAnalysis(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetCommonDiseaseAnalysis_Result>("UP_GetCommonDiseaseAnalysis", yearParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetCommonDiseaseDetail_Result> UP_GetCommonDiseaseDetail(Nullable<int> year, Nullable<int> commonDiseaseID)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            var commonDiseaseIDParameter = commonDiseaseID.HasValue ?
+                new ObjectParameter("CommonDiseaseID", commonDiseaseID) :
+                new ObjectParameter("CommonDiseaseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetCommonDiseaseDetail_Result>("UP_GetCommonDiseaseDetail", yearParameter, commonDiseaseIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetCommonDiseaseCountAnalysis_Result> UP_GetCommonDiseaseCountAnalysis(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetCommonDiseaseCountAnalysis_Result>("UP_GetCommonDiseaseCountAnalysis", yearParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetCommonDiseaseCountDetail_Result> UP_GetCommonDiseaseCountDetail(Nullable<int> year, Nullable<int> commonDiseaseID)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            var commonDiseaseIDParameter = commonDiseaseID.HasValue ?
+                new ObjectParameter("CommonDiseaseID", commonDiseaseID) :
+                new ObjectParameter("CommonDiseaseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetCommonDiseaseCountDetail_Result>("UP_GetCommonDiseaseCountDetail", yearParameter, commonDiseaseIDParameter);
+        }
     }
 }

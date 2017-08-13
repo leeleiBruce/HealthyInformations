@@ -35,29 +35,6 @@ namespace HealthyInfomation.Windows.Analysis
             }
         }
 
-        private int year;
-        public int Year
-        {
-            get { return year; }
-            set { year = value; RaisePropertyChanged("Year"); }
-        }
-
-        public List<KeyValuePair<int, string>> YearList
-        {
-            get
-            {
-                var years = new List<KeyValuePair<int, string>>();
-                years.Add(new KeyValuePair<int, string>(0, CommonResource.Default_Select));
-                var yearRange = Enumerable.Range(minYear, DateTime.Now.Year - minYear + 1);
-                IEnumerator<int> yearEnumerator = yearRange.GetEnumerator();
-                while (yearEnumerator.MoveNext())
-                {
-                    years.Add(new KeyValuePair<int, string>(yearEnumerator.Current, string.Concat(yearEnumerator.Current, " 年")));
-                }
-                return years.OrderByDescending(y => y.Key).ToList();
-            }
-        }
-
         private void HealthyGradeAnalysis_Loaded(object sender, RoutedEventArgs e)
         {
             this.Year = DateTime.Now.Year;

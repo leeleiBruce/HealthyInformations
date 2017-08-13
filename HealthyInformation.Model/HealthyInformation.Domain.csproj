@@ -129,6 +129,18 @@
     <Compile Include="SupplementaryExam.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>
+    <Compile Include="UP_GetCommonDiseaseAnalysis_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetCommonDiseaseCountAnalysis_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetCommonDiseaseCountDetail_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetCommonDiseaseDetail_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
     <Compile Include="UP_GetHealthyGradeAnalysis_Result.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>

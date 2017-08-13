@@ -30,9 +30,7 @@
                   CanUserDeleteRows="False"
                   Cursor="Hand"
                   Margin="10,0,10,0"
-                  AlternatingRowBackground="#CCCCCC"
-                  SelectedItem="{Binding AviationMedicineSearchModel.SelectedAviationMedicine,Mode=TwoWay}"
-                  ItemsSource="{Binding AviationMedicineSearchModel.AviationMedicineList}">
+                  AlternatingRowBackground="#CCCCCC">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="姓名" Binding="{Binding Name, Mode=OneWay}" MinWidth="70"/>
                 <DataGridTextColumn Header="性别" Binding="{Binding Sex, Mode=OneWay,Converter={StaticResource SexUIConverter}, ConverterParameter=1}" MinWidth="40"/>
