@@ -55,8 +55,11 @@ namespace HealthyInfomation.Windows.Analysis
         {
             string commonDiseaseName = (sender as DataPoint).Tag as string;
             var commonDisease = this.dataResult.FirstOrDefault(d => d.SymptomName == commonDiseaseName);
-            var result = await facade.GetCommonDiseaseCountDetail(Year, commonDisease?.TransactionNumber ?? 0);
-            this.DG_Detail.ItemsSource = result;
+            if (commonDisease?.TransactionNumber > 0)
+            {
+                var result = await facade.GetCommonDiseaseCountDetail(Year, commonDisease?.TransactionNumber ?? 0);
+                this.DG_Detail.ItemsSource = result;
+            }
         }
     }
 }

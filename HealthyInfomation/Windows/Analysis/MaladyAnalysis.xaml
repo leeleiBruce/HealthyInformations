@@ -7,7 +7,9 @@
         xmlns:converter="clr-namespace:HealthyInfomation.Converter"
         xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
         mc:Ignorable="d"
-        Title="个人身体状况统计" Height="610" Width="500">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="个人身体状况统计" Height="610" Width="530">
     <Base:WindowBase.Resources>
         <converter:SexUIConverter x:Key="SexUIConverter"></converter:SexUIConverter>
     </Base:WindowBase.Resources>
