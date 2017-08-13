@@ -32,7 +32,7 @@ namespace HealthyInfomation.Windows.Analysis
                     }
                     else if (param == "HealthyLevel")
                     {
-                        new HealthyLevelAnalysis().ShowDialog();
+                        new HealthyGradeAnalysis().ShowDialog();
                     }
                     else if (param == "Malady")
                     {

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\UP_GetHealthyGradeAnalysis_Result.cs" />
+    <Compile Include="Analysis\UP_GetHealthyGradeDetail_Result.cs" />
     <Compile Include="BaseRemoveRequest.cs" />
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />

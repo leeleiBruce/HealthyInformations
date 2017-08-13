@@ -443,6 +443,13 @@
           <Property Name="InDate" Type="datetime" />
           <Property Name="InUser" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="UP_GetHealthyGradeAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UP_GetHealthyGradeDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Grade" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
         <Function Name="UP_GetMedicalTreatAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UP_GetPhysicalExamAlarmInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UP_GetRecuperationCountAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -522,6 +529,13 @@
           <FunctionImport Name="UP_GetMedicalTreatAlarmInfo" ReturnType="Collection(HealthyInformationModel.UP_GetMedicalTreatAlarmInfo_Result)" />
           <FunctionImport Name="UP_GetRecuperationCountAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetRecuperationCountAnalysis_Result)" />
           <FunctionImport Name="UP_GetRecuperationInfoAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetRecuperationInfoAnalysis_Result)" />
+          <FunctionImport Name="UP_GetHealthyGradeAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetHealthyGradeAnalysis_Result)">
+          <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetHealthyGradeDetail" ReturnType="Collection(HealthyInformationModel.UP_GetHealthyGradeDetail_Result)">
+            <Parameter Name="Grade" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Aircrew">
           <Key>
@@ -1033,6 +1047,17 @@
           <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="SanatoriumName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="UP_GetHealthyGradeAnalysis_Result">
+          <Property Type="Int32" Name="HealthyGrade" Nullable="false" />
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UP_GetHealthyGradeDetail_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Conclusion" Nullable="false" MaxLength="4000" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1556,6 +1581,25 @@
                 <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
                 <ScalarProperty Name="SanatoriumName" ColumnName="SanatoriumName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetHealthyGradeAnalysis" FunctionName="HealthyInformationModel.Store.UP_GetHealthyGradeAnalysis" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetHealthyGradeAnalysis_Result">
+                <ScalarProperty Name="HealthyGrade" ColumnName="HealthyGrade" />
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetHealthyGradeDetail" FunctionName="HealthyInformationModel.Store.UP_GetHealthyGradeDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HealthyInformationModel.UP_GetHealthyGradeDetail_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

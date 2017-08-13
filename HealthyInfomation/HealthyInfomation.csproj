@@ -78,6 +78,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\SexConverter.cs" />
     <Compile Include="Facade\AircrewFacade.cs" />
+    <Compile Include="Facade\AnalysisFacade.cs" />
     <Compile Include="Facade\AviationAccidentFacade.cs" />
     <Compile Include="Facade\AviationMedicineFacade.cs" />
     <Compile Include="Facade\CommonDiseaseFacade.cs" />
@@ -210,8 +211,8 @@
     <Compile Include="Windows\Analysis\CommonDiseaseAnalysis.xaml.cs">
       <DependentUpon>CommonDiseaseAnalysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Analysis\HealthyLevelAnalysis.xaml.cs">
-      <DependentUpon>HealthyLevelAnalysis.xaml</DependentUpon>
+    <Compile Include="Windows\Analysis\HealthyGradeAnalysis.xaml.cs">
+      <DependentUpon>HealthyGradeAnalysis.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Analysis\MaladyAnalysis.xaml.cs">
       <DependentUpon>MaladyAnalysis.xaml</DependentUpon>
@@ -422,7 +423,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Analysis\HealthyLevelAnalysis.xaml">
+    <Page Include="Windows\Analysis\HealthyGradeAnalysis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -754,6 +755,10 @@
     <ProjectReference Include="..\HealthyInformation.FrameWork\HealthyInformation.FrameWork.csproj">
       <Project>{9f02518d-9c84-467c-a158-8058265dee66}</Project>
       <Name>HealthyInformation.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthyInformation.Utility\HealthyInformation.Utility.csproj">
+      <Project>{2fa51420-dc99-4675-8b04-6d618af377e7}</Project>
+      <Name>HealthyInformation.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

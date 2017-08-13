@@ -129,6 +129,12 @@
     <Compile Include="SupplementaryExam.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>
+    <Compile Include="UP_GetHealthyGradeAnalysis_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UP_GetHealthyGradeDetail_Result.cs">
+      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    </Compile>
     <Compile Include="UP_GetMedicalTreatAlarmInfo_Result.cs">
       <DependentUpon>HealthyInformation.tt</DependentUpon>
     </Compile>

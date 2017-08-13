@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\AnalysisService.cs" />
+    <Compile Include="Analysis\IAnalysisService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="IService.cs" />
-    <Compile Include="LoginManage\IUserService.cs" />
-    <Compile Include="LoginManage\UserService.cs" />
+    <Compile Include="UserManage\IUserService.cs" />
+    <Compile Include="UserManage\UserService.cs" />
     <Compile Include="PhysicalExam\AviationAccidentService.cs" />
     <Compile Include="PhysicalExam\FlightDiscomfortableLevelService.cs" />
     <Compile Include="PhysicalExam\IAviationAccidentService.cs" />

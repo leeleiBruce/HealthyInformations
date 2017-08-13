@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="App_Data\Log4Net.Config.xml" />
     <Content Include="Global.asax" />
+    <Content Include="Services\Analysis\AnalysisWCFService.svc" />
     <Content Include="Services\PhysicalExam\AviationAccidentWCF.svc" />
     <Content Include="Services\PhysicalExam\FlightDiscomfortLevelWCF.svc" />
     <Content Include="Services\PhysicalExam\MedicalIdentificationWCF.svc" />
@@ -89,6 +90,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Services\Analysis\AnalysisWCFService.svc.cs">
+      <DependentUpon>AnalysisWCFService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Analysis\IAnalysisWCFService.cs" />
     <Compile Include="Services\PhysicalExam\AviationAccidentWCF.svc.cs">
       <DependentUpon>AviationAccidentWCF.svc</DependentUpon>
     </Compile>

@@ -75,6 +75,7 @@
       <DependentUpon>SystemProgressBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\EventEnums.cs" />
+    <Compile Include="Enums\HealthyGradeEnums.cs" />
     <Compile Include="Enums\SexEnums.cs" />
     <Compile Include="Extension\BitmapSourceExtension.cs" />
     <Compile Include="Extension\DependencyExtension.cs" />

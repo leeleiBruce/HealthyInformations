@@ -76,7 +76,7 @@ namespace HealthyInformation.FrameWork
             //asyncPopup.Height = windowBase.ActualWidth;
             asyncPopup.Placement = PlacementMode.Center;
             stack.Height = 160;
-            stack.Width = 380;
+            stack.Width = 390;
             border.Height = stack.Height + 10;
             border.Child = stack;
             asyncPopup.Child = border;

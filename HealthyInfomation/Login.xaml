@@ -4,7 +4,7 @@
         xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
         xmlns:helper="clr-namespace:HealthyInformation.FrameWork.ClientHelper;assembly=HealthyInformation.FrameWork"
         xmlns:local="clr-namespace:HealthyInfomation.Resource"
-        Title="用户登录" Height="320" Width="450"
+        Title="用户登录" Height="320" Width="430"
         ResizeMode="NoResize" FontSize="14"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen" Icon="Images/login.ico">

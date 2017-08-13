@@ -88,5 +88,27 @@ namespace HealthyInformation.Model
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetRecuperationInfoAnalysis_Result>("UP_GetRecuperationInfoAnalysis");
         }
+    
+        public virtual ObjectResult<UP_GetHealthyGradeAnalysis_Result> UP_GetHealthyGradeAnalysis(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetHealthyGradeAnalysis_Result>("UP_GetHealthyGradeAnalysis", yearParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetHealthyGradeDetail_Result> UP_GetHealthyGradeDetail(Nullable<int> grade, Nullable<int> year)
+        {
+            var gradeParameter = grade.HasValue ?
+                new ObjectParameter("Grade", grade) :
+                new ObjectParameter("Grade", typeof(int));
+    
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetHealthyGradeDetail_Result>("UP_GetHealthyGradeDetail", gradeParameter, yearParameter);
+        }
     }
 }

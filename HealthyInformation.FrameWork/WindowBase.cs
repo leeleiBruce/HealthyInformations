@@ -16,6 +16,8 @@ namespace HealthyInformation.FrameWork
             this.FontFamily = new System.Windows.Media.FontFamily("Microsoft YaHei");
         }
 
+        protected int minYear = 2010;
+
         private Visibility removeVisibility;
         public Visibility RemoveVisibility
         {
