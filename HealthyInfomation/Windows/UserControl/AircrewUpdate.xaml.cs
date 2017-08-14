@@ -172,7 +172,12 @@ namespace HealthyInfomation.Windows.UserControl
             this.IsEditEnabled = true;
             this.IsSaveEnabled = false;
             this.AircrewModel = AutoMapper.Mapper.Map<AircrewEntity, AircrewModel>(aircrewEntity);
-            if (!string.IsNullOrEmpty(AircrewModel.Photo))
+            this.ConvertPhotoToShow();
+        }
+
+        private void ConvertPhotoToShow()
+        {
+            if (AircrewModel != null && !string.IsNullOrEmpty(AircrewModel.Photo))
             {
                 byte[] bt = Convert.FromBase64String(AircrewModel.Photo);
                 System.IO.MemoryStream stream = new System.IO.MemoryStream(bt);
@@ -246,6 +251,7 @@ namespace HealthyInfomation.Windows.UserControl
                     this.ShowMessage(CommonMsgResource.Msg_SetSucess);
                     this.aircrewEntity = await this.facade.GetAircrewByKey(this.AircrewModel.TransactionNumber);
                     this.AircrewModel = AutoMapper.Mapper.Map<AircrewEntity, AircrewModel>(aircrewEntity);
+                    this.ConvertPhotoToShow();
                 }
                 catch
                 {
