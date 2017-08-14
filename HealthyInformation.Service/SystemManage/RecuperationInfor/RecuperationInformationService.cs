@@ -37,7 +37,12 @@ namespace HealthyInformation.Service.SystemManage.RecuperationInfor
 
         public BaseResponse UpdateRecuperationInformation(RecuperationInformationRequest request)
         {
-            var recuperationInformation = AutoMapper.Mapper.Map<RecuperationInformationRequest, RecuperationInformation>(request);
+            var recuperationInformation = recuperationInformationRepository.GetRecuperationPlanByKey(request.TransactionNumber);
+            recuperationInformation.SanatoriumID = request.SanatoriumID;
+            recuperationInformation.HospitalEnterDate = request.HospitalEnterDate;
+            recuperationInformation.HospitalLeaveDate = request.HospitalLeaveDate;
+            recuperationInformation.LeaderAircrewID = request.LeaderAircrewID;
+            recuperationInformation.AviationMedicineID = request.AviationMedicineID;
             recuperationInformation.LastEditDate = DateTime.Now;
             recuperationInformation.LastEditUser= request.ActionUserID;
             this.Update(recuperationInformation);
