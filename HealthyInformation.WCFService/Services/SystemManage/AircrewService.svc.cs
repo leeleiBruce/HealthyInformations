@@ -45,13 +45,13 @@ namespace HealthyInformation.WCFService.Services.SystemManage
             var response = aircrewManageService.Update(request.Aircrew);
             var flightRecordOrgList = flightRecordService.GetFlightRecordList(request.Aircrew.TransactionNumber);
 
-            foreach (var flightRecordOrg in flightRecordOrgList)
-            {
-                flightRecordService.Remove(flightRecordOrg);
-            }
-
             if (request.FlightRecordList != null && request.FlightRecordList.Count > 0)
             {
+                foreach (var flightRecordOrg in flightRecordOrgList)
+                {
+                    flightRecordService.Remove(flightRecordOrg);
+                }
+
                 foreach (var record in request.FlightRecordList)
                 {
                     record.AircrewID = request.Aircrew.TransactionNumber;
@@ -80,6 +80,11 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         public List<FlightRecord> GetFlightRecord(string aircrewID)
         {
             return flightRecordService.GetFlightRecordList(int.Parse(aircrewID));
+        }
+
+        public Aircrew GetAircrewByKey(string transactionNumber)
+        {
+            return aircrewManageService.GetAircrewByKey(transactionNumber);
         }
     }
 }

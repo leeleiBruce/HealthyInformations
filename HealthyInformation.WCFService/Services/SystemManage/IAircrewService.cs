@@ -39,5 +39,8 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         [OperationContract]
         [WebGet(UriTemplate = "flightrecord/get?aircrewID={aircrewID}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         List<FlightRecord> GetFlightRecord(string aircrewID);
+
+        [WebGet(UriTemplate = "get/single?key={key}", ResponseFormat = WebMessageFormat.Json)]
+        Aircrew GetAircrewByKey(string key);
     }
 }

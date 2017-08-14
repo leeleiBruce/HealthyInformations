@@ -48,5 +48,10 @@ namespace HealthyInfomation.Facade
         {
             return await this.GetAsync<List<FlightRecordEntity>>(string.Format("flightrecord/get?aircrewID={0}", aircrewID));
         }
+
+        public async Task<AircrewEntity> GetAircrewByKey(int key)
+        {
+            return await this.GetAsync<AircrewEntity>(string.Format("get/single?key={0}", key));
+        }
     }
 }

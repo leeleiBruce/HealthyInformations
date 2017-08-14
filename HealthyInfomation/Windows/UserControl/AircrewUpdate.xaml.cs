@@ -85,7 +85,7 @@ namespace HealthyInfomation.Windows.UserControl
         {
             get
             {
-                return CommandFactory.CreateCommand(async(obj) =>
+                return CommandFactory.CreateCommand(async (obj) =>
                 {
                     await this.InitFlightRecordList();
                     var flightRecord = new FlyRecord(this.flightRecordList);
@@ -244,6 +244,8 @@ namespace HealthyInfomation.Windows.UserControl
 
                     await this.facade.UpdateAircrewPhoto(request);
                     this.ShowMessage(CommonMsgResource.Msg_SetSucess);
+                    this.aircrewEntity = await this.facade.GetAircrewByKey(this.AircrewModel.TransactionNumber);
+                    this.AircrewModel = AutoMapper.Mapper.Map<AircrewEntity, AircrewModel>(aircrewEntity);
                 }
                 catch
                 {

@@ -16,5 +16,6 @@ namespace HealthyInformation.Service.SystemManage
         BaseResponse UpdatePhoto(AircrewPhotoRequest request);
         BaseResponse DeleteAircrew(int transactionNumber);
         BaseResponse CreateFlightRecord(FlightRecord request);
+        Aircrew GetAircrewByKey(string transactionNumber);
     }
 }

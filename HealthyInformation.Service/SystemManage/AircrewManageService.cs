@@ -59,5 +59,12 @@ namespace HealthyInformation.Service.SystemManage
             this.unitOfWork.Commit();
             return this.BuildSuccessResponse();
         }
+
+        public Aircrew GetAircrewByKey(string transactionNumber)
+        {
+            int key = 0;
+            int.TryParse(transactionNumber, out key);
+            return aircrewRepository.GetAircrewByKey(key);
+        }
     }
 }
