@@ -195,10 +195,6 @@ namespace HealthyInfomation.Windows.UserControl
             RecuperationInformationModel.HospitalizationDatePlan = entity.HospitalEnterDate;
             RecuperationInformationModel.DischargeDatePlan = entity.HospitalLeaveDate;
             RecuperationAccompanyList = new ObservableCollection<RecuperationAccompanyEntity>(entity.RecuperationAccompanyEntitys);
-            for (int i = 0; i <= 9; i++)
-            {
-                RecuperationAccompanyList.Insert(RecuperationAccompanyList.Count, new RecuperationAccompanyEntity { });
-            }
             RecuperationMemberList = entity.RecuperationMembers;
             recuperationMemberList = RecuperationMemberList.Select(r =>
             {
