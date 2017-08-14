@@ -152,6 +152,7 @@
   <ItemGroup>
     <Content Include="Config\MessageResource\CommonDisease.config" />
     <Content Include="Config\MessageResource\AviationMedicine.config" />
+    <None Include="Properties\PublishProfiles\li.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

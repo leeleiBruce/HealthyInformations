@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Input;
 using HealthyInformation.FrameWork.ActionTrigger;
 using HealthyInformation.FrameWork.Enums;
+using HealthyInformation.FrameWork.Extension;
 using HealthyInformation.ClientEntity.SystemManage.Request;
 using HealthyInformation.FrameWork.AuthorUser;
 
@@ -119,11 +120,42 @@ namespace HealthyInfomation.Windows.UserControl
         {
             get
             {
-                return CommandFactory.CreateCommand((obj) => 
+                return CommandFactory.CreateCommand((obj) =>
                 {
                     var aircrewMemberWindow = new AircrewMember(RecuperationMemberList);
                     aircrewMemberWindow.ShowDialog();
                     recuperationMemberList = aircrewMemberWindow.Tag as List<AircrewEntity>;
+                });
+            }
+        }
+
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    var recuperationAccompany = obj as RecuperationAccompanyEntity;
+                    if (obj != null)
+                    {
+                        this.RecuperationAccompanyList.Remove(recuperationAccompany);
+                    }
+                });
+            }
+        }
+
+        public ICommand NewCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    if (this.RecuperationAccompanyList == null)
+                    {
+                        this.RecuperationAccompanyList = new ObservableCollection<RecuperationAccompanyEntity>();
+                    }
+
+                    this.RecuperationAccompanyList.Add(new RecuperationAccompanyEntity());
                 });
             }
         }
@@ -159,7 +191,7 @@ namespace HealthyInfomation.Windows.UserControl
             var entity = await this.recuperationFacade.GetRecuperationDetail(key);
             RecuperationInformationModel.AviationMedicineID = entity.AviationMedicineID.GetValueOrDefault(0);
             RecuperationInformationModel.SanatoriumID = entity.SanatoriumID;
-            RecuperationInformationModel.AircrewEntity = RecuperationInformationModel.AircrewEntityList.FirstOrDefault(a=>a.TransactionNumber== entity.LeaderAircrewID);
+            RecuperationInformationModel.AircrewEntity = RecuperationInformationModel.AircrewEntityList.FirstOrDefault(a => a.TransactionNumber == entity.LeaderAircrewID);
             RecuperationInformationModel.HospitalizationDatePlan = entity.HospitalEnterDate;
             RecuperationInformationModel.DischargeDatePlan = entity.HospitalLeaveDate;
             RecuperationAccompanyList = new ObservableCollection<RecuperationAccompanyEntity>(entity.RecuperationAccompanyEntitys);
@@ -168,10 +200,11 @@ namespace HealthyInfomation.Windows.UserControl
                 RecuperationAccompanyList.Insert(RecuperationAccompanyList.Count, new RecuperationAccompanyEntity { });
             }
             RecuperationMemberList = entity.RecuperationMembers;
-            recuperationMemberList= RecuperationMemberList.Select(r=> {
+            recuperationMemberList = RecuperationMemberList.Select(r =>
+            {
                 return new AircrewEntity
                 {
-                     TransactionNumber = r.AircrewID.GetValueOrDefault(0)
+                    TransactionNumber = r.AircrewID.GetValueOrDefault(0)
                 };
             }).ToList();
         }
@@ -229,7 +262,9 @@ namespace HealthyInfomation.Windows.UserControl
                 };
             }).ToList();
 
-            request.RecuperationAccompanyList = this.RecuperationAccompanyList
+            if (this.RecuperationAccompanyList.Any(r => r.HasValidationError())) return;
+
+            request.RecuperationAccompanyList = this.RecuperationAccompanyList?
                 .Where(r => !string.IsNullOrWhiteSpace(r.Name))
                 .Select(r => new RecuperationAccompanyEntity
                 {

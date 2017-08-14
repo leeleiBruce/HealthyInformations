@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using System.ComponentModel;
+using HealthyInformation.FrameWork.Extension;
 using HealthyInformation.ClientEntity.SystemManage.Request;
 using HealthyInformation.FrameWork.AuthorUser;
 using System.Collections.ObjectModel;
@@ -156,6 +157,22 @@ namespace HealthyInfomation.Windows
             }
         }
 
+        public ICommand NewCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) => 
+                {
+                    if (this.RecuperationAccompanyList == null)
+                    {
+                        this.RecuperationAccompanyList = new ObservableCollection<RecuperationAccompanyEntity>();
+                    }
+
+                    this.RecuperationAccompanyList.Add(new RecuperationAccompanyEntity());
+                });
+            }
+        }
+
         #endregion
 
         #region Method
@@ -168,10 +185,6 @@ namespace HealthyInfomation.Windows
 
             this.RecuperationInformationModel.AviationMedicineID = 0;
             this.RecuperationAccompanyList = new ObservableCollection<RecuperationAccompanyEntity>();
-            for (int i = 0; i <= 9; i++)
-            {
-                RecuperationAccompanyList.Add(new RecuperationAccompanyEntity { });
-            }
         }
 
         private void InitTriggerAction()
@@ -243,6 +256,8 @@ namespace HealthyInfomation.Windows
                     LastEditUser = CPApplication.CurrentUser.UserName
                 };
             }).ToList();
+
+            if (this.RecuperationAccompanyList.Any(r => r.HasValidationError())) return;
 
             request.RecuperationAccompanyList = this.RecuperationAccompanyList
                 .Where(r => !string.IsNullOrWhiteSpace(r.Name))
