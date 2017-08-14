@@ -102,14 +102,14 @@
                     <DataGridTemplateColumn Header="{Binding DgHeader_Name,Source={StaticResource LocalResource}}" Width="5*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Padding="2" MaxLength="25"></TextBox>
+                                <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Padding="2" MaxLength="25"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="{Binding DgHeader_ContactTel,Source={StaticResource LocalResource}}" Width="5*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding ContactPhone,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Padding="2" MaxLength="25"></TextBox>
+                                <TextBox Text="{Binding ContactPhone,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Padding="2" MaxLength="25"></TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

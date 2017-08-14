@@ -14,6 +14,8 @@ namespace HealthyInformation.ClientEntity.SystemManage.Entity
 
         [Required(ErrorMessage ="姓名不能为空！")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "联系电话不能为空！")]
         public string ContactPhone { get; set; }
         public DateTime? InDate { get; set; }
         public string InUser { get; set; }
