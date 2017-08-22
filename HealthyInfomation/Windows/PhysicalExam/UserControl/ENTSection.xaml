@@ -72,7 +72,7 @@
                       SelectedValuePath="TransactionNumber"></ComboBox>
         <StackPanel Grid.Row="10" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
             <Button Command="{Binding SaveCommand,Mode=OneTime}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{StaticResource btn-primary}"></Button>
-            <Button Command="{Binding RemoveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Margin="5,0,0,0"></Button>
+            <Button Command="{Binding RemoveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Visibility="{Binding RemoveVisibility}" Margin="5,0,0,0"></Button>
             <Button Command="{Binding CloseCommand,Mode=OneTime}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{StaticResource btn-warning}" Margin="5,0,0,0"></Button>
         </StackPanel>
     </Grid>

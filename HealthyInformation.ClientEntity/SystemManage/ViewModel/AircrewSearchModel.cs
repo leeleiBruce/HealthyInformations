@@ -109,6 +109,20 @@ namespace HealthyInformation.ClientEntity.SystemManage.ViewModel
             }
         }
 
+        private int currentPageIndex;
+        public int CurrentPageIndex
+        {
+            get
+            {
+                return currentPageIndex;
+            }
+            set
+            {
+                currentPageIndex = value;
+                RaisePropertyChanged("CurrentPageIndex");
+            }
+        }
+
         private bool hasPreviousPage;
         public bool HasPreviousPage
         {

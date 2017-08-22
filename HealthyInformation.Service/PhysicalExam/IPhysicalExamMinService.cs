@@ -18,5 +18,7 @@ namespace HealthyInformation.Service.PhysicalExam
         BaseResponse UpdatePhysicalExamMin(PhysicalExamMinRecordRequest request);
 
         BaseResponse RemovePhysicalExamMin(BaseRemoveRequest request);
+
+        BaseResponse RemovePhysicalExamMinByKey(string transactionID);
     }
 }

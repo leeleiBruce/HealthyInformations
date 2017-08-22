@@ -80,5 +80,17 @@ namespace HealthyInformation.Service.PhysicalExam
             this.unitOfWork.Commit();
             return this.BuildSuccessResponse();
         }
+
+        public BaseResponse RemovePhysicalExamMinByKey(string transactionID)
+        {
+            var physicalExamMinRecord = this.repository.GetPhysicalExamMinRecordByKey(Convert.ToInt32(transactionID));
+            if (physicalExamMinRecord != null)
+            {
+                this.Remove(physicalExamMinRecord);
+                this.unitOfWork.Commit();
+            }
+
+            return this.BuildSuccessResponse();
+        }
     }
 }

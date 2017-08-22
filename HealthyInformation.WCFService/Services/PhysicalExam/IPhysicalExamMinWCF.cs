@@ -29,5 +29,9 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         [OperationContract]
         [WebInvoke(UriTemplate = "delete", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         BaseResponse RemovePhysicalExamMin(BaseRemoveRequest request);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "delete/single/{transactionID}",  ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        BaseResponse RemovePhysicalExamMinByKey(string transactionID);
     }
 }

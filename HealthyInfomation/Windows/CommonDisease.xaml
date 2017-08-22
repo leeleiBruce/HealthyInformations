@@ -27,7 +27,7 @@
             <TextBlock Text="{x:Static local:CommonDiseaseResource.Lab_DiseaseName}" 
                        VerticalAlignment="Center" 
                        Grid.Row="0"></TextBlock>
-            <TextBox Text="{Binding DiseaseName,Mode=TwoWay}" Width="300"></TextBox>
+            <TextBox Text="{Binding CommonDiseaseModel.DiseaseName,Mode=TwoWay}" Width="300"></TextBox>
             <Button Content="{x:Static local:CommonResource.Btn_Search}" 
                     Style="{DynamicResource btn-primary}"
                     Margin="10,0,0,0"

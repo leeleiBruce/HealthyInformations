@@ -157,6 +157,7 @@ namespace HealthyInfomation.Windows.PhysicalExam.UserControl
             if (this.ENTSectionModel.HasValidationError()) return;
 
             var request = AutoMapper.Mapper.Map<ENTSectionModel, ENTSectionRequest>(ENTSectionModel);
+            request.AircrewID = aircrewEntity.TransactionNumber;
             request.ActionUserID = CPApplication.CurrentUser.UserName;
             await this.physicalExamMaxFacade.CreateENTSection(request);
             this.ShowMessage(CommonMsgResource.Msg_SaveSuccess);

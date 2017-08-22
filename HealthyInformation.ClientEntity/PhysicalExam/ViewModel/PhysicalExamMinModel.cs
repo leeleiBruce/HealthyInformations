@@ -11,7 +11,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
     public class PhysicalExamMinModel : ModelBase
     {
         private decimal? weight;
-        [Required(ErrorMessage = "体重不能为空！")]
+        [Required(ErrorMessage = "体重必须为整数或小数且不能为空！")]
         public decimal? Weight
         {
             get
@@ -26,7 +26,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
         }
 
         private int? pulse;
-        [Required(ErrorMessage = "脉搏不能为空！")]
+        [Required(ErrorMessage = "脉搏必须为整数且不能为空！")]
         public int? Pulse
         {
             get
@@ -41,7 +41,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
         }
 
         private int? bloodPressure;
-        [Required(ErrorMessage = "血压不能为空！")]
+        [Required(ErrorMessage = "血压必须为整数且不能为空！")]
         public int? BloodPressure
         {
             get
@@ -56,7 +56,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
         }
 
         private decimal? visionLeft;
-        [Required(ErrorMessage = "左眼视力不能为空！")]
+        [Required(ErrorMessage = "左眼视力必须为整数或小数且不能为空！")]
         public decimal? VisionLeft
         {
             get
@@ -71,7 +71,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
         }
 
         private decimal? visionRight;
-        [Required(ErrorMessage = "右眼视力不能为空！")]
+        [Required(ErrorMessage = "右眼视力必须为整数或小数且不能为空！")]
         public decimal? VisionRight
         {
             get

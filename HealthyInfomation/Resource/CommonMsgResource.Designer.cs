@@ -70,6 +70,15 @@ namespace HealthyInfomation.Resource {
         }
         
         /// <summary>
+        ///   查找类似 图片大小不能超过{0}M! 的本地化字符串。
+        /// </summary>
+        public static string Msg_ImageOverSize {
+            get {
+                return ResourceManager.GetString("Msg_ImageOverSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请选择要删除的数据！ 的本地化字符串。
         /// </summary>
         public static string Msg_NoRemoveData {

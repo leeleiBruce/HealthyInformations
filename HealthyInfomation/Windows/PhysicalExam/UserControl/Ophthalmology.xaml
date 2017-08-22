@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Base="clr-namespace:HealthyInformation.FrameWork;assembly=HealthyInformation.FrameWork"
         xmlns:local="clr-namespace:HealthyInfomation.Resource"
-        Height="600" Width="710"
+        Height="600" Width="720"
         Title="眼科"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"

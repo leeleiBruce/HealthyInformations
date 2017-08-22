@@ -31,7 +31,7 @@ namespace HealthyInfomation.Windows
             this.DataContext = this;
             this.InitTriggerAction();
             this.InitTimer();
-            this.Loaded += delegate(object sender, RoutedEventArgs e)
+            this.Loaded += delegate (object sender, RoutedEventArgs e)
             {
                 this.SearchDisease();
             };
@@ -135,10 +135,8 @@ namespace HealthyInfomation.Windows
         private void NewCommonDisease()
         {
             var commonDiseaseCreate = new CommonDiseaseCreate();
-            if (commonDiseaseCreate.ShowDialog().GetValueOrDefault(false))
-            {
-                this.SearchDisease();
-            }
+            commonDiseaseCreate.ShowDialog();
+            SearchDisease();
         }
 
         private async Task RemoveCommonDisease()

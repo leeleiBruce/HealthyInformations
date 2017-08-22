@@ -33,7 +33,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         BaseResponse UpdateAircrewPhoto(AircrewPhotoRequest request);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "delete", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(UriTemplate = "delete/{transactionNumber}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         BaseResponse RemoveAircrew(string transactionNumber);
 
         [OperationContract]

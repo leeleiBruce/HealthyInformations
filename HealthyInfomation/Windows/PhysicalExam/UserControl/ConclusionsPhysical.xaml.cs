@@ -158,6 +158,10 @@ namespace HealthyInfomation.Windows.PhysicalExam.UserControl
                 RemoveVisibility = Visibility.Visible;
                 ConclusionPhysicalModel = AutoMapper.Mapper.Map<ConclusionsphysicalexamEntity, ConclusionPhysicalModel>(conclusionPhysical);
             }
+            else
+            {
+                this.ConclusionPhysicalModel = new ConclusionPhysicalModel();
+            }
         }
 
         private async void CreateConclusionPhysical()

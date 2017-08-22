@@ -175,6 +175,17 @@ namespace HealthyInfomation.Windows.PhysicalExam
             }
         }
 
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    RemovePhysicalExamMin();
+                });
+            }
+        }
+
         #endregion
 
         #region Method
@@ -182,11 +193,16 @@ namespace HealthyInfomation.Windows.PhysicalExam
         private async void InitData()
         {
             this.IsSaveEnabled = true;
+            this.RemoveVisibility = Visibility.Collapsed;
             this.UpdateVisibility = Visibility.Collapsed;
             var response = await this.aviationMedicineFacade.GetAviationMedicineList(string.Empty, 0, 1000);
             response.AviationMedicineList.Insert(0, new AviationMedicineEntity { TransactionNumber = 0, Name = CommonResource.Default_Select });
             this.AviationMedicineList = response.AviationMedicineList;
             this.PhysicalExamMinModel.AviationMedicineID = 0;
+            if (response.AviationMedicineList?.Count > 0)
+            {
+                this.RemoveVisibility = Visibility.Visible;
+            }
         }
 
         private async void CreatePhysicalExamMin()
@@ -245,10 +261,21 @@ namespace HealthyInfomation.Windows.PhysicalExam
                 }
                 else
                 {
-                    this.PhysicalExamMinModel = new PhysicalExamMinModel();
+                    this.PhysicalExamMinModel = new PhysicalExamMinModel { AviationMedicineID = 0 };
                     this.UpdateVisibility = Visibility.Collapsed;
                     this.IsSaveEnabled = true;
                 }
+            }
+        }
+
+        private async void RemovePhysicalExamMin()
+        {
+            if (this.ShowConfirm(CommonMsgResource.Msg_RemoveConfirm) == MessageBoxResult.Yes)
+            {
+                await this.facade.RemovePhysicalExamMinByKey(this.PhysicalExamMinModel.TransactionNumber);
+                this.ShowMessage(CommonMsgResource.Msg_RemoveSuccess);
+                this.PhysicalExamMinModel = new PhysicalExamMinModel { AviationMedicineID = 0 };
+                this.RemoveVisibility = Visibility.Collapsed;
             }
         }
 

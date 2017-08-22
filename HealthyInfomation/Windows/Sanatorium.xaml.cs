@@ -67,17 +67,6 @@ namespace HealthyInfomation.Windows
             }
         }
 
-        public ICommand CloseCommand
-        {
-            get
-            {
-                return CommandFactory.CreateCommand((obj) =>
-                {
-                    this.Close();
-                });
-            }
-        }
-
         public ICommand NewCommand
         {
             get

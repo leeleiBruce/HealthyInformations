@@ -144,6 +144,7 @@ namespace HealthyInfomation.Windows
                 return CommandFactory.CreateCommand((obj) =>
                 {
                     new RecuperationInformation().ShowDialog();
+                    SearchRecuperationPlan();
                 });
             }
         }
@@ -156,6 +157,7 @@ namespace HealthyInfomation.Windows
                 {
                     var recuperation = obj as UP_GetRecuperationPlan_Result;
                     new RecuperationInformationModify(recuperation.TransactionNumber).ShowDialog();
+                    SearchRecuperationPlan();
                 });
             }
         }
@@ -171,6 +173,7 @@ namespace HealthyInfomation.Windows
                         var recuperation = obj as UP_GetRecuperationPlan_Result;
                         await this.recuperationFacade.RemoveRecuperationInformation(recuperation.TransactionNumber);
                         ShowMessage(CommonMsgResource.Msg_RemoveSuccess);
+                        SearchRecuperationPlan();
                     }
                 });
             }

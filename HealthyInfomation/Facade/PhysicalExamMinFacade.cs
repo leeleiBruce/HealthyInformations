@@ -33,9 +33,9 @@ namespace HealthyInfomation.Facade
             return await this.PutAsync<PhysicalExamMinRecordRequest, BaseResponse>("update", request);
         }
 
-        public async Task<BaseResponse> RemovePhysicalExamMin(PhysicalExamMinRecordRequest request)
+        public async Task<BaseResponse> RemovePhysicalExamMinByKey(int transactionNumber)
         {
-            return await this.PostAsync<PhysicalExamMinRecordRequest, BaseResponse>("delete", request);
+            return await this.DeleteAsync<BaseResponse>(string.Format("delete/single/{0}", transactionNumber));
         }
     }
 }

@@ -26,16 +26,16 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_Diagnosis}" Grid.Row="0" Grid.Column="0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.Diagnosis,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.Diagnosis,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="2000" Height="50"></TextBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_Conclusion}" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.Conclusion,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50" Margin="0,5,0,0"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.Conclusion,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="2000" Height="50" Margin="0,5,0,0"></TextBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_HealthGrade}" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
         <ComboBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" ItemsSource="{Binding HealthGradeList,Mode=OneWay}"
                   SelectedValue="{Binding ConclusionPhysicalModel.HealthyGrade,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
                   SelectedValuePath="Key"
                   DisplayMemberPath="Value"></ComboBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_Suggestion}" Grid.Row="3" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.Suggestion,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50" Margin="0,5,0,0"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.Suggestion,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="1000" Height="50" Margin="0,5,0,0"></TextBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_DiseaseKeyword}" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
         <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" Margin="0,5,0,0">
             <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0"
@@ -43,17 +43,17 @@
                   SelectedValuePath="TransactionNumber"
                   DisplayMemberPath="SymptomName"
                   SelectedItem="{Binding CommonDiseaseEntity,Mode=TwoWay}"></ComboBox>
-            <TextBox Text="{Binding ConclusionPhysicalModel.DiseaseKeyword,Mode=TwoWay}" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top" Height="50" Margin="0,5,0,0"></TextBox>
+            <TextBox Text="{Binding ConclusionPhysicalModel.DiseaseKeyword,Mode=TwoWay}" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top" MaxLength="1000" Height="50" Margin="0,5,0,0"></TextBox>
         </StackPanel>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_College}" Grid.Row="5" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.CollegeCenter,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50" Margin="0,5,0,0"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.CollegeCenter,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="100" Height="50" Margin="0,5,0,0"></TextBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_CertifyingCommission}" Grid.Row="6" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.CertifyingCommission,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50" Margin="0,5,0,0"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.CertifyingCommission,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="100" Height="50" Margin="0,5,0,0"></TextBox>
         <TextBlock Text="{x:Static local:ConclusionsPhysicalResource.Lab_Director}" Grid.Row="7" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-        <TextBox Text="{Binding ConclusionPhysicalModel.Director,Mode=TwoWay}" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Height="50" Margin="0,5,0,0"></TextBox>
+        <TextBox Text="{Binding ConclusionPhysicalModel.Director,Mode=TwoWay}" Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" MaxLength="25" Height="50" Margin="0,5,0,0"></TextBox>
         <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,10,0,0">
             <Button Command="{Binding SaveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Save}" Style="{DynamicResource btn-primary}"></Button>
-            <Button Command="{Binding RemoveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Margin="5,0,0,0"></Button>
+            <Button Command="{Binding RemoveCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Remove}" Style="{DynamicResource btn-danger}" Visibility="{Binding RemoveVisibility}" Margin="5,0,0,0"></Button>
             <Button Command="{Binding CloseCommand,Mode=OneWay}" Content="{x:Static local:CommonResource.Btn_Close}" Style="{DynamicResource btn-warning}" Margin="5,0,0,0"></Button>
         </StackPanel>
     </Grid>

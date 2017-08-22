@@ -26,7 +26,7 @@ namespace HealthyInfomation.Windows
             this.aircrewFacade = new AircrewFacade(this);
             this.AircrewSearchModel = new AircrewSearchModel();
             this.DataContext = this;
-            this.Loaded += delegate(object sender, RoutedEventArgs e)
+            this.Loaded += delegate (object sender, RoutedEventArgs e)
             {
                 this.SearchAircrewList();
             };
@@ -164,6 +164,36 @@ namespace HealthyInfomation.Windows
             }
         }
 
+        public ICommand PaginationCommand
+        {
+            get
+            {
+                return CommandFactory.CreateCommand((obj) =>
+                {
+                    var param = obj as string;
+                    if (param == "First")
+                    {
+                        this.AircrewSearchModel.PageIndex = 0;
+                    }
+                    else if (param == "Prev")
+                    {
+                        this.AircrewSearchModel.PageIndex = AircrewSearchModel.PageIndex - 1;
+                    }
+                    else if (param == "Next")
+                    {
+                        this.AircrewSearchModel.PageIndex = AircrewSearchModel.PageIndex + 1;
+                    }
+                    else
+                    {
+                        var totalPages = this.AircrewSearchModel.TotalCount % ConstDefinations.DEFAULT_PAGESIZE == 0 ? AircrewSearchModel.TotalCount / ConstDefinations.DEFAULT_PAGESIZE : AircrewSearchModel.TotalCount / ConstDefinations.DEFAULT_PAGESIZE + 1;
+                        this.AircrewSearchModel.PageIndex = totalPages - 1;
+                    }
+
+                    this.SearchAircrewList(pageIndex: AircrewSearchModel.PageIndex);
+                });
+            }
+        }
+
         #endregion
 
         #region method
@@ -199,9 +229,10 @@ namespace HealthyInfomation.Windows
             this.AircrewSearchModel.AircrewList = new ObservableCollection<AircrewEntity>(response.AircrewList);
             int totalPages = response.TotalCount % pageSize == 0 ? response.TotalCount / pageSize : response.TotalCount / pageSize + 1;
             this.AircrewSearchModel.TotalCount = response.TotalCount;
-            this.AircrewSearchModel.PageIndex = response.TotalCount>0? 1:0;
-            this.AircrewSearchModel.HasPreviousPage = AircrewSearchModel.PageIndex > 1;
-            this.AircrewSearchModel.HasNextPage = AircrewSearchModel.PageIndex < totalPages;
+            this.AircrewSearchModel.PageIndex = pageIndex;
+            this.AircrewSearchModel.CurrentPageIndex = pageIndex + 1;
+            this.AircrewSearchModel.HasPreviousPage = AircrewSearchModel.PageIndex > 0;
+            this.AircrewSearchModel.HasNextPage = AircrewSearchModel.PageIndex < totalPages - 1;
         }
 
         private void NewAircrew()

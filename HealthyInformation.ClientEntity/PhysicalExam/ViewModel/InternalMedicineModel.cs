@@ -314,7 +314,7 @@ namespace HealthyInformation.ClientEntity.PhysicalExam.ViewModel
         public int AircrewID { get; set; }
 
         public int aviationMedicineID;
-        [Range(0, 1000, ErrorMessage = "医师无效")]
+        [Range(1, 1000, ErrorMessage = "医师无效")]
         public int AviationMedicineID
         {
             get

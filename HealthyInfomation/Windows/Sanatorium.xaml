@@ -18,7 +18,7 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static local:SanatoriumResource.Lab_Name}" Grid.Row="0" Grid.Column="0"></TextBlock>
-        <TextBox Text="" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SanatoriumSearchModel.Name,Mode=TwoWay}"></TextBox>
         <Button Command="{Binding SearchCommand}" Content="{x:Static local:CommonResource.Btn_Search}" Grid.Row="0" Grid.Column="2" Margin="10,0,0,0" Style="{DynamicResource btn-primary}"></Button>
         <DataGrid x:Name="DG_Sanatorium"
                   Grid.Row="1"

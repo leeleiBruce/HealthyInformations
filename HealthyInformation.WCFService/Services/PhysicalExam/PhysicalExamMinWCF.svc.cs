@@ -36,5 +36,10 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
         {
             return service.RemovePhysicalExamMin(request);
         }
+
+        public BaseResponse RemovePhysicalExamMinByKey(string transactionID)
+        {
+            return service.RemovePhysicalExamMinByKey(transactionID);
+        }
     }
 }

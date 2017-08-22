@@ -29,7 +29,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         BaseResponse UpdateSanatorium(SanatoriumRequest request);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "delete?id={transactionNumber}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        [WebInvoke(UriTemplate = "delete/{transactionNumber}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         BaseResponse RemoveSanatorium(string transactionNumber);
 
         [OperationContract]

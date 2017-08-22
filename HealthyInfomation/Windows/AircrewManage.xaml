@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Text="{x:Static local:AircrewResource.Lab_Name}"></TextBlock>
-            <TextBox Grid.Column="1" Width="150"></TextBox>
+            <TextBox Grid.Column="1" Width="150" Text="{Binding AircrewSearchModel.Name,Mode=TwoWay}"></TextBox>
             <TextBlock Grid.Column="2" Text="{x:Static local:AircrewResource.Lab_RecordDate}" Margin="20,0,0,0"></TextBlock>
             <DatePicker Grid.Column="3" SelectedDate="{Binding AircrewSearchModel.StartDate,Mode=TwoWay}" Width="150"></DatePicker>
             <TextBlock Text="-" Grid.Column="4" Margin="5,0,5,0"></TextBlock>
@@ -89,14 +89,14 @@
                     <TextBlock Text="{Binding AircrewSearchModel.TotalCount,Mode=OneWay}"></TextBlock>
                     <TextBlock Text="条记录"></TextBlock>
                     <TextBlock Text="当前是第"></TextBlock>
-                    <TextBlock Text="{Binding AircrewSearchModel.PageIndex,Mode=OneWay}"></TextBlock>
+                    <TextBlock Text="{Binding AircrewSearchModel.CurrentPageIndex,Mode=OneWay}"></TextBlock>
                     <TextBlock Text="页"></TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right">
-                    <Button Content="首页" IsEnabled="{Binding AircrewSearchModel.HasPreviousPage,Mode=OneWay}" Style="{DynamicResource btn-primary}" Height="30" FontSize="12"></Button>
-                    <Button Content="上一页" IsEnabled="{Binding AircrewSearchModel.HasPreviousPage,Mode=OneWay}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
-                    <Button Content="下一页" IsEnabled="{Binding AircrewSearchModel.HasNextPage}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
-                    <Button Content="尾页" IsEnabled="{Binding AircrewSearchModel.HasNextPage}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
+                    <Button Content="首页" Command="{Binding PaginationCommand}" CommandParameter="First" IsEnabled="{Binding AircrewSearchModel.HasPreviousPage,Mode=OneWay}" Style="{DynamicResource btn-primary}" Height="30" FontSize="12"></Button>
+                    <Button Content="上一页" Command="{Binding PaginationCommand}" CommandParameter="Prev" IsEnabled="{Binding AircrewSearchModel.HasPreviousPage,Mode=OneWay}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
+                    <Button Content="下一页" Command="{Binding PaginationCommand}" CommandParameter="Next" IsEnabled="{Binding AircrewSearchModel.HasNextPage}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
+                    <Button Content="尾页" Command="{Binding PaginationCommand}" CommandParameter="Last" IsEnabled="{Binding AircrewSearchModel.HasNextPage}" Style="{DynamicResource btn-primary}" Margin="5,0,0,0" Height="30" FontSize="12"></Button>
                 </StackPanel>
             </Grid>
         </Border>

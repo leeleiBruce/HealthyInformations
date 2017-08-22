@@ -30,7 +30,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         BaseResponse UpdateCommonDisease(CommonDiseaseRequest request);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "delete?id={transactionNumber}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        [WebInvoke(UriTemplate = "delete/{transactionNumber}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
         BaseResponse RemoveCommonDisease(string transactionNumber);
     }
 }

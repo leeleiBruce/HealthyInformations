@@ -57,17 +57,6 @@ namespace HealthyInfomation.Windows
 
         #region Command
 
-        public ICommand CloseCommand
-        {
-            get
-            {
-                return CommandFactory.CreateCommand((obj) =>
-                {
-                    this.Close();
-                });
-            }
-        }
-
         public ICommand NewCommand
         {
             get

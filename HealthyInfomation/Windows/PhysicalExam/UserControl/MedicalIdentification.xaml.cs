@@ -51,6 +51,20 @@ namespace HealthyInfomation.Windows.PhysicalExam.UserControl
             }
         }
 
+        private List<AviationMedicineEntity> aviationMedicineList;
+        public List<AviationMedicineEntity> AviationMedicineList
+        {
+            get
+            {
+                return aviationMedicineList;
+            }
+            set
+            {
+                aviationMedicineList = value;
+                RaisePropertyChanged("AviationMedicineList");
+            }
+        }
+
         #region Command
 
         public ICommand SaveCommand
@@ -101,7 +115,7 @@ namespace HealthyInfomation.Windows.PhysicalExam.UserControl
             {
                 this.RemoveVisibility = Visibility.Visible;
             }
-            this.ViewModel.AviationMedicineList = response.AviationMedicineList;
+            this.AviationMedicineList = response.AviationMedicineList;
         }
 
 

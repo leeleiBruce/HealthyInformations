@@ -27,7 +27,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static local:AviationMedicineResource.Lab_Name}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Width="300" HorizontalAlignment="Left"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Width="300" HorizontalAlignment="Left" Text="{Binding AviationMedicineSearchModel.Name,Mode=TwoWay}"></TextBox>
         <Button Content="{x:Static local:CommonResource.Btn_Search}" 
                 Grid.Row="0"
                 Grid.Column="2"

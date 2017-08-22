@@ -18,6 +18,8 @@ using HealthyInformation.FrameWork.Extension;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Drawing.Imaging;
 
 namespace HealthyInfomation.Windows.UserControl
 {
@@ -26,6 +28,7 @@ namespace HealthyInfomation.Windows.UserControl
     /// </summary>
     public partial class AircrewUpdate : WindowBase
     {
+        readonly int MAXPHOTODSIZE;
         AircrewFacade facade;
         AircrewEntity aircrewEntity;
         List<FlightRecordEntity> flightRecordList;
@@ -33,6 +36,7 @@ namespace HealthyInfomation.Windows.UserControl
         public AircrewUpdate()
         {
             InitializeComponent();
+            this.MAXPHOTODSIZE = Convert.ToInt32(ConfigurationManager.AppSettings["MaxPhotoSize"]);
         }
 
         public AircrewUpdate(AircrewEntity aircrewEntity)
@@ -238,6 +242,11 @@ namespace HealthyInfomation.Windows.UserControl
                     Bitmap bp = new Bitmap(filePath);
                     bp.Save(m, bp.RawFormat);
                     byte[] b = m.GetBuffer();
+                    if (b.Length > 1024 * 1024 * MAXPHOTODSIZE)
+                    {
+                        this.ShowMessage(string.Format(CommonMsgResource.Msg_ImageOverSize, MAXPHOTODSIZE));
+                        return;
+                    }
                     string base64string = Convert.ToBase64String(b);
 
                     var request = new AircrewPhotoRequest
