@@ -41,7 +41,7 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_Name}" Grid.Row="0" Grid.Column="0"></TextBlock>
-            <TextBox Text="{Binding AircrewModel.Name,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
+            <TextBox Text="{Binding AircrewModel.Name,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="20" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_BirthDay}" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
             <DatePicker SelectedDate="{Binding AircrewModel.BirthDay,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5,0,0"></DatePicker>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_Sex}" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
@@ -50,7 +50,7 @@
                 <RadioButton IsChecked="{Binding AircrewModel.Sex,Mode=TwoWay,Converter={StaticResource SexConverter}, ConverterParameter=2}" Margin="20,0,0,0">女</RadioButton>
             </StackPanel>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_Native}" Grid.Row="3" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-            <TextBox Text="{Binding AircrewModel.Nation,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5,0,0"></TextBox>
+            <TextBox Text="{Binding AircrewModel.Nation,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="50" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,5,0,0"></TextBox>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Margin="5,0,0,0">
                 <Image x:Name="Img_Photo" Source="/Images/System/default.jpg" Stretch="Fill" Height="150" Width="130"></Image>
             </Border>
@@ -62,14 +62,14 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Text="{Binding AircrewModel.Degree,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="4" Grid.Column="1" Width="210"></TextBox>
+                <TextBox Text="{Binding AircrewModel.Degree,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="50" Grid.Row="4" Grid.Column="1" Width="210"></TextBox>
                 <TextBlock Text="{x:Static local:AircrewResource.Lab_EnlistmentTime}" Grid.Column="2" Margin="16,0,0,0"></TextBlock>
                 <DatePicker SelectedDate="{Binding AircrewModel.EnlistmentTime,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="4" Grid.Column="3"></DatePicker>
             </Grid>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_PartyTime}" Grid.Row="5" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
             <DatePicker SelectedDate="{Binding AircrewModel.PartyTime,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,5,0,0"></DatePicker>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_PlaceOfOrigin}" Grid.Row="6" Grid.Column="0" Margin="0,5,0,0"></TextBlock>
-            <TextBox Text="{Binding AircrewModel.NativePlace,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,5,0,0"></TextBox>
+            <TextBox Text="{Binding AircrewModel.NativePlace,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="50" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,5,0,0"></TextBox>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_Department}" Grid.Row="7" Grid.Column="0"></TextBlock>
             <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,5,0,0">
                 <Grid.ColumnDefinitions>
@@ -78,9 +78,9 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Text="{Binding AircrewModel.TroopsType,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
+                <TextBox Text="{Binding AircrewModel.TroopsType,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"  MaxLength="50" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
                 <TextBlock Text="{x:Static local:AircrewResource.Lab_TelNo}" Grid.Column="2" Margin="16,0,0,0"></TextBlock>
-                <TextBox Text="{Binding AircrewModel.TroopsTel,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="3"></TextBox>
+                <TextBox Text="{Binding AircrewModel.TroopsTel,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="20" Grid.Row="0" Grid.Column="3"></TextBox>
             </Grid>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_JobTitle}" Grid.Row="8" Grid.Column="0"></TextBlock>
             <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,5,0,0">
@@ -90,9 +90,9 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Text="{Binding AircrewModel.JobTitle,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
-                <TextBlock Text="{x:Static local:AircrewResource.Lab_MilitaryRank}" Grid.Column="2" Margin="16,0,0,0"></TextBlock>
-                <TextBox Text="{Binding AircrewModel.MilitaryRank,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="3"></TextBox>
+                <TextBox Text="{Binding AircrewModel.JobTitle,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="50" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
+                <TextBlock Text="{x:Static local:AircrewResource.Lab_MilitaryRank}"  Grid.Column="2" Margin="16,0,0,0"></TextBlock>
+                <TextBox Text="{Binding AircrewModel.MilitaryRank,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="50" Grid.Row="0" Grid.Column="3"></TextBox>
             </Grid>
             <TextBlock Text="{x:Static local:AircrewResource.Lab_BasicCollege}" Grid.Row="9" Grid.Column="0"></TextBlock>
             <Grid Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,5,0,0">
@@ -102,7 +102,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Text="{Binding AircrewModel.AdmissionJuniorCollege,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
+                <TextBox Text="{Binding AircrewModel.AdmissionJuniorCollege,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="500" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
                 <TextBlock Text="{x:Static local:AircrewResource.Lab_BasicCollegeGraduatedTime}" Grid.Column="2" Margin="16,0,0,0"></TextBlock>
                 <DatePicker SelectedDate="{Binding AircrewModel.GraduationJuniorDate,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="3"></DatePicker>
             </Grid>
@@ -114,7 +114,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Text="{Binding AircrewModel.AdmissionCollege,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
+                <TextBox Text="{Binding AircrewModel.AdmissionCollege,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="500" Grid.Row="0" Grid.Column="1" Width="210"></TextBox>
                 <TextBlock Text="{x:Static local:AircrewResource.Lab_FlyCollegeGraduatedTime}" Grid.Column="2" Margin="16,0,0,0"></TextBlock>
                 <DatePicker SelectedDate="{Binding AircrewModel.GraduationDate,Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Grid.Row="0" Grid.Column="3"></DatePicker>
             </Grid>

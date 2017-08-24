@@ -13,16 +13,16 @@
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="BirthDay" Type="datetime" Nullable="false" />
           <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Nation" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nation" Type="nvarchar" MaxLength="100" />
           <Property Name="Photo" Type="varchar(max)" />
-          <Property Name="Degree" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="100" />
           <Property Name="EnlistmentTime" Type="datetime" Nullable="false" />
           <Property Name="PartyTime" Type="datetime" Nullable="false" />
           <Property Name="NativePlace" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="TroopsType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TroopsType" Type="nvarchar" MaxLength="100" />
           <Property Name="TroopsTel" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="JobTitle" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MilitaryRank" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="MilitaryRank" Type="nvarchar" MaxLength="100" />
           <Property Name="GraduationJuniorDate" Type="datetime" Nullable="false" />
           <Property Name="GraduationDate" Type="datetime" Nullable="false" />
           <Property Name="PilotPlaneDate" Type="datetime" Nullable="false" />
@@ -503,7 +503,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="HealthyInformationModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="HealthyInformationEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Aircrew" EntityType="HealthyInformationModel.Aircrew" />
           <EntitySet Name="AviationMedicine" EntityType="HealthyInformationModel.AviationMedicine" />
           <EntitySet Name="CommonDisease" EntityType="HealthyInformationModel.CommonDisease" />
           <EntitySet Name="FlightDiscomfortLevel" EntityType="HealthyInformationModel.FlightDiscomfortLevel" />
@@ -558,42 +557,14 @@
             <Parameter Name="CommonDiseaseID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UP_GetCommonDiseaseCountAnalysis" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseCountAnalysis_Result)">
-            <Parameter Name="Year" Mode="In" Type="Int32" />
+          <Parameter Name="Year" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UP_GetCommonDiseaseCountDetail" ReturnType="Collection(HealthyInformationModel.UP_GetCommonDiseaseCountDetail_Result)">
             <Parameter Name="Year" Mode="In" Type="Int32" />
             <Parameter Name="CommonDiseaseID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Aircrew" EntityType="HealthyInformationModel.Aircrew" />
         </EntityContainer>
-        <EntityType Name="Aircrew">
-          <Key>
-            <PropertyRef Name="TransactionNumber" />
-          </Key>
-          <Property Name="TransactionNumber" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="Nation" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="Photo" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Degree" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="EnlistmentTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PartyTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NativePlace" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="TroopsType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="TroopsTel" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="MilitaryRank" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="GraduationJuniorDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="GraduationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PilotPlaneDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TerminateContractDetail" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="InUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastEditUser" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="AdmissionJuniorCollege" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
-          <Property Name="AdmissionCollege" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
-        </EntityType>
         <EntityType Name="AviationMedicine">
           <Key>
             <PropertyRef Name="TransactionNumber" />
@@ -1113,42 +1084,41 @@
           <Property Type="String" Name="TroopsType" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="Conclusion" Nullable="true" MaxLength="4000" />
         </ComplexType>
+        <EntityType Name="Aircrew">
+          <Key>
+            <PropertyRef Name="TransactionNumber" />
+          </Key>
+          <Property Name="TransactionNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Nation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Degree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnlistmentTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NativePlace" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TroopsType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TroopsTel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MilitaryRank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GraduationJuniorDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GraduationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PilotPlaneDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TerminateContractDetail" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEditUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionJuniorCollege" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AdmissionCollege" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HealthyInformationModelStoreContainer" CdmEntityContainer="HealthyInformationEntities">
-          <EntitySetMapping Name="Aircrew">
-            <EntityTypeMapping TypeName="HealthyInformationModel.Aircrew">
-              <MappingFragment StoreEntitySet="Aircrew">
-                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
-                <ScalarProperty Name="Nation" ColumnName="Nation" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Degree" ColumnName="Degree" />
-                <ScalarProperty Name="EnlistmentTime" ColumnName="EnlistmentTime" />
-                <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
-                <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
-                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
-                <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
-                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
-                <ScalarProperty Name="MilitaryRank" ColumnName="MilitaryRank" />
-                <ScalarProperty Name="GraduationJuniorDate" ColumnName="GraduationJuniorDate" />
-                <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
-                <ScalarProperty Name="PilotPlaneDate" ColumnName="PilotPlaneDate" />
-                <ScalarProperty Name="TerminateContractDetail" ColumnName="TerminateContractDetail" />
-                <ScalarProperty Name="InDate" ColumnName="InDate" />
-                <ScalarProperty Name="InUser" ColumnName="InUser" />
-                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
-                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
-                <ScalarProperty Name="AdmissionJuniorCollege" ColumnName="AdmissionJuniorCollege" />
-                <ScalarProperty Name="AdmissionCollege" ColumnName="AdmissionCollege" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AviationMedicine">
             <EntityTypeMapping TypeName="HealthyInformationModel.AviationMedicine">
               <MappingFragment StoreEntitySet="AviationMedicine">
@@ -1699,6 +1669,36 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Aircrew">
+            <EntityTypeMapping TypeName="HealthyInformationModel.Aircrew">
+              <MappingFragment StoreEntitySet="Aircrew">
+                <ScalarProperty Name="AdmissionCollege" ColumnName="AdmissionCollege" />
+                <ScalarProperty Name="AdmissionJuniorCollege" ColumnName="AdmissionJuniorCollege" />
+                <ScalarProperty Name="LastEditUser" ColumnName="LastEditUser" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="InUser" ColumnName="InUser" />
+                <ScalarProperty Name="InDate" ColumnName="InDate" />
+                <ScalarProperty Name="TerminateContractDetail" ColumnName="TerminateContractDetail" />
+                <ScalarProperty Name="PilotPlaneDate" ColumnName="PilotPlaneDate" />
+                <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+                <ScalarProperty Name="GraduationJuniorDate" ColumnName="GraduationJuniorDate" />
+                <ScalarProperty Name="MilitaryRank" ColumnName="MilitaryRank" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TroopsTel" ColumnName="TroopsTel" />
+                <ScalarProperty Name="TroopsType" ColumnName="TroopsType" />
+                <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+                <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+                <ScalarProperty Name="EnlistmentTime" ColumnName="EnlistmentTime" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Nation" ColumnName="Nation" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TransactionNumber" ColumnName="TransactionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

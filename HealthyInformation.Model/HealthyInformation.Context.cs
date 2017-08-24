@@ -28,7 +28,6 @@ namespace HealthyInformation.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Aircrew> Aircrew { get; set; }
         public DbSet<AviationMedicine> AviationMedicine { get; set; }
         public DbSet<CommonDisease> CommonDisease { get; set; }
         public DbSet<FlightDiscomfortLevel> FlightDiscomfortLevel { get; set; }
@@ -51,6 +50,7 @@ namespace HealthyInformation.Model
         public DbSet<SkinSurgery> SkinSurgery { get; set; }
         public DbSet<SupplementaryExam> SupplementaryExam { get; set; }
         public DbSet<ConclusionsPhysicalExam> ConclusionsPhysical { get; set; }
+        public DbSet<Aircrew> Aircrew { get; set; }
     
         public virtual ObjectResult<UP_GetRecuperationPlan_Result1> UP_GetRecuperationPlan(Nullable<int> sanatoriumID, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
         {
