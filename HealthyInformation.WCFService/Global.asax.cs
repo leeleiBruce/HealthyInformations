@@ -8,6 +8,7 @@ using AutoMapper;
 using HealthyInformation.Entity.PhysicalExam.Request;
 using HealthyInformation.Model;
 using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Infrastructrue;
 
 namespace HealthyInformation.WCFService
 {
@@ -17,6 +18,12 @@ namespace HealthyInformation.WCFService
         protected void Application_Start(object sender, EventArgs e)
         {
             InitMapperCollection();
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        }
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            LogHelper.WriteExceptionLog(e.ExceptionObject?.ToString() ?? "未知错误");
         }
 
         protected void Session_Start(object sender, EventArgs e)
