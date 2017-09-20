@@ -29,7 +29,7 @@ namespace HealthyInfomation
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            MessageBox.Show(e.ExceptionObject.ToString());
+           
         }
 
         private void InitMapperCollection()

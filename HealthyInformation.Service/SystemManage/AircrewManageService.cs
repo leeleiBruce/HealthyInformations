@@ -21,7 +21,6 @@ namespace HealthyInformation.Service.SystemManage
 
         public AircrewResponse GetAircrewList(string name, DateTime? startDate, DateTime? endDate, int pageIndex, int pageSize)
         {
-            this.dbContext.Configuration.ProxyCreationEnabled = false;
             var result = aircrewRepository.GetAircrewList(name, startDate, endDate, pageIndex, pageSize);
             return new AircrewResponse
             {

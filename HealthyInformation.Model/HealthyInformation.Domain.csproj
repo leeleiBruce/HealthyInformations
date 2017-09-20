@@ -48,145 +48,134 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aircrew.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="AviationAccident.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="AviationMedicine.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="CommonDisease.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConclusionsPhysicalExam.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+    <Compile Include="ConclusionsPhysical.cs">
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="ENTSection.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="FlightDiscomfortLevel.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="FlightRecord.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="FlyerType.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthyInformation.Context.cs">
+    <Compile Include="HealthyInformations.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthyInformation.Context.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthyInformation.cs">
+    <Compile Include="HealthyInformations.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthyInformation.Designer.cs">
+    <Compile Include="HealthyInformations.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthyInformation.edmx</DependentUpon>
+      <DependentUpon>HealthyInformations.edmx</DependentUpon>
     </Compile>
     <Compile Include="InternalMedicine.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="MedicalIdentification.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="MedicalTreatment.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="Neuropsychiatry.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="OralCavity.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="Phthalmology.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="PhysicalExamMinRecord.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecuperationAccompany.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="RecuperationInformation.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="RecuperationMember.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="Sanatorium.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="SkinSurgery.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="SupplementaryExam.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetCommonDiseaseAnalysis_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetCommonDiseaseCountAnalysis_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetCommonDiseaseCountDetail_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetCommonDiseaseDetail_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetHealthyGradeAnalysis_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetHealthyGradeDetail_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetMedicalTreatAlarmInfo_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetPhysicalExamAlarmInfo_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetRecuperationCountAnalysis_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetRecuperationInfoAnalysis_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="UP_GetRecuperationPlan_Result.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UP_GetRecuperationPlan_Result1.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>HealthyInformation.tt</DependentUpon>
+      <DependentUpon>HealthyInformations.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="HealthyInformation.edmx">
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="HealthyInformations.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HealthyInformation.Designer.cs</LastGenOutput>
+      <LastGenOutput>HealthyInformations.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="HealthyInformation.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthyInformation.edmx</DependentUpon>
-      <LastGenOutput>HealthyInformation.Context.cs</LastGenOutput>
-    </None>
-    <None Include="HealthyInformation.edmx.diagram">
-      <DependentUpon>HealthyInformation.edmx</DependentUpon>
-    </None>
-    <None Include="HealthyInformation.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthyInformation.edmx</DependentUpon>
-      <LastGenOutput>HealthyInformation.cs</LastGenOutput>
+    <None Include="HealthyInformations.edmx.diagram">
+      <DependentUpon>HealthyInformations.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -194,7 +183,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HealthyInformation.edmx.sql" />
+    <Content Include="HealthyInformations.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HealthyInformations.edmx</DependentUpon>
+      <LastGenOutput>HealthyInformations.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HealthyInformations.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HealthyInformations.edmx</DependentUpon>
+      <LastGenOutput>HealthyInformations.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,7 @@ namespace HealthyInformation.Model
     
     public partial class UP_GetRecuperationPlan_Result
     {
+        public int TransactionNumber { get; set; }
         public string SanatoriumName { get; set; }
         public string LeaderName { get; set; }
         public string AviationMedicineName { get; set; }

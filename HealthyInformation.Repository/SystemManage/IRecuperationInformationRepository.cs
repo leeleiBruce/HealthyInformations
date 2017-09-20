@@ -10,7 +10,7 @@ namespace HealthyInformation.Repository.SystemManage
 {
     public interface IRecuperationInformationRepository : IRepository<RecuperationInformation>
     {
-        List<UP_GetRecuperationPlan_Result1> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate);
+        List<UP_GetRecuperationPlan_Result> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate);
         RecuperationInformationResponse GetRecuperationInformation(int key);
         RecuperationInformation GetRecuperationPlanByKey(int key);
         RecuperationDetailResponse GetRecuperationDetail(int key);

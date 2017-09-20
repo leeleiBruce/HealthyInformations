@@ -22,7 +22,8 @@ namespace HealthyInformation.WCFService.Services.SystemManage
 
         public BaseResponse CreateAircrew(AircrewRequest request)
         {
-            var response= aircrewManageService.Create(request.Aircrew);
+            Aircrew air = AutoMapper.Mapper.Map<Aircrew>(request.Aircrew);
+            var response= aircrewManageService.Create(air);
             if (request.FlightRecordList != null && request.FlightRecordList.Count > 0)
             {
                 foreach (var record in request.FlightRecordList)
@@ -42,7 +43,8 @@ namespace HealthyInformation.WCFService.Services.SystemManage
 
         public BaseResponse UpdateAircrew(AircrewRequest request)
         {
-            var response = aircrewManageService.Update(request.Aircrew);
+            Aircrew air = AutoMapper.Mapper.Map<Aircrew>(request.Aircrew);
+            BaseResponse response = aircrewManageService.Update(air);
             var flightRecordOrgList = flightRecordService.GetFlightRecordList(request.Aircrew.TransactionNumber);
 
             if (request.FlightRecordList != null && request.FlightRecordList.Count > 0)

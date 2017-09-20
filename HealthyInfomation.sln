@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInfomation", "HealthyInfomation\HealthyInfomation.csproj", "{6684069D-967F-4EC4-9099-F352A4667294}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyInformation.Utility", "HealthyInformation.Utility\HealthyInformation.Utility.csproj", "{2FA51420-DC99-4675-8B04-6D618AF377E7}"

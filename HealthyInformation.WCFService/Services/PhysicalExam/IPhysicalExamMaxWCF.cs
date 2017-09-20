@@ -41,7 +41,7 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
 
         [OperationContract]
         [WebGet(UriTemplate = "conclusionsphysicalexam/year/{aircrewID}/{year}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        ConclusionsPhysicalExam GetConclusionsPhysicalExam(string aircrewID, string year);
+        ConclusionsPhysical GetConclusionsPhysicalExam(string aircrewID, string year);
         #endregion
 
         #region create

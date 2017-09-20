@@ -47,7 +47,7 @@ namespace HealthyInformation.WCFService.Services.PhysicalExam
             return physicalExamMaxService.GetSupplementaryExamByYear(int.Parse(aircrewID), int.Parse(year));
         }
 
-        public ConclusionsPhysicalExam GetConclusionsPhysicalExam(string aircrewID, string year)
+        public ConclusionsPhysical GetConclusionsPhysicalExam(string aircrewID, string year)
         {
             return physicalExamMaxService.GetConclusionsPhysicalExamByYear(int.Parse(aircrewID), int.Parse(year));
         }

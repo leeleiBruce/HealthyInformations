@@ -12,7 +12,7 @@ namespace HealthyInformation.Service.SystemManage.RecuperationInfor
 {
     public interface IRecuperationInformationService : IService<RecuperationInformation>
     {
-        List<UP_GetRecuperationPlan_Result1> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate);
+        List<UP_GetRecuperationPlan_Result> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate);
         BaseResponse CreateRecuperationInformation(RecuperationInformationRequest request);
         BaseResponse UpdateRecuperationInformation(RecuperationInformationRequest request);
         RecuperationInformationResponse GetRecuperationInformation(int key);

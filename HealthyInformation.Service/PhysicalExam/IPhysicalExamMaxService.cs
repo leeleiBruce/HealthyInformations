@@ -38,7 +38,7 @@ namespace HealthyInformation.Service.PhysicalExam
         void CreateSupplementaryExam(SupplementaryExamRequest request);
         void UpdateSupplementaryExam(SupplementaryExamRequest request);
         void RemoveSupplementaryExam(int transactionNumber);
-        ConclusionsPhysicalExam GetConclusionsPhysicalExamByYear(int aircrewID, int year);
+        ConclusionsPhysical GetConclusionsPhysicalExamByYear(int aircrewID, int year);
         void CreateConclusionPhysical(ConclusionPhysicalRequest request);
         void UpdateConclusionPhysical(ConclusionPhysicalRequest request);
         void RemoveConclusionPhysical(int transactionNumber);

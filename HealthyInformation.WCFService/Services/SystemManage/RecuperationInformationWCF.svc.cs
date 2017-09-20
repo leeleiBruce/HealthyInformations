@@ -37,7 +37,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
             return recuperationAccompanyService.CreateRecuperationAccompany(request);
         }
 
-        public List<UP_GetRecuperationPlan_Result1> GetRecuperationPlanList(string sanatoriumID, string startDateStr, string endDateStr)
+        public List<UP_GetRecuperationPlan_Result> GetRecuperationPlanList(string sanatoriumID, string startDateStr, string endDateStr)
         {
             int sanatoriumId = 0;
             int.TryParse(sanatoriumID, out sanatoriumId);

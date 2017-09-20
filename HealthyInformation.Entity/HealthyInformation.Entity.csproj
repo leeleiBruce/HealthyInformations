@@ -57,6 +57,7 @@
     <Compile Include="PhysicalExam\Request\SkinSurgeryRequest.cs" />
     <Compile Include="PhysicalExam\Request\SupplementaryExamRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\Request\AircrewEntity.cs" />
     <Compile Include="SystemManage\Request\AircrewPhotoRequest.cs" />
     <Compile Include="SystemManage\Request\AircrewRequest.cs" />
     <Compile Include="SystemManage\Request\AviationMedicineRequest.cs" />

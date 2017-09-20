@@ -259,21 +259,21 @@ namespace HealthyInformation.Service.PhysicalExam
         #endregion
 
         #region ConclusionsPhysicalExam
-        public ConclusionsPhysicalExam GetConclusionsPhysicalExamByYear(int aircrewID, int year)
+        public ConclusionsPhysical GetConclusionsPhysicalExamByYear(int aircrewID, int year)
         {
             return conclusionPhysicalRepository.GetConclusionsPhysicalExamByYear(aircrewID, year);
         }
 
         public void CreateConclusionPhysical(ConclusionPhysicalRequest request)
         {
-            var conclusionPhysical = AutoMapper.Mapper.Map<ConclusionPhysicalRequest, ConclusionsPhysicalExam>(request);
+            var conclusionPhysical = AutoMapper.Mapper.Map<ConclusionPhysicalRequest, ConclusionsPhysical>(request);
             conclusionPhysicalRepository.Create(conclusionPhysical);
             unitOfWork.Commit();
         }
 
         public void UpdateConclusionPhysical(ConclusionPhysicalRequest request)
         {
-            var conclusionPhysical = AutoMapper.Mapper.Map<ConclusionPhysicalRequest, ConclusionsPhysicalExam>(request);
+            var conclusionPhysical = AutoMapper.Mapper.Map<ConclusionPhysicalRequest, ConclusionsPhysical>(request);
             conclusionPhysicalRepository.Update(conclusionPhysical);
             unitOfWork.Commit();
         }

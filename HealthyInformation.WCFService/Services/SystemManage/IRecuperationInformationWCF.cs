@@ -18,7 +18,7 @@ namespace HealthyInformation.WCFService.Services.SystemManage
     {
         [OperationContract]
         [WebGet(UriTemplate = "get?sanatoriumID={sanatoriumID}&startDate={startDate}&endDate={endDate}", ResponseFormat = WebMessageFormat.Json)]
-        List<UP_GetRecuperationPlan_Result1> GetRecuperationPlanList(string sanatoriumID, string startDate, string endDate);
+        List<UP_GetRecuperationPlan_Result> GetRecuperationPlanList(string sanatoriumID, string startDate, string endDate);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "create", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, Method = "POST")]

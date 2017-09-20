@@ -53,6 +53,7 @@ namespace HealthyInformation.WCFService
         {
             Mapper.Initialize(cfg =>
             {
+                cfg.CreateMap<AircrewEntity, Aircrew>();
                 cfg.CreateMap<MedicalTreatmentRequest, MedicalTreatment>().ForMember(dest => dest.InUser, mo => mo.MapFrom(m => m.ActionUserID));
                 cfg.CreateMap<FlightDiscomfortLevelRequest, FlightDiscomfortLevel>().ForMember(dest => dest.InUser, mo => mo.MapFrom(m => m.ActionUserID));
                 cfg.CreateMap<AviationAccidentRequest, AviationAccident>().ForMember(dest => dest.InUser, mo => mo.MapFrom(m => m.ActionUserID));
@@ -85,7 +86,7 @@ namespace HealthyInformation.WCFService
                   .ForMember(dest => dest.LastEditUser, mo => mo.MapFrom(m => m.ActionUserID))
                   .ForMember(dest => dest.LastEditDate, mo => mo.MapFrom(m => DateTime.Now))
                   .ForMember(dest => dest.InDate, mo => mo.MapFrom(m => DateTime.Now));
-                cfg.CreateMap<ConclusionPhysicalRequest, ConclusionsPhysicalExam>().ForMember(dest => dest.InUser, mo => mo.MapFrom(m => m.ActionUserID))
+                cfg.CreateMap<ConclusionPhysicalRequest, ConclusionsPhysical>().ForMember(dest => dest.InUser, mo => mo.MapFrom(m => m.ActionUserID))
                   .ForMember(dest => dest.LastEditUser, mo => mo.MapFrom(m => m.ActionUserID))
                   .ForMember(dest => dest.LastEditDate, mo => mo.MapFrom(m => DateTime.Now))
                   .ForMember(dest => dest.InDate, mo => mo.MapFrom(m => DateTime.Now));

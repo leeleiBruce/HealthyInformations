@@ -15,6 +15,7 @@ namespace HealthyInformation.Model
     public partial class OralCavity
     {
         public int TransactionNumber { get; set; }
+        public int AircrewID { get; set; }
         public string MedicalHistory { get; set; }
         public string CheckOut { get; set; }
         public string Diagnosis { get; set; }
@@ -24,6 +25,5 @@ namespace HealthyInformation.Model
         public string InUser { get; set; }
         public Nullable<System.DateTime> LastEditDate { get; set; }
         public string LastEditUser { get; set; }
-        public int AircrewID { get; set; }
     }
 }

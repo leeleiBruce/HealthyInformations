@@ -9,7 +9,7 @@ namespace HealthyInformation.Entity.SystemManage.Request
 {
     public class AircrewRequest : BaseRequest
     {
-        public Aircrew Aircrew { get; set; }
+        public AircrewEntity Aircrew { get; set; }
         public List<FlightRecord> FlightRecordList { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace HealthyInformation.Repository.SystemManage
 
         }
 
-        public List<UP_GetRecuperationPlan_Result1> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate)
+        public List<UP_GetRecuperationPlan_Result> GetRecuperationPlanList(int? sanatoriumID, DateTime? startDate, DateTime? endDate)
         {
             return (this._context as HealthyInformationEntities).UP_GetRecuperationPlan(sanatoriumID, startDate, endDate).ToList();
         }

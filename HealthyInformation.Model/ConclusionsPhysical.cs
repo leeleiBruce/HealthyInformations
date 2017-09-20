@@ -12,7 +12,7 @@ namespace HealthyInformation.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ConclusionsPhysicalExam
+    public partial class ConclusionsPhysical
     {
         public int TransactionNumber { get; set; }
         public string Diagnosis { get; set; }

@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace HealthyInformation.Repository.PhysicalExam.PhysicalExamMax
 {
-    public class ConclusionPhysicalRepository : BaseRepository<ConclusionsPhysicalExam>, IConclusionPhysicalRepository
+    public class ConclusionPhysicalRepository : BaseRepository<ConclusionsPhysical>, IConclusionPhysicalRepository
     {
         public ConclusionPhysicalRepository(DbContext dbContext)
             : base(dbContext)
         {
         }
 
-        public ConclusionsPhysicalExam GetConclusionsPhysicalExamByYear(int aircrewID, int year)
+        public ConclusionsPhysical GetConclusionsPhysicalExamByYear(int aircrewID, int year)
         {
-            return this._context.Set<ConclusionsPhysicalExam>().FirstOrDefault(c => c.AircrewID == aircrewID && c.InDate.Year == year);
+            return this._context.Set<ConclusionsPhysical>().FirstOrDefault(c => c.AircrewID == aircrewID && c.InDate.Year == year);
         }
 
-        public ConclusionsPhysicalExam GetConclusionsPhysicalExamByKey(int transactionNumber)
+        public ConclusionsPhysical GetConclusionsPhysicalExamByKey(int transactionNumber)
         {
-            return this._context.Set<ConclusionsPhysicalExam>().FirstOrDefault(c => c.TransactionNumber == transactionNumber);
+            return this._context.Set<ConclusionsPhysical>().FirstOrDefault(c => c.TransactionNumber == transactionNumber);
         }
     }
 }

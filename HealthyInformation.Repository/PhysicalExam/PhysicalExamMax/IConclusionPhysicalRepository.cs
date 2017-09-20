@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HealthyInformation.Repository.PhysicalExam.PhysicalExamMax
 {
-    public interface IConclusionPhysicalRepository : IRepository<ConclusionsPhysicalExam>
+    public interface IConclusionPhysicalRepository : IRepository<ConclusionsPhysical>
     {
-        ConclusionsPhysicalExam GetConclusionsPhysicalExamByYear(int aircrewID, int year);
+        ConclusionsPhysical GetConclusionsPhysicalExamByYear(int aircrewID, int year);
 
-        ConclusionsPhysicalExam GetConclusionsPhysicalExamByKey(int transactionNumber);
+        ConclusionsPhysical GetConclusionsPhysicalExamByKey(int transactionNumber);
     }
 }
