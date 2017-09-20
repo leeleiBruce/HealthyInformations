@@ -18,7 +18,22 @@ namespace HealthyInfomation.Facade
 
         public async Task<List<FlyerTypeEntity>> GetFlyerTypeList()
         {
-            return await this.GetAsync<List<FlyerTypeEntity>>("flyertype/get");
+            return await this.GetAsync<List<FlyerTypeEntity>>("get");
+        }
+
+        public async Task<int> CreateFlyerType(FlyerTypeEntity entity)
+        {
+            return await this.PostAsync<FlyerTypeEntity, int>("create", entity);
+        }
+
+        public async Task<int> UpdateFlyerType(FlyerTypeEntity entity)
+        {
+            return await this.PutAsync<FlyerTypeEntity, int>("update", entity);
+        }
+
+        public async Task<int> DeleteFlyerType(int transactionID)
+        {
+            return await this.DeleteAsync<int>(string.Format("delete/{0}", transactionID));
         }
     }
 }

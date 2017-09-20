@@ -1,4 +1,5 @@
-﻿using HealthyInformation.Model;
+﻿using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Model;
 using HealthyInformation.Service.SystemManage;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,22 @@ namespace HealthyInformation.WCFService.Services.SystemManage
         public List<FlyerType> GetFlyerTypeList()
         {
             return configDictionary.GetFlyerType();
+        }
+
+        public int CreateFlyerType(FlyerTypeRequest flyerTypeRequest)
+        {
+           return configDictionary.CreateFlyerType(flyerTypeRequest);
+        }
+
+
+        public int UpdateFlyerType(FlyerTypeRequest flyerTypeRequest)
+        {
+            return configDictionary.UpdateFlyerType(flyerTypeRequest);
+        }
+
+        public int DeleteFlyerType(string transactionNumber)
+        {
+            return configDictionary.DeleteFlyerType(transactionNumber);
         }
     }
 }

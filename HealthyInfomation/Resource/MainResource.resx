@@ -138,6 +138,9 @@
   <data name="ToolBar_FlightAccident" xml:space="preserve">
     <value>飞行事故</value>
   </data>
+  <data name="ToolBar_FlyerType" xml:space="preserve">
+    <value>飞机种类</value>
+  </data>
   <data name="ToolBar_MedicalTreatment" xml:space="preserve">
     <value>外出就医</value>
   </data>

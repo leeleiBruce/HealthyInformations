@@ -63,6 +63,12 @@
                         <TextBlock Text="{x:Static local:MainResource.ToolBar_CommonDisease}"></TextBlock>
                     </StackPanel>
                     <StackPanel>
+                        <Button Command="{Binding ToolBarCommand}" CommandParameter="flyerType">
+                            <Image Source="Images/icopter.png" Style="{StaticResource ImageButton}"></Image>
+                        </Button>
+                        <TextBlock Text="{x:Static local:MainResource.ToolBar_FlyerType}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
                         <Button Command="{Binding ToolBarCommand}" CommandParameter="recuperation">
                             <Image Source="Images/recuperation.png" Style="{StaticResource ImageButton}"></Image>
                         </Button>

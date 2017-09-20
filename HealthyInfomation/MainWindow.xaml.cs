@@ -126,6 +126,10 @@ namespace HealthyInfomation
             {
                 new AnalysisMain().ShowDialog();
             }
+            else if (param == "flyerType")
+            {
+                new FlyerTypeManage().ShowDialog();
+            }
         }
 
         private  void InitData()

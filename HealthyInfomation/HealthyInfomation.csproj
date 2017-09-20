@@ -225,6 +225,12 @@
     <Compile Include="Windows\CommonDisease.xaml.cs">
       <DependentUpon>CommonDisease.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\FlyerTypeManage.xaml.cs">
+      <DependentUpon>FlyerTypeManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControl\FlyerTypeCreate.xaml.cs">
+      <DependentUpon>FlyerTypeCreate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ModifyPassWord.xaml.cs">
       <DependentUpon>ModifyPassWord.xaml</DependentUpon>
     </Compile>
@@ -438,6 +444,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CommonDisease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FlyerTypeManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControl\FlyerTypeCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -813,6 +827,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icopter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

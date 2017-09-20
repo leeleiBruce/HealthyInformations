@@ -10,5 +10,7 @@ namespace HealthyInformation.Repository.ConfigDictionary
     public interface IFlyerTypeRepository : IRepository<FlyerType>
     {
         List<FlyerType> GetFlyerType();
+
+        FlyerType GetFlyerTypeByKey(int key);
     }
 }

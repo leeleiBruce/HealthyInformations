@@ -1,4 +1,5 @@
-﻿using HealthyInformation.Model;
+﻿using HealthyInformation.Entity.SystemManage.Request;
+using HealthyInformation.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,19 @@ namespace HealthyInformation.WCFService.Services.SystemManage
     public interface IConfigDictionaryWCF
     {
         [OperationContract]
-        [WebGet(UriTemplate = "flyerType/get", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        [WebGet(UriTemplate = "get", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         List<FlyerType> GetFlyerTypeList();
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "create", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        int CreateFlyerType(FlyerTypeRequest flyerTypeRequest);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "update", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "PUT")]
+        int UpdateFlyerType(FlyerTypeRequest flyerTypeRequest);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "delete/{transactionNumber}", ResponseFormat = WebMessageFormat.Json, Method = "DELETE")]
+        int DeleteFlyerType(string transactionNumber);
     }
 }

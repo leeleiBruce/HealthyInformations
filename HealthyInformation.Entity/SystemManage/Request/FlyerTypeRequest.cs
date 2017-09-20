@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthyInformation.ClientEntity.SystemManage.Entity
+namespace HealthyInformation.Entity.SystemManage.Request
 {
-    public class FlyerTypeEntity: BaseRequest
+    public class FlyerTypeRequest : BaseRequest
     {
         public string TypeName { get; set; }
-        public DateTime? InDate { get; set; }
     }
 }

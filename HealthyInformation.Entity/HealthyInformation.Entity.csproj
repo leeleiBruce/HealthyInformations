@@ -62,6 +62,7 @@
     <Compile Include="SystemManage\Request\AircrewRequest.cs" />
     <Compile Include="SystemManage\Request\AviationMedicineRequest.cs" />
     <Compile Include="SystemManage\Request\CommonDiseaseRequest.cs" />
+    <Compile Include="SystemManage\Request\FlyerTypeRequest.cs" />
     <Compile Include="SystemManage\Request\RecuperationInformationRequest.cs" />
     <Compile Include="SystemManage\Request\SanatoriumRequest.cs" />
     <Compile Include="SystemManage\Request\UserPwdUpdateRequest.cs" />

@@ -124,6 +124,15 @@ namespace HealthyInfomation.Resource {
         }
         
         /// <summary>
+        ///   查找类似 飞机种类 的本地化字符串。
+        /// </summary>
+        public static string ToolBar_FlyerType {
+            get {
+                return ResourceManager.GetString("ToolBar_FlyerType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 外出就医 的本地化字符串。
         /// </summary>
         public static string ToolBar_MedicalTreatment {

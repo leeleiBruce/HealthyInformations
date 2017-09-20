@@ -20,5 +20,10 @@ namespace HealthyInformation.Repository.ConfigDictionary
         {
             return this._context.Set<FlyerType>().ToList();
         }
+
+        public FlyerType GetFlyerTypeByKey(int key)
+        {
+            return this._context.Set<FlyerType>().FirstOrDefault(f => f.TransactionNumber == key);
+        }
     }
 }
